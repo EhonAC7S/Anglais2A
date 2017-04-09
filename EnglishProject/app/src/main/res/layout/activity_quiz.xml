@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizActivity"
+    >
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/textViewSentence1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="#FF00FF00"
+            android:maxLines="2"
+            android:text="textview1"
+            android:textSize="25sp"
+            android:clickable="true"
+            android:layout_alignParentTop="true"
+
+            />
+    </RelativeLayout>
+
+
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_misspelling_here"
+    android:layout_centerInParent="true"
+
+        android:gravity="center" />
+</RelativeLayout>
