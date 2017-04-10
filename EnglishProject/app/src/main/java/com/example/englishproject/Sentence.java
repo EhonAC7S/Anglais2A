@@ -6,6 +6,7 @@ public class Sentence {
     private String PART2;
     private String PART3;
     private String ANSWER;
+    private String RULE;
     public Sentence()
     {
         ID=0;
@@ -13,14 +14,16 @@ public class Sentence {
         PART2="";
         PART3="";
         ANSWER="";
+        RULE="";
     }
     public Sentence(String pART1, String pART2, String pART3,
-                    String aNSWER) {
+                    String aNSWER, String rULE) {
 
         PART1 = pART1;
         PART2 = pART2;
         PART3 = pART3;
         ANSWER = aNSWER;
+        RULE = rULE;
     }
     public int getID()
     {
@@ -38,6 +41,7 @@ public class Sentence {
     public String getANSWER() {
         return ANSWER;
     }
+    public String getRULE() { return RULE; }
     public void setID(int id)
     {
         ID=id;
@@ -54,5 +58,6 @@ public class Sentence {
     public void setANSWER(String aNSWER) {
         ANSWER = aNSWER;
     }
+    public void setRULE(String rULE) { RULE = rULE; }
 
 }

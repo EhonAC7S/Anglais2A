@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 
 import android.os.Bundle;
@@ -23,86 +24,53 @@ public class QuizActivity extends Activity implements View.OnClickListener{
     int score=0;
     int qid=0;
     Sentence currentQ;
-    TextView txtSentence, txtV1; //, txtV2, txtV3;
+    TextView txtSentence, txtV1;
     Button butNoMisspelling;
-    SpannableString ss = new SpannableString("");// = new SpannableString("Hello World");
+    SpannableString ss;
+
+
     ClickableSpan span1 = new ClickableSpan() {
         @Override
         public void onClick(View textView) {
-            TextView answer = (TextView)textView;
-            Log.d("yourans", currentQ.getANSWER()+" "+answer.getText());
+            //TextView answer = (TextView)textView;
+            Log.d("yourans", "|"+currentQ.getANSWER()+"|"+ss.subSequence(0, currentQ.getPART1().length())+"|");
             // on compare la valeur de l'élément avec la réponse présente dans la liste issue de la BDD
-            if(currentQ.getANSWER().equals(answer.getText()))
+            if(currentQ.getANSWER().toString().equals(ss.subSequence(0, currentQ.getPART1().length()).toString()))
             {
                 score++;
                 Log.d("score", "Your score"+score);
             }
-
-            // Si 5 questions n'ont pas été posées on load une nouvelle phrase
-            if(qid<5){
-                currentQ=sentList.get(qid);
-                setSentenceView();
-            }else{ // on se dirige vers l'activité des résultats du test
-                Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
-                Bundle b = new Bundle();
-                b.putInt("score", score);
-                intent.putExtras(b);
-                startActivity(intent);
-                finish();
-            }
         }
     };
+
     ClickableSpan span2 = new ClickableSpan() {
         @Override
         public void onClick(View textView) {
-            TextView answer = (TextView)textView;
-            Log.d("yourans", currentQ.getANSWER()+" "+answer.getText());
+            //TextView answer = (TextView)textView;
+            Log.d("yourans", "|"+currentQ.getANSWER()+"|"+ss.subSequence(currentQ.getPART1().length(), currentQ.getPART1().length()+currentQ.getPART2().length())+"|");
             // on compare la valeur de l'élément avec la réponse présente dans la liste issue de la BDD
-            if(currentQ.getANSWER().equals(answer.getText()))
+            if(currentQ.getANSWER().toString().equals(ss.subSequence(currentQ.getPART1().length(), currentQ.getPART1().length()+currentQ.getPART2().length()).toString()))
             {
                 score++;
                 Log.d("score", "Your score"+score);
             }
-            // Si 5 questions n'ont pas été posées on load une nouvelle phrase
-            if(qid<5){
-                currentQ=sentList.get(qid);
-                setSentenceView();
-            }else{ // on se dirige vers l'activité des résultats du test
-                Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
-                Bundle b = new Bundle();
-                b.putInt("score", score);
-                intent.putExtras(b);
-                startActivity(intent);
-                finish();
-            }
         }
     };
+
     ClickableSpan span3 = new ClickableSpan() {
         @Override
         public void onClick(View textView) {
-            TextView answer = (TextView)textView;
-            Log.d("yourans", currentQ.getANSWER()+" "+answer.getText());
+            //TextView answer = (TextView)textView;
+            Log.d("yourans", "|"+currentQ.getANSWER()+"|"+ss.subSequence(currentQ.getPART1().length()+currentQ.getPART2().length(), currentQ.getPART1().length()+currentQ.getPART2().length()+currentQ.getPART3().length())+"|");
             // on compare la valeur de l'élément avec la réponse présente dans la liste issue de la BDD
-            if(currentQ.getANSWER().equals(answer.getText()))
+            if(currentQ.getANSWER().toString().equals(ss.subSequence(currentQ.getPART1().length()+currentQ.getPART2().length(), currentQ.getPART1().length()+currentQ.getPART2().length()+currentQ.getPART3().length()).toString()))
             {
                 score++;
                 Log.d("score", "Your score"+score);
             }
-
-            // Si 5 questions n'ont pas été posées on load une nouvelle phrase
-            if(qid<5){
-                currentQ=sentList.get(qid);
-                setSentenceView();
-            }else{ // on se dirige vers l'activité des résultats du test
-                Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
-                Bundle b = new Bundle();
-                b.putInt("score", score);
-                intent.putExtras(b);
-                startActivity(intent);
-                finish();
-            }
         }
     };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,37 +115,22 @@ public class QuizActivity extends Activity implements View.OnClickListener{
     {
 
         txtSentence.setText("Is there a misspelling here ?");
-        SpannableString ss = new SpannableString(currentQ.getPART1()+currentQ.getPART2()+currentQ.getPART3());
+        ss = new SpannableString(currentQ.getPART1()+currentQ.getPART2()+currentQ.getPART3());
         ss.setSpan(span1, 0,currentQ.getPART1().length(), ss.SPAN_EXCLUSIVE_EXCLUSIVE);
-        ss.setSpan(span2, currentQ.getPART1().length()+1, currentQ.getPART2().length(), ss.SPAN_EXCLUSIVE_EXCLUSIVE);
-        ss.setSpan(span3, currentQ.getPART2().length()+1, currentQ.getPART3().length(), ss.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(span2, currentQ.getPART1().length(), currentQ.getPART1().length()+currentQ.getPART2().length(), ss.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(span3, currentQ.getPART1().length()+currentQ.getPART2().length(), currentQ.getPART1().length()+currentQ.getPART2().length()+currentQ.getPART3().length(), ss.SPAN_EXCLUSIVE_EXCLUSIVE);
         txtV1.setText(ss);
-        //txtV1.setMovementMethod(LinkMovementMethod.getInstance()); A quoi ca sert?? LoL
+        txtV1.setMovementMethod(LinkMovementMethod.getInstance()); //A quoi ca sert?? LoL
         //txtV2.setText(currentQ.getPART2());
         //txtV3.setText(currentQ.getPART3());
         qid++;
     }
 
-
     // Le fameux OnClickListener de tout le monde
     @Override
     public void onClick(View v) {
 
-        // si l'utilisateur a cliqué sur un textview
-        /*if(v == txtV1 || v == txtV2 || v == txtV3){
-
-            TextView answer = (TextView)v;
-            Log.d("yourans", currentQ.getANSWER()+" "+answer.getText());
-            // on compare la valeur de l'élément avec la réponse présente dans la liste issue de la BDD
-            if(currentQ.getANSWER().equals(answer.getText()))
-            {
-                score++;
-                Log.d("score", "Your score"+score);
-            }
-
-        }
-        // si l'utilisateur a cliqué sur le bouton 'pas de faute d'ortho'
-        else*/ if(v == butNoMisspelling){
+        if(v == butNoMisspelling){
 
             Log.d("yourans", currentQ.getANSWER()+" NO MISSPELLING");
             // on compare la valeur de l'élément avec la réponse présente dans la liste issue de la BDD
@@ -190,6 +143,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
 
         // Si 5 questions n'ont pas été posées on load une nouvelle phrase
         if(qid<5){
+            Log.d("score", "COUCOU TOI !");
             currentQ=sentList.get(qid);
             setSentenceView();
         }else{ // on se dirige vers l'activité des résultats du test

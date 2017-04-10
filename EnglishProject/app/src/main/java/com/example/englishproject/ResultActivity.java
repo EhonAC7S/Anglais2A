@@ -2,6 +2,7 @@ package com.example.englishproject;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 public class ResultActivity extends Activity {
@@ -20,15 +21,23 @@ public class ResultActivity extends Activity {
         int score= b.getInt("score");
         //display score
         bar.setRating(score);
+
+        ProgressBar pb = (ProgressBar) findViewById(R.id.progressBar);
+        int score_prc = score*100/5;
+        pb.setProgress(score_prc);
+
+
         switch (score)
         {
-            case 1:
-            case 2: t.setText("Oopsie! Better Luck Next Time!");
+            case 1: t.setText("Do not get discouraged ! DO IT !");
                 break;
-            case 3:
-            case 4:t.setText("Hmmmm.. Someone's been reading a lot of trivia");
+            case 2: t.setText("A new try maybe ?");
                 break;
-            case 5:t.setText("Who are you? A trivia wizard???");
+            case 3: t.setText("Not bad ! It's time to get better ;)");
+                break;
+            case 4:t.setText("Pretty good ! :D");
+                break;
+            case 5:t.setText("Who are you ? A spelling wizard ??!");
                 break;
         }
     }

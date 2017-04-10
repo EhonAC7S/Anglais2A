@@ -18,6 +18,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String KEY_PART1= "part1"; //option a
     private static final String KEY_PART2= "part2"; //option b
     private static final String KEY_PART3= "part3"; //option c
+    private static final String KEY_RULE= "rule"; // règle
     private SQLiteDatabase dbase;
     public DbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,23 +31,47 @@ public class DbHelper extends SQLiteOpenHelper {
 
         String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_SENTENCE + " ( "
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_ANSWER+ " TEXT, "+KEY_PART1 +" TEXT, "
-                +KEY_PART2 +" TEXT, "+KEY_PART3+" TEXT)";
+                +KEY_PART2 +" TEXT, "+KEY_PART3 +" TEXT, "+KEY_RULE +" TEXT)";
         db.execSQL(sql);
         addSentences();
         //db.close();
     }
     private void addSentences()
     {
-        Sentence q1=new Sentence("HP", "IBM", "CISCO", "CISCO");
+        Sentence q1=new Sentence("It may be possible", " to reach ", "agreemment.", "agreemment.", "Difficult spellings");
         this.addSentence(q1);
-        Sentence q2=new Sentence("SuSe", "BIOS", "DOS", "BIOS");
+        Sentence q2=new Sentence("Each department must be", " treated in an ", "appropriate way.", "NO MISSPELLING", "Difficult spellings");
         this.addSentence(q2);
-        Sentence q3=new Sentence("RAM", "FLASH","Register","Register");
+        Sentence q3=new Sentence("Can I", " interupt ","you ?"," interupt ", "Difficult spellings");
         this.addSentence(q3);
-        Sentence q4=new Sentence("Router", "Bridge", "Hub","Router");
+        Sentence q4=new Sentence("What are the characteristics of successful", " bussiness ", "meetings."," bussiness ", "Difficult spellings");
         this.addSentence(q4);
-        Sentence q5=new Sentence("I am so","happy","to see youuuuuuuu !","NO MISSPELLING");
+        Sentence q5=new Sentence("The key to a successful oral"," presentations is to ","keep things simple.","NO MISSPELLING", "Difficult spellings");
         this.addSentence(q5);
+
+
+        Sentence q6=new Sentence("Pepsi is not"," dislike ","Coke."," dislike ", "Prefixes");
+        this.addSentence(q6);
+        Sentence q7=new Sentence("In important ways,"," the two sisters are ","very unlike.","NO MISSPELLING", "Prefixes");
+        this.addSentence(q7);
+        Sentence q8=new Sentence("Taking things that aren't"," yours is ","unlegal.","unlegal.", "Prefixes");
+        this.addSentence(q8);
+        Sentence q9=new Sentence("It never pays to be"," inpatient ","with old people."," inpatient ", "Prefixes");
+        this.addSentence(q9);
+        Sentence q10=new Sentence("I'd love to help you decorate"," but I'm ","horribly impractical.","NO MISSPELLING", "Prefixes");
+        this.addSentence(q10);
+
+
+        Sentence q11=new Sentence("The athlete made an"," extraordinery ","jump."," extraordinery ", "Suffixes");
+        this.addSentence(q11);
+        Sentence q12=new Sentence("Is this shirt"," availible ","in any other colours ?"," availible ", "Suffixes");
+        this.addSentence(q12);
+        Sentence q13=new Sentence("Conditioner makes my hair"," more ","manageable.","NO MISSPELLING", "Suffixes");
+        this.addSentence(q13);
+        Sentence q14=new Sentence("The book includes an"," introductory ","chapter.","NO MISSPELLING", "Suffixes");
+        this.addSentence(q14);
+        Sentence q15=new Sentence("The government was oppressive,"," and the people lived in ","misary.","misary.", "Suffixes");
+        this.addSentence(q15);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
@@ -63,6 +88,7 @@ public class DbHelper extends SQLiteOpenHelper {
         values.put(KEY_PART1, sent.getPART1());
         values.put(KEY_PART2, sent.getPART2());
         values.put(KEY_PART3, sent.getPART3());
+        values.put(KEY_RULE, sent.getRULE());
         // Inserting Row
         dbase.insert(TABLE_SENTENCE, null, values);
     }
@@ -81,6 +107,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 sent.setPART1(cursor.getString(2));
                 sent.setPART2(cursor.getString(3));
                 sent.setPART3(cursor.getString(4));
+                sent.setRULE(cursor.getString(5));
                 sentList.add(sent);
             } while (cursor.moveToNext());
         }
