@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/mainbackground"
+    >
+
+    <Button
+        android:id="@+id/Course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="GoToCourseMenu"
+        android:text="Course"
+        android:textAllCaps="false"
+        android:layout_marginTop="61dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/Training"
+        android:layout_alignStart="@+id/Training" />
+    <!-- Pas le choix de mettre un nombre fix... -->
+    <Button
+        android:id="@+id/Training"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="GoToTrainingMenu"
+        android:text="Training"
+        android:textAllCaps="false"
+        android:layout_below="@+id/Course"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:id="@+id/Option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="GoToOptionLayout"
+        android:text="Options"
+        android:textAllCaps="false"
+        android:layout_below="@+id/Training"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/Exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="ExitThisShit"
+        android:text="Exit"
+        android:textAllCaps="false"
+        android:layout_below="@+id/Option"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

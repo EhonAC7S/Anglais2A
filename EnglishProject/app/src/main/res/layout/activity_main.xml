@@ -14,7 +14,7 @@
         android:onClick="GoToCourseMenu"
         android:text="Course"
         android:textAllCaps="false"
-        android:layout_marginTop="117dp"
+        android:layout_marginTop="100dp"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/Training"
         android:layout_alignStart="@+id/Training" />
