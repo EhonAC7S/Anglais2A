@@ -18,9 +18,9 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         //get rating bar object
-        RatingBar bar=(RatingBar)findViewById(R.id.ratingBar1);
+        /*RatingBar bar=(RatingBar)findViewById(R.id.ratingBar1);
         bar.setNumStars(5);
-        bar.setStepSize(0.5f);
+        bar.setStepSize(0.5f);*/
         //get text view
         TextView t=(TextView)findViewById(R.id.textResult);
 
@@ -33,7 +33,7 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         int scoreMax = 5;
 
         //display score
-        bar.setRating(score);
+        //bar.setRating(score);
 
         ProgressBar pb = (ProgressBar) findViewById(R.id.progressBar);
         TextView textPrc = (TextView) findViewById(R.id.textScore);
