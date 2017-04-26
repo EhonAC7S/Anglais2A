@@ -72,6 +72,31 @@ public class DbHelper extends SQLiteOpenHelper {
         this.addSentence(q14);
         Sentence q15=new Sentence("The government was oppressive,"," and the people lived in ","misary.","misary.", "Suffixes");
         this.addSentence(q15);
+
+
+        Sentence q16=new Sentence("What did you and your"," partner do for ","Valentines day ?","Valentines day ?", "Apostrophes for possession");
+        this.addSentence(q16);
+        Sentence q17=new Sentence("On April Fools Day"," it's traditional to play practical ","jokes on people before midday.","On April Fools Day", "Apostrophes for possession");
+        this.addSentence(q17);
+        Sentence q18=new Sentence("Italy is one of the"," world's great ","wine countries.","NO MISSPELLING", "Apostrophes for possession");
+        this.addSentence(q18);
+        Sentence q19=new Sentence("November 9th is my"," parent's wedding ","anniversary."," parent's wedding ", "Apostrophes for possession");
+        this.addSentence(q19);
+        Sentence q20=new Sentence("She's Britain's most"," popular TV ","gardener.","NO MISSPELLING", "Apostrophes for possession");
+        this.addSentence(q20);
+
+
+        Sentence q21=new Sentence("The police carried out a"," thorough ","search of the area.","NO MISSPELLING", "though/thought/thorough/through");
+        this.addSentence(q21);
+        Sentence q22=new Sentence("Her words kept running"," though ","my mind."," though ", "though/thought/thorough/through");
+        this.addSentence(q22);
+        Sentence q23=new Sentence("Even though it's small,"," the room ","has a spacious feel.","NO MISSPELLING", "though/thought/thorough/through");
+        this.addSentence(q23);
+        Sentence q24=new Sentence("He failed his exams"," thought ","not studying enough."," thought ", "though/thought/thorough/through");
+        this.addSentence(q24);
+        Sentence q25=new Sentence("The boy was"," lost in ","thought.","thought.", "though/thought/thorough/through");
+        this.addSentence(q25);
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {

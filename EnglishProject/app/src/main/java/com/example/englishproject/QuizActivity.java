@@ -1,9 +1,11 @@
 package com.example.englishproject;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 
 import android.text.SpannableString;
+import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 
@@ -15,12 +17,14 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class QuizActivity extends Activity implements View.OnClickListener{
 
     // initialisation des variables
     List<Sentence> sentList;
+    ArrayList<Sentence> errorsList;
     int score=0;
     int qid=0;
     Sentence currentQ;
@@ -28,8 +32,17 @@ public class QuizActivity extends Activity implements View.OnClickListener{
     Button butNoMisspelling;
     SpannableString ss;
 
+    public class MyClickableSpan extends ClickableSpan{
+        public MyClickableSpan(){
+            super();
+        }
+        public void onClick(View tv){}
+        public void updateDrawState(TextPaint ds){
+            ds.setUnderlineText(false);
+        }
+    }
 
-    ClickableSpan span1 = new ClickableSpan() {
+    MyClickableSpan span1 = new MyClickableSpan() {
         @Override
         public void onClick(View textView) {
             //TextView answer = (TextView)textView;
@@ -39,11 +52,13 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             {
                 score++;
                 Log.d("score", "Your score"+score);
+            } else {
+                errorsList.add(currentQ);
             }
         }
     };
 
-    ClickableSpan span2 = new ClickableSpan() {
+    MyClickableSpan span2 = new MyClickableSpan() {
         @Override
         public void onClick(View textView) {
             //TextView answer = (TextView)textView;
@@ -53,11 +68,13 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             {
                 score++;
                 Log.d("score", "Your score"+score);
+            } else {
+                errorsList.add(currentQ);
             }
         }
     };
 
-    ClickableSpan span3 = new ClickableSpan() {
+    MyClickableSpan span3 = new MyClickableSpan() {
         @Override
         public void onClick(View textView) {
             //TextView answer = (TextView)textView;
@@ -67,6 +84,8 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             {
                 score++;
                 Log.d("score", "Your score"+score);
+            } else {
+                errorsList.add(currentQ);
             }
         }
     };
@@ -86,6 +105,9 @@ public class QuizActivity extends Activity implements View.OnClickListener{
 
         // on récupère la 1ère phrase de la liste randomisée
         currentQ=sentList.get(qid);
+
+        // on prépare une arraylist pour stocker les erreurs de l'utilisateur
+        errorsList = new ArrayList<Sentence>();
 
         // récupération des éléments du layout et changement du texte via setSentenceView()
         txtSentence=(TextView)findViewById(R.id.textView1);
@@ -138,19 +160,26 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             {
                 score++;
                 Log.d("score", "Your score"+score);
+            } else {
+                errorsList.add(currentQ);
             }
         }
 
         // Si 5 questions n'ont pas été posées on load une nouvelle phrase
         if(qid<5){
-            Log.d("score", "COUCOU TOI !");
+
             currentQ=sentList.get(qid);
             setSentenceView();
+
         }else{ // on se dirige vers l'activité des résultats du test
             Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
             Bundle b = new Bundle();
             b.putInt("score", score);
+
+            b.putParcelableArrayList("errors", errorsList);
+
             intent.putExtras(b);
+
             startActivity(intent);
             finish();
         }

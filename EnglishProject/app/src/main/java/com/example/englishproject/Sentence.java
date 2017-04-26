@@ -1,6 +1,11 @@
 package com.example.englishproject;
 
-public class Sentence {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import static android.os.UserHandle.readFromParcel;
+
+public class Sentence implements Parcelable{
     private int ID;
     private String PART1;
     private String PART2;
@@ -60,4 +65,43 @@ public class Sentence {
     }
     public void setRULE(String rULE) { RULE = rULE; }
 
+
+    public Sentence(Parcel in){
+        super();
+        readFromParcel(in);
+    }
+
+    public static final Parcelable.Creator<Sentence> CREATOR = new Parcelable.Creator<Sentence>() {
+        public Sentence createFromParcel(Parcel in){
+            return new Sentence(in);
+        }
+
+        public Sentence[] newArray(int size){
+            return new Sentence[size];
+        }
+    };
+
+    public void readFromParcel(Parcel in){
+        ID=in.readInt();
+        PART1=in.readString();
+        PART2=in.readString();
+        PART3=in.readString();
+        ANSWER=in.readString();
+        RULE=in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(ID);
+        dest.writeString(PART1);
+        dest.writeString(PART2);
+        dest.writeString(PART3);
+        dest.writeString(ANSWER);
+        dest.writeString(RULE);
+    }
 }
