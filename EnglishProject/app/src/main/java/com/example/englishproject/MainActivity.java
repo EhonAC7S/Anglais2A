@@ -23,6 +23,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         quizz = (Button)findViewById(R.id.Training);
         param = (Button)findViewById(R.id.Option);
         quit = (Button) findViewById(R.id.Exit);
+        course.setText("Course");
+        quizz.setText("Quiz");
+        param.setText("Options");
+        quit.setText("Quit");
+        //Rend les boutons cliquables
         quizz.setOnClickListener(new View.OnClickListener() {
 
             @Override
