@@ -53,7 +53,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
                 score++;
                 Log.d("score", "Your score"+score);
             } else {
-                errorsList.add(currentQ);
+                addError(errorsList,currentQ);
             }
         }
     };
@@ -69,7 +69,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
                 score++;
                 Log.d("score", "Your score"+score);
             } else {
-                errorsList.add(currentQ);
+                addError(errorsList,currentQ);
             }
         }
     };
@@ -85,7 +85,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
                 score++;
                 Log.d("score", "Your score"+score);
             } else {
-                errorsList.add(currentQ);
+                addError(errorsList,currentQ);
             }
         }
     };
@@ -161,7 +161,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
                 score++;
                 Log.d("score", "Your score"+score);
             } else {
-                errorsList.add(currentQ);
+                addError(errorsList,currentQ);
             }
         }
 
@@ -184,4 +184,19 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             finish();
         }
     }
+
+    private void addError(ArrayList<Sentence> list, Sentence sentence) {
+
+        boolean exist = false;
+        for (Sentence item : list) {
+            if (item.getRULE().equals(sentence.getRULE())) {
+                exist = true;
+            }
+        }
+
+        if (!exist){
+            errorsList.add(currentQ);
+        }
+    }
+
 }

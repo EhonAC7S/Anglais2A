@@ -38,16 +38,49 @@ public class DbHelper extends SQLiteOpenHelper {
     }
     private void addSentences()
     {
-        Sentence q1=new Sentence("It may be possible", " to reach ", "agreemment.", "agreemment.", "Difficult spellings");
+        Sentence q1=new Sentence("It may be possible", " to reach ", "agreemment.", "agreemment.", "Common Misspellings");
         this.addSentence(q1);
-        Sentence q2=new Sentence("Each department must be", " treated in an ", "appropriate way.", "NO MISSPELLING", "Difficult spellings");
+        Sentence q2=new Sentence("Each department must be", " treated in an ", "appropriate way.", "NO MISSPELLING", "Common Misspellings");
         this.addSentence(q2);
-        Sentence q3=new Sentence("Can I", " interupt ","you ?"," interupt ", "Difficult spellings");
+        Sentence q3=new Sentence("Can I", " interupt ","you ?"," interupt ", "Common Misspellings");
         this.addSentence(q3);
-        Sentence q4=new Sentence("What are the characteristics of successful", " bussiness ", "meetings."," bussiness ", "Difficult spellings");
+        Sentence q4=new Sentence("What are the characteristics of successful", " bussiness ", "meetings."," bussiness ", "Common Misspellings");
         this.addSentence(q4);
-        Sentence q5=new Sentence("The key to a successful oral"," presentations is to ","keep things simple.","NO MISSPELLING", "Difficult spellings");
+        Sentence q5=new Sentence("The key to a successful oral"," presentations is to ","keep things simple.","NO MISSPELLING", "Common Misspellings");
         this.addSentence(q5);
+
+        Sentence q1bis=new Sentence("Mr Despres", " accidently ", "scheduled two classes at the same time.", " accidently ", "Common Misspellings");
+        this.addSentence(q1bis);
+        Sentence q2bis=new Sentence("The letter was returned, as the", " adress ", "was unreadable.", " adress ", "Common Misspellings");
+        this.addSentence(q2bis);
+        Sentence q3bis=new Sentence("Even though she's ten, she still", " beleive ","in fairies.","  beleive  ", "Common Misspellings");
+        this.addSentence(q3bis);
+        Sentence q4bis=new Sentence("Uncork the wine and leave it to", " breath ", "for an hour before you serve it."," breath ", "Common Misspellings");
+        this.addSentence(q4bis);
+        Sentence q5bis=new Sentence("Her strong commitment to women's"," rights made ","her determined to continue.","NO MISSPELLING", "Common Misspellings");
+        this.addSentence(q5bis);
+
+        Sentence q1bis2=new Sentence("It's unpractical to", " copywrite ", "clothing designs.", " copywrite ", "Common Misspellings");
+        this.addSentence(q1bis2);
+        Sentence q2bis2=new Sentence("She got some medicine that helped", " the baby's ", "diarrea.", "diarrea.", "Common Misspellings");
+        this.addSentence(q2bis2);
+        Sentence q3bis2=new Sentence("Good", " goverment ","needs vigilant citizens.","  goverment  ", "Common Misspellings");
+        this.addSentence(q3bis2);
+        Sentence q4bis2=new Sentence("The guerrillas constantly", " harrassed ", "the invaders' supply lines."," harrassed ", "Common Misspellings");
+        this.addSentence(q4bis2);
+        Sentence q5bis2=new Sentence("The new mother hemorrhaged after giving birth"," and stayed ","in the hospital for a week.","NO MISSPELLING", "Common Misspellings");
+        this.addSentence(q5bis2);
+
+        Sentence q1bis3=new Sentence("He's enjoying his independence", " now that ", "he's single again.", "NO MISSPELLING", "Common Misspellings");
+        this.addSentence(q1bis3);
+        Sentence q2bis3=new Sentence("The old church was struck by", " lightening ", "and caught fire.", " lightening ", "Common Misspellings");
+        this.addSentence(q2bis3);
+        Sentence q3bis3=new Sentence("When he retired he found he didn't", " have any ","pasttimes.","pasttimes.", "Common Misspellings");
+        this.addSentence(q3bis3);
+        Sentence q4bis3=new Sentence("I find his pronunciation really", " difficult ", "to follow.","NO MISSPELLING", "Common Misspellings");
+        this.addSentence(q4bis3);
+        Sentence q5bis3=new Sentence("Which would you prefer -"," potato waffles ","or fries?","NO MISSPELLING", "Common Misspellings");
+        this.addSentence(q5bis3);
 
 
         Sentence q6=new Sentence("Pepsi is not"," dislike ","Coke."," dislike ", "Prefixes");
