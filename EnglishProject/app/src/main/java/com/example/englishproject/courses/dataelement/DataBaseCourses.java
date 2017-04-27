@@ -31,6 +31,9 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public static final String PAST_PERFECT = "Past Perfect";
     public static final String FORMING_PLURALS = "Forming Plural";
 
+
+    private static final String SELECT_FROM = "SELECT  * FROM ";
+
     private static final int DATABASE_VERSION = 1;
     // Database Name
     private static final String DATABASE_NAME = "Courses";
@@ -41,6 +44,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     private static final String KEY_TITLE = "title";
     private static final String KEY_DESCR = "descr";
     private static final String KEY_EX1 = "example1";
+
     private static final String KEY_EX2 ="example2";
 
     private SQLiteDatabase dbase;
@@ -88,7 +92,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public ArrayList<CourseContents> getAllCourses() {
         ArrayList<CourseContents> sentList = new ArrayList<CourseContents>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_COURSES;
+        String selectQuery = SELECT_FROM + TABLE_COURSES;
         dbase=this.getReadableDatabase();
         Cursor cursor = dbase.rawQuery(selectQuery, null);
         // looping through all rows and adding to list
@@ -111,7 +115,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public int rowcount()
     {
         int row=0;
-        String selectQuery = "SELECT  * FROM " + TABLE_COURSES;
+        String selectQuery = SELECT_FROM + TABLE_COURSES;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         row=cursor.getCount();
