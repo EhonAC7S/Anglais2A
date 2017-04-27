@@ -88,8 +88,8 @@ public class DbHelper extends SQLiteOpenHelper {
         Sentence q5bis3=new Sentence("Which would you prefer -"," potato waffles ","or fries?",NO_MISSPELLING, COMMON_MISSPELLINGS);
         this.addSentence(q5bis3);
 
-        Sentence q6bis3=new Sentence("Mr Festor made an incoherent speech to"," us that lasted ","an hour.",NO_MISSPELLING, COMMON_MISSPELLINGS);
-        this.addSentence(q6bis3);
+        Sentence q1bis4=new Sentence("Mr Festor made an incoherent speech to"," us that lasted ","an hour.",NO_MISSPELLING, COMMON_MISSPELLINGS);
+        this.addSentence(q1bis4);
 
 
         Sentence q6=new Sentence("Pepsi is not"," dislike ","Coke."," dislike ", PREFIXES);
@@ -183,6 +183,17 @@ public class DbHelper extends SQLiteOpenHelper {
         this.addSentence(q29bis);
         Sentence q30bis=new Sentence("There are some intense negotiations between potato farmers and"," chip makers over the price of ","potatos.","potatos.", FORMING_PLURALS);
         this.addSentence(q30bis);
+
+        Sentence q31=new Sentence("There are few data available to"," answer ","this question.",NO_MISSPELLING, THEIR_THERE_THEYRE);
+        this.addSentence(q31);
+        Sentence q32=new Sentence("They're ","should be no confusion between ethical ","investment funds and mutual investment funds.","They're ", THEIR_THERE_THEYRE);
+        this.addSentence(q32);
+        Sentence q33=new Sentence("I looked at your suggestions"," but I like ","theirs better.",NO_MISSPELLING, THEIR_THERE_THEYRE);
+        this.addSentence(q33);
+        Sentence q34=new Sentence("There ","still working on trusting that ","this will work.","There ", THEIR_THERE_THEYRE);
+        this.addSentence(q34);
+        Sentence q35=new Sentence("Their ","was disagreement over the appropriate legal ","means to pursue that objective.","Their ", THEIR_THERE_THEYRE);
+        this.addSentence(q35);
 
     }
     @Override
