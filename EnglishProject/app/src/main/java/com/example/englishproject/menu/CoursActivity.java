@@ -12,7 +12,7 @@ import android.content.Intent;
 
 import java.util.ArrayList;
 
-public class CoursActivity extends AppCompatActivity{
+public class CoursActivity extends AppCompatActivity implements View.OnClickListener{
 
     public static final String NEXT = "Next";
     public static final String PREVIOUS = "Previous";
@@ -63,14 +63,7 @@ public class CoursActivity extends AppCompatActivity{
                 }
             }
         });
-        cours1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Intent intent = new Intent(CoursActivity.this, ResultActivity.class); //TODO : la bonne classe à mettre
-                Bundle b = new Bundle();
-                //b.putInt("score", score);
-            }
-        });
+        cours1.setOnClickListener(this);
         BdCourses bd = new BdCourses(this);
         listeDesCours = bd.getAllCourses();
         coursNumber = listeDesCours.size()-1; //Indice du dernier Cours
@@ -143,5 +136,10 @@ public class CoursActivity extends AppCompatActivity{
         } else {
             cours6.setVisibility(View.INVISIBLE);
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
