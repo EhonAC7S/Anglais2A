@@ -16,7 +16,7 @@ Depuis le menu des cours, nous avons accès à l'ensemble des règles, avec une 
 
 #### Quiz pour tester ses connaissances
 Depuis le menu principal, en cliquant sur le bouton 'Quiz', on lance une activité de quiz 'QuizActivity' qui est un déroulement d'une dizaine de questions prise au hasard dans la base de données 'DbHelper'. L'ajout de question se fait sur le même principe que pour l'ajout de cours. Au terme du quiz, on affiche la 'ResultActivity' qui montre le pourcentage de succès, et les règles qui n'ont pas été maîtrisées. Ces règles sont accessible depuis cette activité.
- 
+
 
 
 #### Eventuelles améliorations
