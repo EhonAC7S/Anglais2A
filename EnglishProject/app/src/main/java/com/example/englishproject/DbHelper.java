@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import static com.example.englishproject.database.BdCourses.*;
+import static com.example.englishproject.courses.dataelement.DataBaseCourses.*;
 
 public class DbHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
@@ -59,7 +59,7 @@ public class DbHelper extends SQLiteOpenHelper {
         this.addSentence(q1bis);
         Sentence q2bis=new Sentence("The letter was returned, as the", " adress ", "was unreadable.", " adress ", COMMON_MISSPELLINGS);
         this.addSentence(q2bis);
-        Sentence q3bis=new Sentence("Even though she's ten, she still", " beleive ","in fairies.","  beleive  ", COMMON_MISSPELLINGS);
+        Sentence q3bis=new Sentence("Even though Mrs Duval is an adult, she still", " beleives ","in fairies."," beleives ", COMMON_MISSPELLINGS);
         this.addSentence(q3bis);
         Sentence q4bis=new Sentence("Uncork the wine and leave it to", " breath ", "for an hour before you serve it."," breath ", COMMON_MISSPELLINGS);
         this.addSentence(q4bis);
@@ -87,6 +87,9 @@ public class DbHelper extends SQLiteOpenHelper {
         this.addSentence(q4bis3);
         Sentence q5bis3=new Sentence("Which would you prefer -"," potato waffles ","or fries?",NO_MISSPELLING, COMMON_MISSPELLINGS);
         this.addSentence(q5bis3);
+
+        Sentence q6bis3=new Sentence("Mr Festor made an incoherent speech to"," us that lasted ","an hour.",NO_MISSPELLING, COMMON_MISSPELLINGS);
+        this.addSentence(q6bis3);
 
 
         Sentence q6=new Sentence("Pepsi is not"," dislike ","Coke."," dislike ", PREFIXES);
@@ -157,6 +160,29 @@ public class DbHelper extends SQLiteOpenHelper {
         this.addSentence(q24);
         Sentence q25=new Sentence("The boy was"," lost in ","thought.","thought.", THOUGH_THOUGHT_THOROUGH_THROUGH);
         this.addSentence(q25);
+
+
+        Sentence q26=new Sentence("The farmer cultivates bananas"," on his ","farm in Ecuador.",NO_MISSPELLING, FORMING_PLURALS);
+        this.addSentence(q26);
+        Sentence q27=new Sentence("The First Lady is a member of"," one of our ","churchs.","churchs.", FORMING_PLURALS);
+        this.addSentence(q27);
+        Sentence q28=new Sentence("Rabbits and foxes only come out"," in the ","evening.",NO_MISSPELLING, FORMING_PLURALS);
+        this.addSentence(q28);
+        Sentence q29=new Sentence("When I was a child I wanted to be a pirate like"," the ones I read about in adventure ","storys.","storys.", FORMING_PLURALS);
+        this.addSentence(q29);
+        Sentence q30=new Sentence("Mr Despres bought a batch of"," sock ","at the store."," sock ", FORMING_PLURALS);
+        this.addSentence(q30);
+
+        Sentence q26bis=new Sentence("Sometimes it's after only one call,"," sometimes after ","about three tries.",NO_MISSPELLING, FORMING_PLURALS);
+        this.addSentence(q26bis);
+        Sentence q27bis=new Sentence("The last group was made up mainly of"," womans ","who also smoke."," womans ", FORMING_PLURALS);
+        this.addSentence(q27bis);
+        Sentence q28bis=new Sentence("Genetic material can be found"," in cell ","nuclei.",NO_MISSPELLING, FORMING_PLURALS);
+        this.addSentence(q28bis);
+        Sentence q29bis=new Sentence("Game is very common, as are"," gooses, ","and all kinds of wild ducks."," gooses, ", FORMING_PLURALS);
+        this.addSentence(q29bis);
+        Sentence q30bis=new Sentence("There are some intense negotiations between potato farmers and"," chip makers over the price of ","potatos.","potatos.", FORMING_PLURALS);
+        this.addSentence(q30bis);
 
     }
     @Override
