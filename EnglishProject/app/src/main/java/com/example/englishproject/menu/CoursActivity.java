@@ -1,8 +1,10 @@
-package com.example.englishproject;
+package com.example.englishproject.menu;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.example.englishproject.R;
 
 public class CoursActivity extends AppCompatActivity {
 

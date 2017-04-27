@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".MainActivity"
+            android:name=".menu.MainActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +37,7 @@
         <!--         <activity android:name=".QuizActivity" android:label="Quizz"/> -->
         <activity android:name=".ResultActivity" />
         <activity android:name=".QuizActivity" />
-        <activity android:name=".CoursActivity"></activity>
+        <activity android:name=".menu.CoursActivity"></activity>
     </application>
 
 </manifest>

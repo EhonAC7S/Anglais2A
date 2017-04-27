@@ -143,7 +143,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
         ss.setSpan(span3, currentQ.getPART1().length()+currentQ.getPART2().length(), currentQ.getPART1().length()+currentQ.getPART2().length()+currentQ.getPART3().length(), ss.SPAN_EXCLUSIVE_EXCLUSIVE);
         txtV1.setText(ss);
         txtV1.setMovementMethod(LinkMovementMethod.getInstance()); //A quoi ca sert?? LoL
-        //txtV2.setText(currentQ.getPART2());
+        //txtV2.setText(currentQ.getDesc());
         //txtV3.setText(currentQ.getPART3());
         qid++;
     }
