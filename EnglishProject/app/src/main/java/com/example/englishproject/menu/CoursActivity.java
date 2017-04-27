@@ -24,7 +24,7 @@ public class CoursActivity extends AppCompatActivity {
     private Button nextPage;
     private Button previousPage;
 
- 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

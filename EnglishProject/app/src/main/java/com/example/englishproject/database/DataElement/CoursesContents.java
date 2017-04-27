@@ -19,12 +19,14 @@ public class CoursesContents implements Parcelable{
         Exemple2 ="";
         RULE="";
     }
-    public CoursesContents(String pART1, String pART2, String pART3,
-                           String aNSWER, String rULE) {
+    public CoursesContents(String title, String descr, String exmpl1,
+                           String exmpl2, String rULE) {
 
-        Title = pART1;
-        desc = pART2;
-        Exemple1 = pART3;
+        ID = rULE;
+        Title = title;
+        desc = descr;
+        Exemple1 = exmpl1;
+        Exemple2 = exmpl2;
         RULE = rULE;
     }
     public String getID()

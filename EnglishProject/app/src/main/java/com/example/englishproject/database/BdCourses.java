@@ -11,7 +11,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.englishproject.Sentence;
 import com.example.englishproject.database.DataElement.CoursesContents;
 
 
@@ -64,7 +63,7 @@ public class BdCourses extends SQLiteOpenHelper{
     }
     private void addCourses()
     {
-
+        //Ajouter les contenus des cours ici
 
 
     }
@@ -87,8 +86,8 @@ public class BdCourses extends SQLiteOpenHelper{
         // Inserting Row
         dbase.insert(TABLE_COURSES, null, values);
     }
-    public List<CoursesContents> getAllSentences() {
-        List<CoursesContents> sentList = new ArrayList<CoursesContents>();
+    public ArrayList<CoursesContents> getAllCourses() {
+        ArrayList<CoursesContents> sentList = new ArrayList<CoursesContents>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_COURSES;
         dbase=this.getReadableDatabase();
@@ -109,7 +108,7 @@ public class BdCourses extends SQLiteOpenHelper{
         // return sent list
         return sentList;
     }
-    
+
     public int rowcount()
     {
         int row=0;
