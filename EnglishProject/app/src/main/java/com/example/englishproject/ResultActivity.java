@@ -1,4 +1,5 @@
 package com.example.englishproject;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
@@ -6,13 +7,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.RatingBar;
 import android.widget.TextView;
-
+import com.example.englishproject.courses.dataelement.DataBaseCourses;
 import java.util.ArrayList;
-import java.util.Objects;
-
-import static com.example.englishproject.database.BdCourses.COMMON_MISSPELLINGS;
 
 public class ResultActivity extends Activity implements View.OnClickListener {
     @Override
@@ -92,7 +89,7 @@ public class ResultActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
 
         TextView txtv = (TextView) v;
-        if (COMMON_MISSPELLINGS.equals(txtv.getText().toString())){
+        if (DataBaseCourses.COMMON_MISSPELLINGS.equals(txtv.getText().toString())){
             Intent myIntent = new Intent(v.getContext(), QuizActivity.class);
             startActivityForResult(myIntent, 0);
         }

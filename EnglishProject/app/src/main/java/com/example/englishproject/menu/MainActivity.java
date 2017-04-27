@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.englishproject.QuizActivity;
 import com.example.englishproject.R;
+import com.example.englishproject.courses.CoursesMenuActivity;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity  {
 
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(v.getContext(), QuizActivity.class);
+                Intent myIntent = new Intent(v.getContext(), CoursesMenuActivity.class);
                 startActivityForResult(myIntent, 0);
             }
         });

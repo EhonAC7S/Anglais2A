@@ -1,9 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.englishproject.courses.CourseDisplayer">
+    tools:context="com.example.englishproject.courses.CourseDisplayer"
+    android:padding="5dp"
+    android:weightSum="100"
 
-</android.support.constraint.ConstraintLayout>
+    >
+
+    <TextView
+        android:id="@+id/ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/black"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="100">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/titleOfCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textColor="@android:color/black"
+
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:background="#FFFFFF" />
+        <TextView
+            android:id="@+id/descrOfCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="descr"
+            android:textColor="#778899"
+            android:padding="5dp"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:background="#FFFFFF" />
+        <TextView
+            android:id="@+id/exemple0OfCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exemples :"
+            android:textColor="@android:color/black"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/exemple1OfCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exemple1 :"
+            android:textColor="#778899"
+            android:padding="5dp"
+
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="#FFFFFF" />
+        <TextView
+            android:id="@+id/exemple2OfCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exemple2 :"
+            android:textColor="#778899"
+            android:padding="5dp"
+
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="#FFFFFF" />
+    </LinearLayout>
+
+</RelativeLayout>
