@@ -7,7 +7,7 @@ import android.widget.Button;
 import com.example.englishproject.R;
 import com.example.englishproject.courses.dataelement.DataBaseCourses;
 import com.example.englishproject.courses.dataelement.CourseContents;
-
+import android.content.Intent;
 
 import java.util.ArrayList;
 
@@ -29,8 +29,8 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
     private Button nextPage;
     private Button previousPage;
 
-    int coursNumber; // listeDesCours.size()
-    int begin; //Où pointe actuellement le premier élement de la liste affichée
+    int coursNumber = 0; // listeDesCours.size()
+    int begin = 0; //Où pointe actuellement le premier élement de la liste affichée
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,37 +100,37 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
     }
 
     public void actuButton() { //A partir de l'état du curseur begin, on va chercher les elements de la liste 'listeDesCours' disponible pour les afficher
-        if (begin<=coursNumber) {
+        if (begin<coursNumber) {
             cours1.setVisibility(View.VISIBLE);
             cours1.setText(listeDesCours.get(begin).getID());
         } else {
             cours1.setVisibility(View.INVISIBLE); //On cache le bouton si on ne trouve pas de cours à afficher
         }
-        if (begin+1<=coursNumber) {
+        if (begin+1<coursNumber) {
             cours2.setVisibility(View.VISIBLE);
             cours2.setText(listeDesCours.get(begin+1).getID());
         } else {
             cours2.setVisibility(View.INVISIBLE);
         }
-        if (begin+2<=coursNumber) {
+        if (begin+2<coursNumber) {
             cours3.setVisibility(View.VISIBLE);
             cours3.setText(listeDesCours.get(begin+2).getID());
         } else {
             cours1.setVisibility(View.INVISIBLE);
         }
-        if (begin+3<=coursNumber) {
+        if (begin+3<coursNumber) {
             cours4.setVisibility(View.VISIBLE);
             cours4.setText(listeDesCours.get(begin+3).getID());
         } else {
             cours4.setVisibility(View.INVISIBLE);
         }
-        if (begin+4<=coursNumber) {
+        if (begin+4<coursNumber) {
             cours5.setVisibility(View.VISIBLE);
             cours5.setText(listeDesCours.get(begin+4).getID());
         } else {
             cours5.setVisibility(View.INVISIBLE);
         }
-        if (begin+5<=coursNumber) {
+        if (begin+5<coursNumber) {
             cours6.setVisibility(View.VISIBLE);
             cours6.setText(listeDesCours.get(begin+5).getID());
         } else {
@@ -152,14 +152,13 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         Button button = (Button) v;
-        //Intent intent = new Intent(CoursesMenuActivity.this, ResultActivity.class);
-        Bundle b = new Bundle();
-        //b.putInt("score", score);
-
-        //b.putParcelableArrayList("errors", errorsList);
-
-        //intent.putExtras(b);
-
-        //startActivity(intent);
+        Intent intent = new Intent(CoursesMenuActivity.this, CourseDisplayer.class);
+        Bundle b = new Bundle(); // On créé un sac à dos de transition entre les deux activités
+        // On charge le sac à dos des éléments qui nous voulons transmettre
+        b.putCharSequence("CourseId", button.getText());
+        // On ajoute ce sac à dos à intend
+        intent.putExtras(b);
+        //On lance l'activité parametrée avec intend
+        startActivity(intent);
     }
 }
