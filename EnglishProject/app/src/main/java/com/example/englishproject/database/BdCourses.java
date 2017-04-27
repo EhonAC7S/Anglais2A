@@ -109,6 +109,7 @@ public class BdCourses extends SQLiteOpenHelper{
         // return sent list
         return sentList;
     }
+    
     public int rowcount()
     {
         int row=0;
