@@ -30,6 +30,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public static final String PRESENT_PERFECT_PROG = "Present Perfect Progressive";
     public static final String PAST_PERFECT = "Past Perfect";
     public static final String FORMING_PLURALS = "Forming Plural";
+    public static final String THEIR_THERE_THEYRE = "Their/There/They're";
 
     private static final int DATABASE_VERSION = 1;
     // Database Name
