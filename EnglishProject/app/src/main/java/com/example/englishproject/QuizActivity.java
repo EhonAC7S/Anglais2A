@@ -23,7 +23,7 @@ import android.widget.Toast;
 public class QuizActivity extends Activity implements View.OnClickListener{
 
     // initialisation des variables
-    List<Sentence> sentList;
+    ArrayList<Sentence> sentList;
     ArrayList<Sentence> errorsList;
     int score=0;
     int qid=0;
@@ -94,20 +94,38 @@ public class QuizActivity extends Activity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Check whether we're recreating a previously destroyed instance
+        if (savedInstanceState != null) {
+            // Restore value of members from saved state
+
+            sentList = savedInstanceState.getParcelableArrayList("sentList");
+            errorsList = savedInstanceState.getParcelableArrayList("errorsList");
+            score = savedInstanceState.getInt("score");
+            qid = savedInstanceState.getInt("qid")-1;
+
+        } else {
+
+            // initialisation de la BDD à l'aide de DbHelper et récupération de la liste des phrases
+            DbHelper db=new DbHelper(this);
+            sentList=db.getAllSentences();
+
+            // randomization de la liste
+            Collections.shuffle(sentList);
+
+            // on prépare une arraylist pour stocker les erreurs de l'utilisateur
+            errorsList = new ArrayList<Sentence>();
+
+            // petit message d'encouragement :D
+            Toast.makeText(this, "Good luck :D", Toast.LENGTH_LONG).show();
+
+        }
+
+
         setContentView(R.layout.activity_quiz);
-
-        // initialisation de la BDD à l'aide de DbHelper et récupération de la liste des phrases
-        DbHelper db=new DbHelper(this);
-        sentList=db.getAllSentences();
-
-        // randomization de la liste
-        Collections.shuffle(sentList);
 
         // on récupère la 1ère phrase de la liste randomisée
         currentQ=sentList.get(qid);
-
-        // on prépare une arraylist pour stocker les erreurs de l'utilisateur
-        errorsList = new ArrayList<Sentence>();
 
         // récupération des éléments du layout et changement du texte via setSentenceView()
         txtSentence=(TextView)findViewById(R.id.textView1);
@@ -143,7 +161,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
         ss.setSpan(span3, currentQ.getPART1().length()+currentQ.getPART2().length(), currentQ.getPART1().length()+currentQ.getPART2().length()+currentQ.getPART3().length(), ss.SPAN_EXCLUSIVE_EXCLUSIVE);
         txtV1.setText(ss);
         txtV1.setMovementMethod(LinkMovementMethod.getInstance()); //A quoi ca sert?? LoL
-        //txtV2.setText(currentQ.getDesc());
+        //txtV2.setText(currentQ.getPART2());
         //txtV3.setText(currentQ.getPART3());
         qid++;
     }
@@ -197,6 +215,20 @@ public class QuizActivity extends Activity implements View.OnClickListener{
         if (!exist){
             errorsList.add(currentQ);
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+
+        savedInstanceState.putParcelableArrayList("sentList", sentList);
+        savedInstanceState.putParcelableArrayList("errorsList", errorsList);
+        savedInstanceState.putInt("score", score);
+        savedInstanceState.putInt("qid", qid);
+
+        savedInstanceState.putString("coucou","salut toi !!!!!!! LOLMDR");
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
     }
 
 }

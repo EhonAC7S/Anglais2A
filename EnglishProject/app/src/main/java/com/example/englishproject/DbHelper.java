@@ -150,8 +150,8 @@ public class DbHelper extends SQLiteOpenHelper {
         // Inserting Row
         dbase.insert(TABLE_SENTENCE, null, values);
     }
-    public List<Sentence> getAllSentences() {
-        List<Sentence> sentList = new ArrayList<Sentence>();
+    public ArrayList<Sentence> getAllSentences() {
+        ArrayList<Sentence> sentList = new ArrayList<Sentence>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_SENTENCE;
         dbase=this.getReadableDatabase();
