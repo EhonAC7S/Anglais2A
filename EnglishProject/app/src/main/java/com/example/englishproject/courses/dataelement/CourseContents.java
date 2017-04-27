@@ -1,16 +1,16 @@
-package com.example.englishproject.database.DataElement;
+package com.example.englishproject.courses.dataelement;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class CoursesContents implements Parcelable{
+public class CourseContents implements Parcelable{
     private String ID;
     private String Title;
     private String desc;
     private String Exemple1;
     private String Exemple2;
     private String RULE;
-    public CoursesContents()
+    public CourseContents()
     {
         ID="";
         Title ="";
@@ -19,8 +19,8 @@ public class CoursesContents implements Parcelable{
         Exemple2 ="";
         RULE="";
     }
-    public CoursesContents(String title, String descr, String exmpl1,
-                           String exmpl2, String rULE) {
+    public CourseContents(String title, String descr, String exmpl1,
+                          String exmpl2, String rULE) {
 
         ID = rULE;
         Title = title;
@@ -66,18 +66,18 @@ public class CoursesContents implements Parcelable{
     public void setRULE(String rULE) { RULE = rULE; }
 
 
-    public CoursesContents(Parcel in){
+    public CourseContents(Parcel in){
         super();
         readFromParcel(in);
     }
 
-    public static final Creator<CoursesContents> CREATOR = new Creator<CoursesContents>() {
-        public CoursesContents createFromParcel(Parcel in){
-            return new CoursesContents(in);
+    public static final Creator<CourseContents> CREATOR = new Creator<CourseContents>() {
+        public CourseContents createFromParcel(Parcel in){
+            return new CourseContents(in);
         }
 
-        public CoursesContents[] newArray(int size){
-            return new CoursesContents[size];
+        public CourseContents[] newArray(int size){
+            return new CourseContents[size];
         }
     };
 

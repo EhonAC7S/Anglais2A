@@ -1,20 +1,18 @@
-package com.example.englishproject.database;
+package com.example.englishproject.courses.dataelement;
 
 /**
  * Created by jorda on 27/04/2017.
  */
 import java.util.ArrayList;
-import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.englishproject.database.DataElement.CoursesContents;
 
-
-public class BdCourses extends SQLiteOpenHelper{
+public class DataBaseCourses extends SQLiteOpenHelper{
     //Ici on met les constantes des noms de nos Cours
     public static final String COMMON_MISSPELLINGS = "Common Misspellings";
     public static final String SUFFIXES = "Suffixes";
@@ -45,7 +43,7 @@ public class BdCourses extends SQLiteOpenHelper{
     private static final String KEY_EX2 ="example2";
 
     private SQLiteDatabase dbase;
-    public BdCourses(Context context) {
+    public DataBaseCourses(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
     @Override
@@ -75,7 +73,7 @@ public class BdCourses extends SQLiteOpenHelper{
         onCreate(db);
     }
     // Adding new sentence
-    public void addCourse(CoursesContents sent) {
+    public void addCourse(CourseContents sent) {
         //SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_TITLE, sent.getTitle());
@@ -86,8 +84,8 @@ public class BdCourses extends SQLiteOpenHelper{
         // Inserting Row
         dbase.insert(TABLE_COURSES, null, values);
     }
-    public ArrayList<CoursesContents> getAllCourses() {
-        ArrayList<CoursesContents> sentList = new ArrayList<CoursesContents>();
+    public ArrayList<CourseContents> getAllCourses() {
+        ArrayList<CourseContents> sentList = new ArrayList<CourseContents>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_COURSES;
         dbase=this.getReadableDatabase();
@@ -95,7 +93,7 @@ public class BdCourses extends SQLiteOpenHelper{
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                CoursesContents sent = new CoursesContents();
+                CourseContents sent = new CourseContents();
                 sent.setID(cursor.getString(0));
                 sent.setTitle(cursor.getString(1));
                 sent.setDesc(cursor.getString(2));

@@ -16,8 +16,8 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".menu.MainActivity"
-            android:theme="@style/AppTheme"
-            android:configChanges="orientation|screenSize">
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,10 +35,22 @@
             </intent-filter>
         </activity>
         -->
-        <!--         <activity android:name=".QuizActivity" android:label="Quizz"/> -->
-        <activity android:name=".ResultActivity" android:configChanges="orientation|screenSize"/>
-        <activity android:name=".QuizActivity" android:configChanges="orientation|screenSize"/>
-        <activity android:name=".menu.CoursActivity" android:configChanges="orientation|screenSize"/>
+        <!-- <activity android:name=".QuizActivity" android:label="Quizz"/> -->
+        <activity
+            android:name=".ResultActivity"
+            android:configChanges="orientation|screenSize" />
+
+        <activity
+            android:name=".QuizActivity"
+            android:configChanges="orientation|screenSize" />
+
+        <activity
+            android:name=".courses.CoursesMenuActivity"
+            android:configChanges="orientation|screenSize" />
+
+        <activity
+            android:name=".courses.CourseDisplayer"
+            android:configChanges="orientation|screenSize" />
     </application>
 
 </manifest>

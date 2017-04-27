@@ -1,24 +1,25 @@
-package com.example.englishproject.menu;
+package com.example.englishproject.courses;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.example.englishproject.R;
-import com.example.englishproject.database.BdCourses;
-import com.example.englishproject.database.DataElement.CoursesContents;
-import android.content.Intent;
+import com.example.englishproject.courses.dataelement.DataBaseCourses;
+import com.example.englishproject.courses.dataelement.CourseContents;
 
 
 import java.util.ArrayList;
 
-public class CoursActivity extends AppCompatActivity implements View.OnClickListener{
-
+public class CoursesMenuActivity extends AppCompatActivity implements View.OnClickListener{
+    // Quelques Strings important qu'on utilise
     public static final String NEXT = "Next";
     public static final String PREVIOUS = "Previous";
-    private ArrayList<CoursesContents> listeDesCours;
-    //private ArrayList<CoursesContents> listeDesCoursAffichés;
-    private int nbOfCoursDisplayed = 6; //Au nombre de 6 actuellement dans le layout
+    // Les cours qu'on a dans la DataBase
+    private ArrayList<CourseContents> listeDesCours;
+    //Au nombre de 6 actuellement dans le layout
+    private int nbOfCoursDisplayed = 6;
+    //Les var des boutons quoi
     private Button cours1;
     private Button cours2;
     private Button cours3;
@@ -28,13 +29,14 @@ public class CoursActivity extends AppCompatActivity implements View.OnClickList
     private Button nextPage;
     private Button previousPage;
 
-    int coursNumber;
-    int begin;
+    int coursNumber; // listeDesCours.size()
+    int begin; //Où pointe actuellement le premier élement de la liste affichée
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cours);
+        //On lie les boutons du xml aux var de la classe Java
         cours1 = (Button) findViewById(R.id.Course1);
         cours2 = (Button) findViewById(R.id.Course2);
         cours3 = (Button) findViewById(R.id.Course3);
@@ -43,8 +45,10 @@ public class CoursActivity extends AppCompatActivity implements View.OnClickList
         cours6 = (Button) findViewById(R.id.Course6);
         nextPage = (Button) findViewById(R.id.nextpage);
         previousPage = (Button) findViewById(R.id.previouspage);
+        //On set le text des boutons Next et Previous
         nextPage.setText(NEXT);
         previousPage.setText(PREVIOUS);
+        // Comportement particulier pour les boutons Next et Previous
         nextPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,8 +67,15 @@ public class CoursActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
         });
+        //Initialisation des boutons classiques
         cours1.setOnClickListener(this);
-        BdCourses bd = new BdCourses(this);
+        cours2.setOnClickListener(this);
+        cours3.setOnClickListener(this);
+        cours4.setOnClickListener(this);
+        cours5.setOnClickListener(this);
+        cours6.setOnClickListener(this);
+
+        DataBaseCourses bd = new DataBaseCourses(this);
         listeDesCours = bd.getAllCourses();
         coursNumber = listeDesCours.size()-1; //Indice du dernier Cours
         begin = 0;
@@ -140,6 +151,15 @@ public class CoursActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        Button button = (Button) v;
+        //Intent intent = new Intent(CoursesMenuActivity.this, ResultActivity.class);
+        Bundle b = new Bundle();
+        //b.putInt("score", score);
 
+        //b.putParcelableArrayList("errors", errorsList);
+
+        //intent.putExtras(b);
+
+        //startActivity(intent);
     }
 }
