@@ -10,10 +10,12 @@
     >
 
     <TextView
-        android:id="@+id/ID"
+        android:id="@+id/IDOfCourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ID"
+        android:textAllCaps="false"
+        android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:textColor="@android:color/black"
         />
@@ -34,6 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Title"
+            android:textAllCaps="false"
+            android:textStyle="bold"
             android:textColor="@android:color/black"
 
             />
@@ -47,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="descr"
+            android:textAllCaps="false"
             android:textColor="#778899"
             android:padding="5dp"
             />
@@ -60,6 +65,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Exemples :"
+            android:textAllCaps="false"
+            android:textStyle="bold"
             android:textColor="@android:color/black"
             />
         <View
@@ -73,6 +80,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Exemple1 :"
+            android:textAllCaps="false"
+            android:textStyle="italic"
             android:textColor="#778899"
             android:padding="5dp"
 
@@ -87,6 +96,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Exemple2 :"
+            android:textAllCaps="false"
+            android:textStyle="italic"
             android:textColor="#778899"
             android:padding="5dp"
 

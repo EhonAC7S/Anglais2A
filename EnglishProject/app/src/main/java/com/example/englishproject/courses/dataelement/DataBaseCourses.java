@@ -71,6 +71,16 @@ public class DataBaseCourses extends SQLiteOpenHelper{
 
 
     }
+
+    public CourseContents getCourseContents(String ID) {
+        String selectQuery = "SELECT * FROM " + DATABASE_NAME + " WHERE id = " + ID;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Ici on peut combler un manque d'optimisation puisque la RULE est enfait l'ID qui se retrouve
+        // dédoublé dans la BD mais pas dans la classe CourseContents
+        return new CourseContents(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5));
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
         // Drop older table if existed
