@@ -1,11 +1,13 @@
 package com.example.englishproject;
 import java.util.ArrayList;
-import java.util.List;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import static com.example.englishproject.database.BdCourses.*;
+
 public class DbHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     // Database Name
@@ -19,7 +21,11 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String KEY_PART2= "part2"; //option b
     private static final String KEY_PART3= "part3"; //option c
     private static final String KEY_RULE= "rule"; // règle
+
+    public static final String NO_MISSPELLING = "NO MISSPELLING";
+
     private SQLiteDatabase dbase;
+
     public DbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -38,96 +44,118 @@ public class DbHelper extends SQLiteOpenHelper {
     }
     private void addSentences()
     {
-        Sentence q1=new Sentence("It may be possible", " to reach ", "agreemment.", "agreemment.", "Common Misspellings");
+        Sentence q1=new Sentence("It may be possible", " to reach ", "agreemment.", "agreemment.", COMMON_MISSPELLINGS);
         this.addSentence(q1);
-        Sentence q2=new Sentence("Each department must be", " treated in an ", "appropriate way.", "NO MISSPELLING", "Common Misspellings");
+        Sentence q2=new Sentence("Each department must be", " treated in an ", "appropriate way.", NO_MISSPELLING, COMMON_MISSPELLINGS);
         this.addSentence(q2);
-        Sentence q3=new Sentence("Can I", " interupt ","you ?"," interupt ", "Common Misspellings");
+        Sentence q3=new Sentence("Can I", " interupt ","you ?"," interupt ", COMMON_MISSPELLINGS);
         this.addSentence(q3);
-        Sentence q4=new Sentence("What are the characteristics of successful", " bussiness ", "meetings."," bussiness ", "Common Misspellings");
+        Sentence q4=new Sentence("What are the characteristics of successful", " bussiness ", "meetings."," bussiness ", COMMON_MISSPELLINGS);
         this.addSentence(q4);
-        Sentence q5=new Sentence("The key to a successful oral"," presentations is to ","keep things simple.","NO MISSPELLING", "Common Misspellings");
+        Sentence q5=new Sentence("The key to a successful oral"," presentations is to ","keep things simple.",NO_MISSPELLING, COMMON_MISSPELLINGS);
         this.addSentence(q5);
 
-        Sentence q1bis=new Sentence("Mr Despres", " accidently ", "scheduled two classes at the same time.", " accidently ", "Common Misspellings");
+        Sentence q1bis=new Sentence("Mr Despres", " accidently ", "scheduled two classes at the same time.", " accidently ", COMMON_MISSPELLINGS);
         this.addSentence(q1bis);
-        Sentence q2bis=new Sentence("The letter was returned, as the", " adress ", "was unreadable.", " adress ", "Common Misspellings");
+        Sentence q2bis=new Sentence("The letter was returned, as the", " adress ", "was unreadable.", " adress ", COMMON_MISSPELLINGS);
         this.addSentence(q2bis);
-        Sentence q3bis=new Sentence("Even though she's ten, she still", " beleive ","in fairies.","  beleive  ", "Common Misspellings");
+        Sentence q3bis=new Sentence("Even though she's ten, she still", " beleive ","in fairies.","  beleive  ", COMMON_MISSPELLINGS);
         this.addSentence(q3bis);
-        Sentence q4bis=new Sentence("Uncork the wine and leave it to", " breath ", "for an hour before you serve it."," breath ", "Common Misspellings");
+        Sentence q4bis=new Sentence("Uncork the wine and leave it to", " breath ", "for an hour before you serve it."," breath ", COMMON_MISSPELLINGS);
         this.addSentence(q4bis);
-        Sentence q5bis=new Sentence("Her strong commitment to women's"," rights made ","her determined to continue.","NO MISSPELLING", "Common Misspellings");
+        Sentence q5bis=new Sentence("Her strong commitment to women's"," rights made ","her determined to continue.",NO_MISSPELLING, COMMON_MISSPELLINGS);
         this.addSentence(q5bis);
 
-        Sentence q1bis2=new Sentence("It's unpractical to", " copywrite ", "clothing designs.", " copywrite ", "Common Misspellings");
+        Sentence q1bis2=new Sentence("It's unpractical to", " copywrite ", "clothing designs.", " copywrite ", COMMON_MISSPELLINGS);
         this.addSentence(q1bis2);
-        Sentence q2bis2=new Sentence("She got some medicine that helped", " the baby's ", "diarrea.", "diarrea.", "Common Misspellings");
+        Sentence q2bis2=new Sentence("She got some medicine that helped", " the baby's ", "diarrea.", "diarrea.", COMMON_MISSPELLINGS);
         this.addSentence(q2bis2);
-        Sentence q3bis2=new Sentence("Good", " goverment ","needs vigilant citizens.","  goverment  ", "Common Misspellings");
+        Sentence q3bis2=new Sentence("Good", " goverment ","needs vigilant citizens.","  goverment  ", COMMON_MISSPELLINGS);
         this.addSentence(q3bis2);
-        Sentence q4bis2=new Sentence("The guerrillas constantly", " harrassed ", "the invaders' supply lines."," harrassed ", "Common Misspellings");
+        Sentence q4bis2=new Sentence("The guerrillas constantly", " harrassed ", "the invaders' supply lines."," harrassed ", COMMON_MISSPELLINGS);
         this.addSentence(q4bis2);
-        Sentence q5bis2=new Sentence("The new mother hemorrhaged after giving birth"," and stayed ","in the hospital for a week.","NO MISSPELLING", "Common Misspellings");
+        Sentence q5bis2=new Sentence("The new mother hemorrhaged after giving birth"," and stayed ","in the hospital for a week.",NO_MISSPELLING, COMMON_MISSPELLINGS);
         this.addSentence(q5bis2);
 
-        Sentence q1bis3=new Sentence("He's enjoying his independence", " now that ", "he's single again.", "NO MISSPELLING", "Common Misspellings");
+        Sentence q1bis3=new Sentence("He's enjoying his independence", " now that ", "he's single again.", NO_MISSPELLING, COMMON_MISSPELLINGS);
         this.addSentence(q1bis3);
-        Sentence q2bis3=new Sentence("The old church was struck by", " lightening ", "and caught fire.", " lightening ", "Common Misspellings");
+        Sentence q2bis3=new Sentence("The old church was struck by", " lightening ", "and caught fire.", " lightening ", COMMON_MISSPELLINGS);
         this.addSentence(q2bis3);
-        Sentence q3bis3=new Sentence("When he retired he found he didn't", " have any ","pasttimes.","pasttimes.", "Common Misspellings");
+        Sentence q3bis3=new Sentence("When he retired he found he didn't", " have any ","pasttimes.","pasttimes.", COMMON_MISSPELLINGS);
         this.addSentence(q3bis3);
-        Sentence q4bis3=new Sentence("I find his pronunciation really", " difficult ", "to follow.","NO MISSPELLING", "Common Misspellings");
+        Sentence q4bis3=new Sentence("I find his pronunciation really", " difficult ", "to follow.",NO_MISSPELLING, COMMON_MISSPELLINGS);
         this.addSentence(q4bis3);
-        Sentence q5bis3=new Sentence("Which would you prefer -"," potato waffles ","or fries?","NO MISSPELLING", "Common Misspellings");
+        Sentence q5bis3=new Sentence("Which would you prefer -"," potato waffles ","or fries?",NO_MISSPELLING, COMMON_MISSPELLINGS);
         this.addSentence(q5bis3);
 
 
-        Sentence q6=new Sentence("Pepsi is not"," dislike ","Coke."," dislike ", "Prefixes");
+        Sentence q6=new Sentence("Pepsi is not"," dislike ","Coke."," dislike ", PREFIXES);
         this.addSentence(q6);
-        Sentence q7=new Sentence("In important ways,"," the two sisters are ","very unlike.","NO MISSPELLING", "Prefixes");
+        Sentence q7=new Sentence("In important ways,"," the two sisters are ","very unlike.",NO_MISSPELLING, PREFIXES);
         this.addSentence(q7);
-        Sentence q8=new Sentence("Taking things that aren't"," yours is ","unlegal.","unlegal.", "Prefixes");
+        Sentence q8=new Sentence("Taking things that aren't"," yours is ","unlegal.","unlegal.", PREFIXES);
         this.addSentence(q8);
-        Sentence q9=new Sentence("It never pays to be"," inpatient ","with old people."," inpatient ", "Prefixes");
+        Sentence q9=new Sentence("It never pays to be"," inpatient ","with old people."," inpatient ", PREFIXES);
         this.addSentence(q9);
-        Sentence q10=new Sentence("I'd love to help you decorate"," but I'm ","horribly impractical.","NO MISSPELLING", "Prefixes");
+        Sentence q10=new Sentence("I'd love to help you decorate"," but I'm ","horribly impractical.",NO_MISSPELLING, PREFIXES);
         this.addSentence(q10);
 
+        Sentence q6bis=new Sentence("The room had extra bedding"," but it was ","unecessary.","unecessary.", PREFIXES);
+        this.addSentence(q6bis);
+        Sentence q7bis=new Sentence("The tolerable level of error or"," mistatement ","is a matter of judgment."," mistatement ", PREFIXES);
+        this.addSentence(q7bis);
+        Sentence q8bis=new Sentence("Missunderstood"," children may grow into emotionally ","unhealthy adults.","Missunderstood", PREFIXES);
+        this.addSentence(q8bis);
+        Sentence q9bis=new Sentence("If you're dissatisfied at all, return"," the product ","for a full refund.",NO_MISSPELLING, PREFIXES);
+        this.addSentence(q9bis);
+        Sentence q10bis=new Sentence("It's a mistake to harvest fruit while"," it is still ","immature.",NO_MISSPELLING, PREFIXES);
+        this.addSentence(q10bis);
 
-        Sentence q11=new Sentence("The athlete made an"," extraordinery ","jump."," extraordinery ", "Suffixes");
+
+        Sentence q11=new Sentence("The athlete made an"," extraordinery ","jump."," extraordinery ", SUFFIXES);
         this.addSentence(q11);
-        Sentence q12=new Sentence("Is this shirt"," availible ","in any other colours ?"," availible ", "Suffixes");
+        Sentence q12=new Sentence("Is this shirt"," availible ","in any other colours ?"," availible ", SUFFIXES);
         this.addSentence(q12);
-        Sentence q13=new Sentence("Conditioner makes my hair"," more ","manageable.","NO MISSPELLING", "Suffixes");
+        Sentence q13=new Sentence("Conditioner makes my hair"," more ","manageable.",NO_MISSPELLING, SUFFIXES);
         this.addSentence(q13);
-        Sentence q14=new Sentence("The book includes an"," introductory ","chapter.","NO MISSPELLING", "Suffixes");
+        Sentence q14=new Sentence("The book includes an"," introductory ","chapter.",NO_MISSPELLING, SUFFIXES);
         this.addSentence(q14);
-        Sentence q15=new Sentence("The government was oppressive,"," and the people lived in ","misary.","misary.", "Suffixes");
+        Sentence q15=new Sentence("The government was oppressive,"," and the people lived in ","misary.","misary.", SUFFIXES);
         this.addSentence(q15);
 
+        Sentence q11bis=new Sentence("Mrs Duval had to stop and ask for some"," guideance ","before she found the restaurant."," guideance ", SUFFIXES);
+        this.addSentence(q11bis);
+        Sentence q12bis=new Sentence("I think it's partly due to the"," crazyness ","surrounding the latest research."," crazyness ", SUFFIXES);
+        this.addSentence(q12bis);
+        Sentence q13bis=new Sentence("Feelings of emptiness arose when"," he moved ","away from home.",NO_MISSPELLING, SUFFIXES);
+        this.addSentence(q13bis);
+        Sentence q14bis=new Sentence("When an inmate is first"," admited ","to an institution, a complete assessment is conducted."," admited ", SUFFIXES);
+        this.addSentence(q14bis);
+        Sentence q15bis=new Sentence("Jane preferred the spotted skirt"," to the ","striped one.",NO_MISSPELLING, SUFFIXES);
+        this.addSentence(q15bis);
 
-        Sentence q16=new Sentence("What did you and your"," partner do for ","Valentines day ?","Valentines day ?", "Apostrophes for possession");
+
+        Sentence q16=new Sentence("What did you and your"," partner do for ","Valentines day ?","Valentines day ?", APOSTROPHES_FOR_POSSESSION);
         this.addSentence(q16);
-        Sentence q17=new Sentence("On April Fools Day"," it's traditional to play practical ","jokes on people before midday.","On April Fools Day", "Apostrophes for possession");
+        Sentence q17=new Sentence("On April Fools Day"," it's traditional to play practical ","jokes on people before midday.","On April Fools Day", APOSTROPHES_FOR_POSSESSION);
         this.addSentence(q17);
-        Sentence q18=new Sentence("Italy is one of the"," world's great ","wine countries.","NO MISSPELLING", "Apostrophes for possession");
+        Sentence q18=new Sentence("Italy is one of the"," world's great ","wine countries.",NO_MISSPELLING, APOSTROPHES_FOR_POSSESSION);
         this.addSentence(q18);
-        Sentence q19=new Sentence("November 9th is my"," parent's wedding ","anniversary."," parent's wedding ", "Apostrophes for possession");
+        Sentence q19=new Sentence("November 9th is my"," parent's wedding ","anniversary."," parent's wedding ", APOSTROPHES_FOR_POSSESSION);
         this.addSentence(q19);
-        Sentence q20=new Sentence("She's Britain's most"," popular TV ","gardener.","NO MISSPELLING", "Apostrophes for possession");
+        Sentence q20=new Sentence("She's Britain's most"," popular TV ","gardener.",NO_MISSPELLING, APOSTROPHES_FOR_POSSESSION);
         this.addSentence(q20);
 
 
-        Sentence q21=new Sentence("The police carried out a"," thorough ","search of the area.","NO MISSPELLING", "though/thought/thorough/through");
+        Sentence q21=new Sentence("The police carried out a"," thorough ","search of the area.",NO_MISSPELLING, THOUGH_THOUGHT_THOROUGH_THROUGH);
         this.addSentence(q21);
-        Sentence q22=new Sentence("Her words kept running"," though ","my mind."," though ", "though/thought/thorough/through");
+        Sentence q22=new Sentence("Her words kept running"," though ","my mind."," though ", THOUGH_THOUGHT_THOROUGH_THROUGH);
         this.addSentence(q22);
-        Sentence q23=new Sentence("Even though it's small,"," the room ","has a spacious feel.","NO MISSPELLING", "though/thought/thorough/through");
+        Sentence q23=new Sentence("Even though it's small,"," the room ","has a spacious feel.",NO_MISSPELLING, THOUGH_THOUGHT_THOROUGH_THROUGH);
         this.addSentence(q23);
-        Sentence q24=new Sentence("He failed his exams"," thought ","not studying enough."," thought ", "though/thought/thorough/through");
+        Sentence q24=new Sentence("He failed his exams"," thought ","not studying enough."," thought ", THOUGH_THOUGHT_THOROUGH_THROUGH);
         this.addSentence(q24);
-        Sentence q25=new Sentence("The boy was"," lost in ","thought.","thought.", "though/thought/thorough/through");
+        Sentence q25=new Sentence("The boy was"," lost in ","thought.","thought.", THOUGH_THOUGHT_THOROUGH_THROUGH);
         this.addSentence(q25);
 
     }

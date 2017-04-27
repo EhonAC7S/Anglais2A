@@ -12,6 +12,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import static com.example.englishproject.database.BdCourses.COMMON_MISSPELLINGS;
+
 public class ResultActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +92,7 @@ public class ResultActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
 
         TextView txtv = (TextView) v;
-        if ("Common Misspellings".equals(txtv.getText().toString())){
+        if (COMMON_MISSPELLINGS.equals(txtv.getText().toString())){
             Intent myIntent = new Intent(v.getContext(), QuizActivity.class);
             startActivityForResult(myIntent, 0);
         }

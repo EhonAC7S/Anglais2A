@@ -19,6 +19,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.example.englishproject.DbHelper.NO_MISSPELLING;
+
 
 public class QuizActivity extends Activity implements View.OnClickListener{
 
@@ -172,9 +174,9 @@ public class QuizActivity extends Activity implements View.OnClickListener{
 
         if(v == butNoMisspelling){
 
-            Log.d("yourans", currentQ.getANSWER()+" NO MISSPELLING");
+            Log.d("yourans", currentQ.getANSWER()+" "+NO_MISSPELLING);
             // on compare la valeur de l'élément avec la réponse présente dans la liste issue de la BDD
-            if(currentQ.getANSWER().equals("NO MISSPELLING"))
+            if(currentQ.getANSWER().equals(NO_MISSPELLING))
             {
                 score++;
                 Log.d("score", "Your score"+score);
@@ -224,8 +226,6 @@ public class QuizActivity extends Activity implements View.OnClickListener{
         savedInstanceState.putParcelableArrayList("errorsList", errorsList);
         savedInstanceState.putInt("score", score);
         savedInstanceState.putInt("qid", qid);
-
-        savedInstanceState.putString("coucou","salut toi !!!!!!! LOLMDR");
 
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
