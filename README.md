@@ -14,12 +14,12 @@ L'application possède actuellement 2 fonctionnalités principales
 Au démarrage de l'application, vous avez un menu principal 'MainActivity'. En cliquant sur le bouton 'Cours', on obtient un nouveau menu 'CoursActivity' listant les cours disponibles. Il n'en est affiché que 6 à la fois, mais il est possible d'en afficher de nouveau au moyen d'un bouton 'Next' qui disparait lorsque l'on ne peut plus afficher d'autres cours. Le bouton 'Previous' quand à lui permet de revenir sur les 6 précédent boutons.
 Depuis le menu des cours, nous avons accès à l'ensemble des règles, avec une description et des exemples. Il est possible de rajouter des contenus de cours 'CoursesContents' dans la base de données prévue, qui est 'BdCourses'.
 
-### Quiz pour tester ses connaissances
+#### Quiz pour tester ses connaissances
 Depuis le menu principal, en cliquant sur le bouton 'Quiz', on lance une activité de quiz 'QuizActivity' qui est un déroulement d'une dizaine de questions prise au hasard dans la base de données 'DbHelper'. L'ajout de question se fait sur le même principe que pour l'ajout de cours. Au terme du quiz, on affiche la 'ResultActivity' qui montre le pourcentage de succès, et les règles qui n'ont pas été maîtrisées. Ces règles sont accessible depuis cette activité.
+ 
 
 
-
-### Eventuelles améliorations 
+#### Eventuelles améliorations
 Il serait intéressant d'ajouter un menu intermédiaire entre le menu principal et le quiz, qui listerait plusieurs quiz, avec des difficultés différents, cela demande cependant un contenu plus conséquent en terme de règles et d'exemples pour que cette feature vaille le coup d'être implémentée
 
 ## Auteurs 
