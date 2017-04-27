@@ -43,8 +43,8 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
         cours4 = (Button) findViewById(R.id.Course4);
         cours5 = (Button) findViewById(R.id.Course5);
         cours6 = (Button) findViewById(R.id.Course6);
-        nextPage = (Button) findViewById(R.id.nextpage);
-        previousPage = (Button) findViewById(R.id.previouspage);
+        nextPage = (Button) findViewById(R.id.nextBouton);
+        previousPage = (Button) findViewById(R.id.previousButton);
         //On set le text des boutons Next et Previous
         nextPage.setText(NEXT);
         previousPage.setText(PREVIOUS);
