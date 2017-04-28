@@ -13,7 +13,8 @@
         android:icon="@drawable/book"
         android:label="SpellingWizard"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        android:configChanges="orientation|screenSize">
         <activity
             android:name=".menu.MainActivity"
             android:configChanges="orientation|screenSize"
