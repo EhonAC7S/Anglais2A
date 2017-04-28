@@ -184,6 +184,18 @@ public class DbHelper extends SQLiteOpenHelper {
         Sentence q30bis=new Sentence("There are some intense negotiations between potato farmers and"," chip makers over the price of ","potatos.","potatos.", FORMING_PLURALS);
         this.addSentence(q30bis);
 
+        Sentence q26bis2=new Sentence("Men at the conference all seemed to"," have trophy ","wives.",NO_MISSPELLING, FORMING_PLURALS);
+        this.addSentence(q26bis2);
+        Sentence q27bis2=new Sentence("With the first set of"," knifes ","we ran two shifts for more than a year !"," knifes ", FORMING_PLURALS);
+        this.addSentence(q27bis2);
+        Sentence q28bis2=new Sentence("They are two halves of the same"," whole and ","cannot be separated.",NO_MISSPELLING, FORMING_PLURALS);
+        this.addSentence(q28bis2);
+        Sentence q29bis2=new Sentence("Our"," lifes ","are more and more involved with science and innovation."," lifes ", FORMING_PLURALS);
+        this.addSentence(q29bis2);
+        Sentence q30bis2=new Sentence("Divide the pizza into"," halfs ","and then into quarters."," halfs ", FORMING_PLURALS);
+        this.addSentence(q30bis2);
+
+
         Sentence q31=new Sentence("There are few data available to"," answer ","this question.",NO_MISSPELLING, THEIR_THERE_THEYRE);
         this.addSentence(q31);
         Sentence q32=new Sentence("They're ","should be no confusion between ethical ","investment funds and mutual investment funds.","They're ", THEIR_THERE_THEYRE);
