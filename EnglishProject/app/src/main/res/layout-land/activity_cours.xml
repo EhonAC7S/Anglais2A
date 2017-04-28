@@ -128,7 +128,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/nextpage"
+        android:id="@+id/nextBouton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
@@ -137,7 +137,7 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:id="@+id/previouspage"
+        android:id="@+id/previousButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""

@@ -147,7 +147,7 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
         }
         if (begin+5<=coursNumber) {
             cours6.setVisibility(View.VISIBLE);
-            System.out.println("Bouton 5 : "+ listeDesCours.get(begin+1).getRULE());
+            System.out.println("Bouton 5 : "+ listeDesCours.get(begin+5).getRULE());
 
             cours6.setText(listeDesCours.get(begin+5).getRULE());
         } else {
