@@ -4,6 +4,7 @@ package com.example.englishproject.courses.dataelement;
  * Created by jorda on 27/04/2017.
  */
 import java.util.ArrayList;
+import java.util.Collections;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -30,16 +31,15 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public static final String PRESENT_PERFECT_PROG = "Present Perfect Progressive";
     public static final String PAST_PERFECT = "Past Perfect";
     public static final String FORMING_PLURALS = "Forming Plural";
-    public static final String THEIR_THERE_THEYRE = "Their/There/They're";
+    public static final String THEIR_THERE_THEYRE = "Their/There/They re";
 
 
-    private static final String SELECT_FROM = "SELECT  * FROM ";
+    private static final String SELECT_FROM = "SELECT * FROM ";
 
     private static final int DATABASE_VERSION = 1;
     // Database Name
     private static final String DATABASE_NAME = "Courses";
-    // tasks table name
-    private static final String TABLE_COURSES = "courses";
+
     // tasks Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";
@@ -47,21 +47,23 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     private static final String KEY_EX1 = "example1";
     private static final String KEY_RULE = "rule";
     private static final String KEY_EX2 ="example2";
+    public static final String TEXT = " TEXT, ";
 
     private SQLiteDatabase dbase;
     public DataBaseCourses(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        //this.onCreate();
+
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
         dbase=db;
+        System.out.println("On est dans le OnCreate()");
 
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_COURSES);
+        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_NAME);
 
-        String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_COURSES + " ( "
-                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_RULE +" TEXT, " +KEY_TITLE +" TEXT, "
-                + KEY_DESCR +" TEXT, "+ KEY_EX1 +" TEXT, "+ KEY_EX2 +" TEXT)";
+        String sql = "CREATE TABLE IF NOT EXISTS " + DATABASE_NAME + " ( "
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_RULE + TEXT +KEY_TITLE + TEXT
+                + KEY_DESCR +TEXT+ KEY_EX1 +TEXT+ KEY_EX2 +" TEXT)";
         db.execSQL(sql);
         addCourses();
         //db.close();
@@ -71,22 +73,39 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         //Ajouter les contenus des cours ici
         addCourse(new CourseContents(THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
         addCourse(new CourseContents(ACTIVE_VOICE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
+        addCourse(new CourseContents(CONJUNCTIONS,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
+        addCourse(new CourseContents(PRESENT_PERFECT_PROG,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
+        addCourse(new CourseContents(PRESENT_PERFECT,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
+        addCourse(new CourseContents(ED_RULE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
+        addCourse(new CourseContents(PRESENT_PROGRESSIVE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
+        addCourse(new CourseContents(SIMPLE_PRESENT,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
+
 
     }
 
     public CourseContents getCourseContents(String rule) {
         String selectQuery = "SELECT * FROM " + DATABASE_NAME + " WHERE "+ KEY_RULE +" = '" + rule + "'";
+        System.out.println(selectQuery);
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
+        System.out.println(cursor.getCount());
         // Ici on peut combler un manque d'optimisation puisque la RULE est enfait l'ID qui se retrouve
         // dédoublé dans la BD mais pas dans la classe CourseContents
-        return new CourseContents(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4));
+        System.out.println(cursor.moveToFirst());
+        CourseContents course = new CourseContents();
+        course.setRULE(cursor.getString(1));
+        //System.out.println(cursor.getString(1));
+        course.setTitle(cursor.getString(2));
+        course.setDesc(cursor.getString(3));
+        course.setExemple1(cursor.getString(4));
+        course.setExemple2(cursor.getString(5));
+        return course;
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
         // Drop older table if existed
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_COURSES);
+        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_NAME);
         // Create tables again
         onCreate(db);
     }
@@ -100,34 +119,47 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         values.put(KEY_EX1, sent.getExemple1());
         values.put(KEY_EX2, sent.getExemple2());
         // Inserting Row
-        dbase.insert(TABLE_COURSES, null, values);
+        dbase.insert(DATABASE_NAME, null, values);
     }
     public ArrayList<CourseContents> getAllCourses() {
         ArrayList<CourseContents> sentList = new ArrayList<CourseContents>();
         // Select All Query
-        String selectQuery = SELECT_FROM + TABLE_COURSES;
+        String selectQuery = SELECT_FROM + DATABASE_NAME;
         dbase=this.getReadableDatabase();
+        //System.out.println(selectQuery);
+
         Cursor cursor = dbase.rawQuery(selectQuery, null);
+        //System.out.println(cursor.getString(0));
+
+        //System.out.println(cursor.moveToFirst());
+        //System.out.println("nb colonnes :" +cursor.getColumnCount());
+        //System.out.println("Curseur bien placé? :" +cursor.move(-1000));
+        //System.out.println("nb lignes :" +cursor.getCount());
+        //System.out.println(dbase.getPath());
+
+
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                CourseContents sent = new CourseContents();
-                sent.setRULE(cursor.getString(1));
-                sent.setTitle(cursor.getString(2));
-                sent.setDesc(cursor.getString(3));
-                sent.setExemple1(cursor.getString(4));
-                sent.setExemple2(cursor.getString(5));
-                sentList.add(sent);
+
+                CourseContents course = new CourseContents();
+                course.setRULE(cursor.getString(1));
+                //System.out.println(cursor.getString(1));
+                course.setTitle(cursor.getString(2));
+                course.setDesc(cursor.getString(3));
+                course.setExemple1(cursor.getString(4));
+                course.setExemple2(cursor.getString(5));
+                sentList.add(course);
             } while (cursor.moveToNext());
-        }
-        // return sent list
+        } else System.out.println("La requete elle pue");
+
         return sentList;
     }
 
     public int rowcount()
     {
         int row=0;
-        String selectQuery = SELECT_FROM + TABLE_COURSES;
+        String selectQuery = SELECT_FROM + DATABASE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         row=cursor.getCount();

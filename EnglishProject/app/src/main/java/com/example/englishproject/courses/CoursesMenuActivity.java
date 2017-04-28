@@ -62,6 +62,7 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onClick(View v) {
                 if (canGoPrevious()) {
+
                     begin = begin - 6; //On pointe 6 Cours en arrière
                     actuButton();
                 }
@@ -78,10 +79,11 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
         DataBaseCourses bd = new DataBaseCourses(this);
         listeDesCours = bd.getAllCourses();
         coursNumber = listeDesCours.size()-1; //Indice du dernier Cours
-        System.out.println("Nombre de cours : " + coursNumber);
-        System.out.println("Nombre de cours : " + bd.rowcount());
+        System.out.println("Indice de fin d'Array : " + coursNumber);
+
 
         begin = 0;
+        //System.out.println("begin : " + begin);
         this.actuButton(); //Affiche les boutons en fonction du nombre que l'on peut afficher avec un contenu
 
     }
@@ -103,38 +105,50 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
     }
 
     public void actuButton() { //A partir de l'état du curseur begin, on va chercher les elements de la liste 'listeDesCours' disponible pour les afficher
-        if (begin<coursNumber && coursNumber!=-1) {
+
+        if (begin<=coursNumber) {
             cours1.setVisibility(View.VISIBLE);
+            System.out.println("Bouton 0 : "+ listeDesCours.get(begin).getRULE());
+
             cours1.setText(listeDesCours.get(begin).getRULE());
         } else {
             cours1.setVisibility(View.INVISIBLE); //On cache le bouton si on ne trouve pas de cours à afficher
         }
-        if (begin+1<coursNumber) {
+        if (begin+1<=coursNumber) {
             cours2.setVisibility(View.VISIBLE);
+            System.out.println("Bouton 1 : "+ listeDesCours.get(begin+1).getRULE());
             cours2.setText(listeDesCours.get(begin+1).getRULE());
         } else {
             cours2.setVisibility(View.INVISIBLE);
         }
-        if (begin+2<coursNumber) {
+        if (begin+2<=coursNumber) {
             cours3.setVisibility(View.VISIBLE);
+            System.out.println("Bouton 2 : "+ listeDesCours.get(begin+2).getRULE());
+
             cours3.setText(listeDesCours.get(begin+2).getRULE());
         } else {
             cours1.setVisibility(View.INVISIBLE);
         }
-        if (begin+3<coursNumber) {
+        if (begin+3<=coursNumber) {
             cours4.setVisibility(View.VISIBLE);
+            System.out.println("Bouton 3 : "+ listeDesCours.get(begin+3).getRULE());
+
             cours4.setText(listeDesCours.get(begin+3).getRULE());
         } else {
             cours4.setVisibility(View.INVISIBLE);
         }
-        if (begin+4<coursNumber) {
+        if (begin+4<=coursNumber) {
             cours5.setVisibility(View.VISIBLE);
+            System.out.println("Bouton 4 : "+ listeDesCours.get(begin+4).getRULE());
+
             cours5.setText(listeDesCours.get(begin+4).getRULE());
         } else {
             cours5.setVisibility(View.INVISIBLE);
         }
-        if (begin+5<coursNumber) {
+        if (begin+5<=coursNumber) {
             cours6.setVisibility(View.VISIBLE);
+            System.out.println("Bouton 5 : "+ listeDesCours.get(begin+1).getRULE());
+
             cours6.setText(listeDesCours.get(begin+5).getRULE());
         } else {
             cours6.setVisibility(View.INVISIBLE);
@@ -145,6 +159,7 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
         } else {
             nextPage.setVisibility(View.INVISIBLE);
         }if (begin>=nbOfCoursDisplayed) { // Cas du bouton previous
+            System.out.println("begin " + begin + ", end : " + nbOfCoursDisplayed);
             previousPage.setVisibility(View.VISIBLE);
             cours6.setText(PREVIOUS);
         } else {
