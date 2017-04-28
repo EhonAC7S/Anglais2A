@@ -45,12 +45,13 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     private static final String KEY_TITLE = "title";
     private static final String KEY_DESCR = "descr";
     private static final String KEY_EX1 = "example1";
-
+    private static final String KEY_RULE = "rule";
     private static final String KEY_EX2 ="example2";
 
     private SQLiteDatabase dbase;
     public DataBaseCourses(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        //this.onCreate();
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -59,7 +60,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_COURSES);
 
         String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_COURSES + " ( "
-                + KEY_ID + " TEXT, " + KEY_TITLE +" TEXT, "
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_RULE +" TEXT, " +KEY_TITLE +" TEXT, "
                 + KEY_DESCR +" TEXT, "+ KEY_EX1 +" TEXT, "+ KEY_EX2 +" TEXT)";
         db.execSQL(sql);
         addCourses();
@@ -68,17 +69,18 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     private void addCourses()
     {
         //Ajouter les contenus des cours ici
-
+        addCourse(new CourseContents(THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
+        addCourse(new CourseContents(ACTIVE_VOICE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
 
     }
 
-    public CourseContents getCourseContents(String ID) {
-        String selectQuery = "SELECT * FROM " + DATABASE_NAME + " WHERE id = " + ID;
+    public CourseContents getCourseContents(String rule) {
+        String selectQuery = "SELECT * FROM " + DATABASE_NAME + " WHERE "+ KEY_RULE +" = '" + rule + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         // Ici on peut combler un manque d'optimisation puisque la RULE est enfait l'ID qui se retrouve
         // dédoublé dans la BD mais pas dans la classe CourseContents
-        return new CourseContents(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5));
+        return new CourseContents(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4));
     }
 
     @Override
@@ -92,11 +94,11 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public void addCourse(CourseContents sent) {
         //SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put(KEY_RULE, sent.getRULE());
         values.put(KEY_TITLE, sent.getTitle());
         values.put(KEY_DESCR, sent.getDesc());
         values.put(KEY_EX1, sent.getExemple1());
         values.put(KEY_EX2, sent.getExemple2());
-        values.put(KEY_EX2, sent.getRULE());
         // Inserting Row
         dbase.insert(TABLE_COURSES, null, values);
     }
@@ -110,12 +112,11 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         if (cursor.moveToFirst()) {
             do {
                 CourseContents sent = new CourseContents();
-                sent.setID(cursor.getString(0));
-                sent.setTitle(cursor.getString(1));
-                sent.setDesc(cursor.getString(2));
-                sent.setExemple1(cursor.getString(3));
-                sent.setExemple2(cursor.getString(4));
-                sent.setRULE(cursor.getString(5));
+                sent.setRULE(cursor.getString(1));
+                sent.setTitle(cursor.getString(2));
+                sent.setDesc(cursor.getString(3));
+                sent.setExemple1(cursor.getString(4));
+                sent.setExemple2(cursor.getString(5));
                 sentList.add(sent);
             } while (cursor.moveToNext());
         }

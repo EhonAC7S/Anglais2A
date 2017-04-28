@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class CourseContents implements Parcelable{
-    private String ID;
+    //private String ID;
     private String Title;
     private String desc;
     private String Exemple1;
@@ -12,27 +12,27 @@ public class CourseContents implements Parcelable{
     private String RULE;
     public CourseContents()
     {
-        ID="";
+        //ID="";
         Title ="";
         desc ="";
         Exemple1 ="";
         Exemple2 ="";
         RULE="";
     }
-    public CourseContents(String title, String descr, String exmpl1,
-                          String exmpl2, String rULE) {
+    public CourseContents(String rULE, String title, String descr, String exmpl1,
+                          String exmpl2) {
 
-        ID = rULE;
+        //ID = rULE;
+        RULE = rULE;
         Title = title;
         desc = descr;
         Exemple1 = exmpl1;
         Exemple2 = exmpl2;
-        RULE = rULE;
     }
-    public String getID()
-    {
-        return ID;
-    }
+    //public String getID()
+    //{
+    //    return ID;
+    //}
     public String getTitle() {
         return Title;
     }
@@ -47,10 +47,10 @@ public class CourseContents implements Parcelable{
     }
 
     public String getRULE() { return RULE; }
-    public void setID(String id)
-    {
-        ID=id;
-    }
+    //public void setID(String id)
+    //{
+    //    ID=id;
+    //}
     public void setTitle(String pART1) {
         Title = pART1;
     }
@@ -82,7 +82,7 @@ public class CourseContents implements Parcelable{
     };
 
     public void readFromParcel(Parcel in){
-        ID=in.readString();
+        //ID=in.readString();
         Title =in.readString();
         desc =in.readString();
         Exemple1 =in.readString();
@@ -97,7 +97,7 @@ public class CourseContents implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(ID);
+        //dest.writeString(ID);
         dest.writeString(Title);
         dest.writeString(desc);
         dest.writeString(Exemple1);

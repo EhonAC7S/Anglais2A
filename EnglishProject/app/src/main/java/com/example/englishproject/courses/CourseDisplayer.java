@@ -31,7 +31,7 @@ public class CourseDisplayer extends AppCompatActivity {
 
 
         IDOfCourse = (TextView) findViewById(R.id.IDOfCourse);
-        SpannableString contentID = new SpannableString(course.getID());
+        SpannableString contentID = new SpannableString(course.getRULE());
         contentID.setSpan(new UnderlineSpan(), 0, contentID.length(), 0);
         IDOfCourse.setText(contentID);
         TitleOfCourse = (TextView) findViewById(R.id.titleOfCourse);

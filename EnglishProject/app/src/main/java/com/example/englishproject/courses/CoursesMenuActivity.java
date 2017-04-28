@@ -78,6 +78,9 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
         DataBaseCourses bd = new DataBaseCourses(this);
         listeDesCours = bd.getAllCourses();
         coursNumber = listeDesCours.size()-1; //Indice du dernier Cours
+        System.out.println("Nombre de cours : " + coursNumber);
+        System.out.println("Nombre de cours : " + bd.rowcount());
+
         begin = 0;
         this.actuButton(); //Affiche les boutons en fonction du nombre que l'on peut afficher avec un contenu
 
@@ -100,39 +103,39 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
     }
 
     public void actuButton() { //A partir de l'état du curseur begin, on va chercher les elements de la liste 'listeDesCours' disponible pour les afficher
-        if (begin<coursNumber) {
+        if (begin<coursNumber && coursNumber!=-1) {
             cours1.setVisibility(View.VISIBLE);
-            cours1.setText(listeDesCours.get(begin).getID());
+            cours1.setText(listeDesCours.get(begin).getRULE());
         } else {
             cours1.setVisibility(View.INVISIBLE); //On cache le bouton si on ne trouve pas de cours à afficher
         }
         if (begin+1<coursNumber) {
             cours2.setVisibility(View.VISIBLE);
-            cours2.setText(listeDesCours.get(begin+1).getID());
+            cours2.setText(listeDesCours.get(begin+1).getRULE());
         } else {
             cours2.setVisibility(View.INVISIBLE);
         }
         if (begin+2<coursNumber) {
             cours3.setVisibility(View.VISIBLE);
-            cours3.setText(listeDesCours.get(begin+2).getID());
+            cours3.setText(listeDesCours.get(begin+2).getRULE());
         } else {
             cours1.setVisibility(View.INVISIBLE);
         }
         if (begin+3<coursNumber) {
             cours4.setVisibility(View.VISIBLE);
-            cours4.setText(listeDesCours.get(begin+3).getID());
+            cours4.setText(listeDesCours.get(begin+3).getRULE());
         } else {
             cours4.setVisibility(View.INVISIBLE);
         }
         if (begin+4<coursNumber) {
             cours5.setVisibility(View.VISIBLE);
-            cours5.setText(listeDesCours.get(begin+4).getID());
+            cours5.setText(listeDesCours.get(begin+4).getRULE());
         } else {
             cours5.setVisibility(View.INVISIBLE);
         }
         if (begin+5<coursNumber) {
             cours6.setVisibility(View.VISIBLE);
-            cours6.setText(listeDesCours.get(begin+5).getID());
+            cours6.setText(listeDesCours.get(begin+5).getRULE());
         } else {
             cours6.setVisibility(View.INVISIBLE);
         }
