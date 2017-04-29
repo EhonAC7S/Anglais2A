@@ -7,7 +7,6 @@
     tools:context="com.example.englishproject.courses.CoursesMenuActivity"
     android:background="@drawable/mainbackground"
     android:padding="5dp"
-    android:configChanges="orientation|screenSize"
     >
 
     <Button
@@ -19,7 +18,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:paddingTop="5dp"/>
-    <!-- Pas le choix de mettre un nombre fix... -->
+
     <Button
         android:id="@+id/Course2"
         android:layout_width="wrap_content"

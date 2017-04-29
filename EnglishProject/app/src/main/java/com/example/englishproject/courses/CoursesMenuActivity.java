@@ -38,6 +38,7 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         DataBaseCourses bd;
+        setContentView(R.layout.activity_cours);
         if (savedInstanceState != null) {
             begin  = savedInstanceState.getInt("begin");
             listeDesCours = savedInstanceState.getParcelableArrayList("list");
@@ -49,53 +50,9 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
             bd = new DataBaseCourses(this);
             listeDesCours = bd.getAllCourses();
         }
-        setContentView(R.layout.activity_cours);
-        //On lie les boutons du xml aux var de la classe Java
-        cours1 = (Button) findViewById(R.id.Course1);
-        cours2 = (Button) findViewById(R.id.Course2);
-        cours3 = (Button) findViewById(R.id.Course3);
-        cours4 = (Button) findViewById(R.id.Course4);
-        cours5 = (Button) findViewById(R.id.Course5);
-        cours6 = (Button) findViewById(R.id.Course6);
-        nextPage = (Button) findViewById(R.id.nextBouton);
-        previousPage = (Button) findViewById(R.id.previousButton);
-        //On set le text des boutons Next et Previous
-        nextPage.setText(NEXT);
-        previousPage.setText(PREVIOUS);
-        // Comportement particulier pour les boutons Next et Previous
-        nextPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (canGoNext()) {
-                    begin = begin + 6; // On pointe 6 Cours en avant
-                    actuButton();
-                }
-            }
-        });
-        previousPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (canGoPrevious()) {
-
-                    begin = begin - 6; //On pointe 6 Cours en arrière
-                    actuButton();
-                }
-            }
-        });
-        //Initialisation des boutons classiques
-        cours1.setOnClickListener(this);
-        cours2.setOnClickListener(this);
-        cours3.setOnClickListener(this);
-        cours4.setOnClickListener(this);
-        cours5.setOnClickListener(this);
-        cours6.setOnClickListener(this);
-
         coursNumber = listeDesCours.size()-1; //Indice du dernier Cours
         System.out.println("Indice de fin d'Array : " + coursNumber);
-
-        //System.out.println("begin : " + begin);
-        this.actuButton(); //Affiche les boutons en fonction du nombre que l'on peut afficher avec un contenu
-
+        initialize();
     }
 
     private boolean canGoNext() {
@@ -119,7 +76,6 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
         if (begin<=coursNumber) {
             cours1.setVisibility(View.VISIBLE);
             System.out.println("Bouton 0 : "+ listeDesCours.get(begin).getRULE());
-
             cours1.setText(listeDesCours.get(begin).getRULE());
         } else {
             cours1.setVisibility(View.INVISIBLE); //On cache le bouton si on ne trouve pas de cours à afficher
@@ -137,7 +93,7 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
 
             cours3.setText(listeDesCours.get(begin+2).getRULE());
         } else {
-            cours1.setVisibility(View.INVISIBLE);
+            cours3.setVisibility(View.INVISIBLE);
         }
         if (begin+3<=coursNumber) {
             cours4.setVisibility(View.VISIBLE);
@@ -204,8 +160,58 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
         // Checks the orientation of the screen
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+            setContentView(R.layout.activity_cours);
+            initialize();
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
             Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+            setContentView(R.layout.activity_cours);
+            initialize();
         }
+    }
+
+    private void initialize() {
+        //On lie les boutons du xml aux var de la classe Java
+        cours1 = (Button) findViewById(R.id.Course1);
+        cours2 = (Button) findViewById(R.id.Course2);
+        cours3 = (Button) findViewById(R.id.Course3);
+        cours4 = (Button) findViewById(R.id.Course4);
+        cours5 = (Button) findViewById(R.id.Course5);
+        cours6 = (Button) findViewById(R.id.Course6);
+        nextPage = (Button) findViewById(R.id.nextBouton);
+        previousPage = (Button) findViewById(R.id.previousButton);
+        //On set le text des boutons Next et Previous
+        nextPage.setText(NEXT);
+        previousPage.setText(PREVIOUS);
+        // Comportement particulier pour les boutons Next et Previous
+        nextPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (canGoNext()) {
+                    begin = begin + 6; // On pointe 6 Cours en avant
+                    actuButton();
+                }
+            }
+        });
+        previousPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (canGoPrevious()) {
+
+                    begin = begin - 6; //On pointe 6 Cours en arrière
+                    actuButton();
+                }
+            }
+        });
+        //Initialisation des boutons classiques
+        cours1.setOnClickListener(this);
+        cours2.setOnClickListener(this);
+        cours3.setOnClickListener(this);
+        cours4.setOnClickListener(this);
+        cours5.setOnClickListener(this);
+        cours6.setOnClickListener(this);
+        //coursNumber = listeDesCours.size()-1;
+        //System.out.println("begin : " + begin);
+        this.actuButton(); //Affiche les boutons en fonction du nombre que l'on peut afficher avec un contenu
+        actuButton();
     }
 }
