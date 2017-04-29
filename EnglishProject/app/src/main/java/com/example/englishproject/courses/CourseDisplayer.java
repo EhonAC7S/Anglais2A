@@ -11,7 +11,7 @@ import com.example.englishproject.courses.dataelement.DataBaseCourses;
 
 public class CourseDisplayer extends AppCompatActivity {
 
-    public static final String EXEMPLES = "Exemples :";
+    public static final String EXEMPLES = "Examples :";
     public static final String COURSE_ID = "CourseId";
 
     @Override
