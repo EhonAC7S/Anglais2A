@@ -23,6 +23,8 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public static final String THOUGH_THOUGHT_THOROUGH_THROUGH = "though/thought/thorough/through";
     public static final String PREFIXES = "Prefixes";
     public static final String ACTIVE_VOICE = "Active Voice";
+    public static final String PASSIVE_VOICE = "Passive Voice";
+
     public static final String CONJUNCTIONS = "Conjunctions";
     public static final String COMMA = "Comma";
     public static final String SEMICOLON = "Semicolon";
@@ -83,11 +85,11 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         //Ajouter les contenus des cours ici
         //template :
         //addCourse(new CourseContents(
-        //      COMMON_MISSPELLINGS, // Rule
-        //      THEIR_THERE_THEYRE, // Title
-        //      THEIR_THERE_THEYRE, // Desc
-        //      THEIR_THERE_THEYRE, // Example1
-        //      THEIR_THERE_THEYRE) // Example2
+        //      RULE, // Rule
+        //      TITLE, // Title
+        //      DESCRIPTION, // Desc
+        //      EXAMPLE1, // Example1
+        //      EXAMPLE2) // Example2
         //);
 
         // COMMON_MISSPELLINGS :
@@ -133,42 +135,67 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         // ACTIVE_VOICE
         addCourse(new CourseContents(
                 ACTIVE_VOICE, // Rule
-                THEIR_THERE_THEYRE, // Title
-                THEIR_THERE_THEYRE, // Desc
-                THEIR_THERE_THEYRE, // Example1
-                THEIR_THERE_THEYRE) // Example2
+                "Active Voice Usage", // Title
+                " Someone (the subject) is doing something (the verb). The subject performs the action.\n Active Voice can add impact to your writing", // Desc
+                "We are going to watch a movie tonight.", // Example1
+                "Mom read the novel in one day.") // Example2
+        );
+        // PASSIVE_VOICE
+        addCourse(new CourseContents(
+                PASSIVE_VOICE, // Rule
+                "Focus on the action", // Title
+                "   Someone (the subject) is having something (the verb) done to them. The subject receives the action", // Desc
+                "She had been murdered.", // Example1
+                "Everyone was startled by the power outage.") // Example2
         );
         // CONJUNCTIONS
         addCourse(new CourseContents(
                 CONJUNCTIONS, // Rule
-                THEIR_THERE_THEYRE, // Title
-                THEIR_THERE_THEYRE, // Desc
-                THEIR_THERE_THEYRE, // Example1
-                THEIR_THERE_THEYRE) // Example2
+                "To coordinate clauses", // Title
+                "   Sometimes you want to link two ideas with a second S+V+O combination. " +
+                        "When you do, you need a coordinating conjunction.\n " +
+                        "   Coordinating conjunctions are easy to remember with an acronymic mnemonic device: FANBOYS : \n" +
+                        "For-And-Nor-But-Or-Yet-So", // Desc
+                "She hasn't taken dance lessons, nor does she need to.", // Example1
+                "Other dancers try to imitate her style, yet they have not succeeded.") // Example2
         );
         // COMMA
         addCourse(new CourseContents(
                 COMMA, // Rule
-                THEIR_THERE_THEYRE, // Title
-                THEIR_THERE_THEYRE, // Desc
-                THEIR_THERE_THEYRE, // Example1
-                THEIR_THERE_THEYRE) // Example2
+                "Serial Comma for listing", // Title
+                "   The serial, or Oxford, comma is a controversial rule of grammar. Some want to eliminate it " +
+                        "altogether while others just don't know how to use it." +
+                        "   The serial comma is the last comma in a list, usually appearing before 'and.'\n" +
+                        "   Commas separate units in a list. In the above case, each unit only has one part, so it's easy. " +
+                        "Where people get confused is when the units are bigger\n" +
+                        "  Notice that the serial comma comes before 'and' but not the last 'and' in the sentence. " +
+                        "The 'and' that follows the comma is only there because it sounds better. Grammatically, " +
+                        "'and' is irrelevant. Only units matter.",
+                "Pets R Us has lizards, dogs, and birds.",
+                "Pets R Us has lizards and frogs, dogs and cats, and parakeets and macaws.") // Example2
         );
         // SEMICOLON
         addCourse(new CourseContents(
                 SEMICOLON, // Rule
-                THEIR_THERE_THEYRE, // Title
-                THEIR_THERE_THEYRE, // Desc
-                THEIR_THERE_THEYRE, // Example1
-                THEIR_THERE_THEYRE) // Example2
+                "Close connection, two as one!", // Title
+                "   A list of grammar rules has to include the scariest of punctuation marks. It might look funny, " +
+                        "but don't be afraid of the semicolon; it's the easiest thing in the world to use! " +
+                        "   Say you want to join two ideas but can't figure out or can't be bothered to use a " +
+                        "coordinating conjunction. The two ideas can be separate sentences," +
+                        " but you think that they are so closely connected; they really should be one. " +
+                        "Use a semicolon.", // Desc
+                "Mary's dog is hyperactive; it won't stop barking or sit still.",
+                "My heart is like a cup of Lapsang Souchong tea; it's bitter and smoky.") // Example2
         );
         // SIMPLE_PRESENT
         addCourse(new CourseContents(
                 SIMPLE_PRESENT, // Rule
-                THEIR_THERE_THEYRE, // Title
-                THEIR_THERE_THEYRE, // Desc
-                THEIR_THERE_THEYRE, // Example1
-                THEIR_THERE_THEYRE) // Example2
+                "Habitual Actions", // Title
+                "   The simple present is the tense you use for any habitual action. " +
+                        "The things you always do or do every Tuesday are described with " +
+                        "the simple present, which just means you pick the first form of any verb.", // Desc
+                "Mary likes dogs.", // Example1
+                "Mary is playing with her hyperactive dog.")  // Example2
         );
         // PRESENT_PROGRESSIVE
         addCourse(new CourseContents(
