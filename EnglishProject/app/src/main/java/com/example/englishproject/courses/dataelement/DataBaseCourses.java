@@ -32,6 +32,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public static final String PAST_PERFECT = "Past Perfect";
     public static final String FORMING_PLURALS = "Forming Plural";
     public static final String THEIR_THERE_THEYRE = "Their/There/They re";
+    public static final String HOMOPHONES = "Homophones";
 
 
     private static final String SELECT_FROM = "SELECT * FROM ";

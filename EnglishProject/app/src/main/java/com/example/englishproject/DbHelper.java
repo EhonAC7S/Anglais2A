@@ -207,6 +207,29 @@ public class DbHelper extends SQLiteOpenHelper {
         Sentence q35=new Sentence("Their ","was disagreement over the appropriate legal ","means to pursue that objective.","Their ", THEIR_THERE_THEYRE);
         this.addSentence(q35);
 
+
+        Sentence q36=new Sentence("One character of text equals one", " bite ","of data.", " bite ", HOMOPHONES);
+        this.addSentence(q36);
+        Sentence q37=new Sentence("A censor"," detects whether the lid ","is open or closed.","A censor", HOMOPHONES);
+        this.addSentence(q37);
+        Sentence q38=new Sentence("Hiroshima became one of the most terrible bomb"," cites ","history had ever known."," cites ", HOMOPHONES);
+        this.addSentence(q38);
+        Sentence q39=new Sentence("The lifeboats are located"," for ", "and aft."," for ", HOMOPHONES);
+        this.addSentence(q39);
+        Sentence q40=new Sentence("Harry scraped his name into the"," dirt with his ","heal.","heal.", HOMOPHONES);
+        this.addSentence(q40);
+
+        Sentence q41=new Sentence("The painter mixed colors on his"," pallet ","before painting."," pallet ", HOMOPHONES);
+        this.addSentence(q41);
+        Sentence q42=new Sentence("Your mention of a job vacancy has really"," peeked ","my interest."," peeked ", HOMOPHONES);
+        this.addSentence(q42);
+        Sentence q43=new Sentence("We should not give these states"," a free ","rain.","rain.", HOMOPHONES);
+        this.addSentence(q43);
+        Sentence q44=new Sentence("For the photo shoot, the band members"," all wore black ","teas.","teas.", HOMOPHONES);
+        this.addSentence(q44);
+        Sentence q45=new Sentence("She's not"," to ","eager to get involved in this."," to ", HOMOPHONES);
+        this.addSentence(q45);
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
