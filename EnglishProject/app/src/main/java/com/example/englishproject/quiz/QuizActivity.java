@@ -29,6 +29,10 @@ import static com.example.englishproject.quiz.dataelement.DbHelper.NO_MISSPELLIN
 public class QuizActivity extends Activity implements View.OnClickListener{
 
     public static final String IS_THERE_A_MISSPELLING_HERE = "Is there a misspelling here ?";
+    public static final String SENT_LIST = "sentList";
+    public static final String ERRORS_LIST = "errorsList";
+    public static final String QID = "qid";
+    public static final String SCORE = "score";
     // initialisation des variables
     ArrayList<Sentence> sentList;
     ArrayList<Sentence> errorsList;
@@ -58,7 +62,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             if(currentQ.getANSWER().equals(ss.subSequence(0, currentQ.getPART1().length()).toString()))
             {
                 score++;
-                Log.d("score", "Your score"+score);
+                Log.d(SCORE, "Your score"+score);
             } else {
                 addError(errorsList,currentQ);
             }
@@ -74,7 +78,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             if(currentQ.getANSWER().equals(ss.subSequence(currentQ.getPART1().length(), currentQ.getPART1().length()+currentQ.getPART2().length()).toString()))
             {
                 score++;
-                Log.d("score", "Your score"+score);
+                Log.d(SCORE, "Your score"+score);
             } else {
                 addError(errorsList,currentQ);
             }
@@ -90,7 +94,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             if(currentQ.getANSWER().equals(ss.subSequence(currentQ.getPART1().length()+currentQ.getPART2().length(), currentQ.getPART1().length()+currentQ.getPART2().length()+currentQ.getPART3().length()).toString()))
             {
                 score++;
-                Log.d("score", "Your score"+score);
+                Log.d(SCORE, "Your score"+score);
             } else {
                 addError(errorsList,currentQ);
             }
@@ -106,10 +110,10 @@ public class QuizActivity extends Activity implements View.OnClickListener{
         if (savedInstanceState != null) {
             // Restore value of members from saved state
 
-            sentList = savedInstanceState.getParcelableArrayList("sentList");
-            errorsList = savedInstanceState.getParcelableArrayList("errorsList");
-            score = savedInstanceState.getInt("score");
-            qid = savedInstanceState.getInt("qid")-1;
+            sentList = savedInstanceState.getParcelableArrayList(SENT_LIST);
+            errorsList = savedInstanceState.getParcelableArrayList(ERRORS_LIST);
+            score = savedInstanceState.getInt(SCORE);
+            qid = savedInstanceState.getInt(QID)-1;
 
         } else {
 
@@ -184,7 +188,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             if(currentQ.getANSWER().equals(NO_MISSPELLING))
             {
                 score++;
-                Log.d("score", "Your score"+score);
+                Log.d(SCORE, "Your score"+score);
             } else {
                 addError(errorsList,currentQ);
             }
@@ -199,9 +203,9 @@ public class QuizActivity extends Activity implements View.OnClickListener{
         }else{ // on se dirige vers l'activité des résultats du test
             Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
             Bundle b = new Bundle();
-            b.putInt("score", score);
+            b.putInt(ResultActivity.SCORE, score);
 
-            b.putParcelableArrayList("errors", errorsList);
+            b.putParcelableArrayList(ResultActivity.ERRORS, errorsList);
 
             intent.putExtras(b);
 
@@ -227,10 +231,10 @@ public class QuizActivity extends Activity implements View.OnClickListener{
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
 
-        savedInstanceState.putParcelableArrayList("sentList", sentList);
-        savedInstanceState.putParcelableArrayList("errorsList", errorsList);
-        savedInstanceState.putInt("score", score);
-        savedInstanceState.putInt("qid", qid);
+        savedInstanceState.putParcelableArrayList(SENT_LIST, sentList);
+        savedInstanceState.putParcelableArrayList(ERRORS_LIST, errorsList);
+        savedInstanceState.putInt(SCORE, score);
+        savedInstanceState.putInt(QID, qid);
 
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);

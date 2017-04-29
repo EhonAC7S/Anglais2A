@@ -25,6 +25,8 @@ public class ResultActivity extends Activity implements View.OnClickListener {
     public static final String LESSONS_SUGGESTIONS = "Lessons suggestions :";
     public static final String YOU_ARE_FREE_TO_READ_WHICH_LESSONS_YOU_WANT_D = "You are free to read which lessons you want ! :D";
     public static final String TEXT_ERROR = "textError";
+    public static final String SCORE = "score";
+    public static final String ERRORS = "errors";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +38,8 @@ public class ResultActivity extends Activity implements View.OnClickListener {
 
         //get score and errors
         Bundle b = getIntent().getExtras();
-        int score= b.getInt("score");
-        ArrayList<Sentence> errors = b.getParcelableArrayList("errors");
+        int score= b.getInt(SCORE);
+        ArrayList<Sentence> errors = b.getParcelableArrayList(ERRORS);
 
         // set a max score / number of questions
         int scoreMax = 5;
