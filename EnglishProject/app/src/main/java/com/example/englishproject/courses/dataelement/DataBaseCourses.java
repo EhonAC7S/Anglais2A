@@ -242,6 +242,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         String selectQuery = SELECT_FROM + DATABASE_NAME + WHERE + KEY_RULE +" = '" + rule + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
+        cursor.moveToFirst();
         CourseContents course = new CourseContents();
         course.setRULE(cursor.getString(1));
         course.setTitle(cursor.getString(2));
