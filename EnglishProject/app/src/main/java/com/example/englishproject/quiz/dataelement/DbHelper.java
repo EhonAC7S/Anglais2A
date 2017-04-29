@@ -273,7 +273,7 @@ public class DbHelper extends SQLiteOpenHelper {
         cursor.close();
         return sentList;
     }
-    public int rowcount()
+    private int rowcount()
     {
         int row;
         String selectQuery = "SELECT  * FROM " + TABLE_SENTENCE;
