@@ -17,7 +17,8 @@
         android:text=""
         android:textAllCaps="false"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        android:paddingTop="5dp"/>
     <!-- Pas le choix de mettre un nombre fix... -->
     <Button
         android:id="@+id/Course2"
