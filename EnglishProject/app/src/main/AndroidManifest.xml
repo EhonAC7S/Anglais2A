@@ -38,11 +38,11 @@
         -->
         <!-- <activity android:name=".QuizActivity" android:label="Quizz"/> -->
         <activity
-            android:name=".ResultActivity"
+            android:name=".quiz.ResultActivity"
             android:configChanges="orientation|screenSize" />
 
         <activity
-            android:name=".QuizActivity"
+            android:name=".quiz.QuizActivity"
             android:configChanges="orientation|screenSize" />
 
         <activity

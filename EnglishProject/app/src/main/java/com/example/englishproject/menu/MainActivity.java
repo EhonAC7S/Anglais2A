@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.englishproject.QuizActivity;
+import com.example.englishproject.quiz.QuizActivity;
 import com.example.englishproject.R;
 import com.example.englishproject.courses.CoursesMenuActivity;
 
