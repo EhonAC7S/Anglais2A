@@ -17,7 +17,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class DataBaseCourses extends SQLiteOpenHelper{
     //Ici on met les constantes des noms de nos Cours
-    public static final String COMMON_MISSPELLINGS = "Common Misspellings";
+    public static final String COMMON_MISSPELLINGS = "Common Misspellings"; // A virer
     public static final String SUFFIXES = "Suffixes";
     public static final String APOSTROPHES_FOR_POSSESSION = "Apostrophes for possession";
     public static final String THOUGH_THOUGHT_THOROUGH_THROUGH = "though/thought/thorough/through";
@@ -36,7 +36,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public static final String PAST_PERFECT = "Past Perfect";
     public static final String FORMING_PLURALS = "Forming Plural";
     public static final String THEIR_THERE_THEYRE = "Their/There/They re";
-    public static final String HOMOPHONES = "Homophones";
+    public static final String HOMOPHONES = "Homophones"; // A virer
 
 
     private static final String CREATE_TABLE_IF_NOT_EXISTS = "CREATE TABLE IF NOT EXISTS ";
@@ -262,19 +262,16 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         // THEIR_THERE_THEYRE
         addCourse(new CourseContents(
                 THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE)
+                "Homophone : There/Their/They're",
+                "   THERE : There is the opposite of Here. It means 'in that place' not here. " +
+                        "There is/There are = to show that something exists.\n\n" +
+                        "   THEIR : Their is a possessive adjective which is used before a noun. " +
+                        "It shows possession, that something belongs to them.\n\n" +
+                        "   THEY'RE : They're is a simple contraction of they are.",
+                "They're playing their video games over there.",
+                "All of their friends were crazy.")
         );
-        // HOMOPHONES
-        addCourse(new CourseContents(
-                HOMOPHONES,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE)
-        );
+
 
 
     }

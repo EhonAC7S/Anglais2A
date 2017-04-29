@@ -8,11 +8,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.example.englishproject.R;
-import com.example.englishproject.courses.dataelement.DataBaseCourses;
+import com.example.englishproject.courses.CourseDisplayer;
 import com.example.englishproject.quiz.dataelement.Sentence;
-
 import java.util.ArrayList;
 
 public class ResultActivity extends Activity implements View.OnClickListener {
@@ -27,6 +25,7 @@ public class ResultActivity extends Activity implements View.OnClickListener {
     public static final String TEXT_ERROR = "textError";
     public static final String SCORE = "score";
     public static final String ERRORS = "errors";
+    public static final String EMPTYSTR = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,10 +105,20 @@ public class ResultActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
 
         TextView txtv = (TextView) v;
-        if (DataBaseCourses.COMMON_MISSPELLINGS.equals(txtv.getText().toString())){
-            Intent myIntent = new Intent(v.getContext(), QuizActivity.class);
-            startActivityForResult(myIntent, 0);
+        if (txtv!=null && !txtv.getText().equals(EMPTYSTR)) {
+            Intent intent = new Intent(ResultActivity.this, CourseDisplayer.class);
+            Bundle b = new Bundle(); // On créé un sac à dos de transition entre les deux activités
+            // On charge le sac à dos des éléments qui nous voulons transmettre
+            b.putCharSequence(CourseDisplayer.COURSE_ID, txtv.getText());
+            // On ajoute ce sac à dos à intend
+            intent.putExtras(b);
+            //On lance l'activité parametrée avec intend
+            startActivityForResult(intent, 0);
         }
+        else {
+            System.out.println("On ne peut pas cliquer sur ce TextView");
+        }
+
 
     }
 }

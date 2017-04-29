@@ -40,7 +40,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 +KEY_PART2 +" TEXT, "+KEY_PART3 +" TEXT, "+KEY_RULE +" TEXT)";
         db.execSQL(sql);
         addSentences();
-        System.out.println(this.rowcount());
+        //System.out.println(this.rowcount());
         //db.close();
     }
     private void addSentences()
