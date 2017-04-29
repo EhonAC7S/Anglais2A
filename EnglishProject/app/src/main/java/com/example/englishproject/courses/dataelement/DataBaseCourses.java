@@ -168,11 +168,11 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                         "   The serial comma is the last comma in a list, usually appearing before 'and.'\n" +
                         "   Commas separate units in a list. In the above case, each unit only has one part, so it's easy. " +
                         "Where people get confused is when the units are bigger\n" +
-                        "  Notice that the serial comma comes before 'and' but not the last 'and' in the sentence. " +
+                        "   Notice that the serial comma comes before 'and' but not the last 'and' in the sentence. " +
                         "The 'and' that follows the comma is only there because it sounds better. Grammatically, " +
                         "'and' is irrelevant. Only units matter.",
-                "Pets R Us has lizards, dogs, and birds.",
-                "Pets R Us has lizards and frogs, dogs and cats, and parakeets and macaws.") // Example2
+                "Pets are Us has lizards, dogs, and birds.",
+                "Pets are Us has lizards and frogs, dogs and cats, and parakeets and macaws.") // Example2
         );
         // SEMICOLON
         addCourse(new CourseContents(
@@ -200,42 +200,56 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         // PRESENT_PROGRESSIVE
         addCourse(new CourseContents(
                 PRESENT_PROGRESSIVE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE)
+                "Tense for current action",
+                "   The present progressive tense is for anything that is happening right now. " +
+                        "All of the progressive tenses are easy to spot because their verbs always " +
+                        "end with '-ing' and get a helping verb. " +
+                        "   A helping verb is just so we know who and when we're talking about. " +
+                        "   In the present progressive, the helping verbs are the present tense " +
+                        "conjugations of 'to be.'",
+                "I am drinking Lapsang Souchong tea.",
+                "Mary is playing with her hyperactive dog.")
         );
         // ED_RULE
         addCourse(new CourseContents(
                 ED_RULE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE)
+                "Past tense for regular verbs",
+                "   When we talk about the past, we have to add an '-ed' to regular verbs to make the second form. " +
+                        "   Irregular verbs are tricky and have their own sets of rules. Drink, for example, turns to 'drank.' " +
+                        "   Most of the time, though, '-ed' will do.",
+                "The dogs stopped barking two seconds ago, and I am feeling better.",
+                "Mary played fetch with her hyperactive dog.")
         );
         // PRESENT_PERFECT
         addCourse(new CourseContents(
                 PRESENT_PERFECT,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE)
+                "The Unfinished Past",
+                "   The present perfect can be confusing for some, but it is one of the most important rules of grammar. " +
+                        "   When people talk about things that have already happened but consider the time in which they " +
+                        "occurred to be unfinished, " +
+                        "they use the third form of the verb with a helping verb. The helping verb for the present perfect " +
+                        "is the present tense conjugation of 'to have.'",
+                "I have drunk three cups of Lapsang Souchong tea today.",
+                "Mary has walked her hyperactive poodle 100 times this week.")
         );
         // PRESENT_PERFECT_PROG
         addCourse(new CourseContents(
                 PRESENT_PERFECT_PROG,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE)
+                "The Unfinished Actions of Past",
+                "When the action as well as the time is considered unfinished, the verb loads up on third " +
+                        "form helping verbs ('to be' and 'to have') and changes to the progressive form.",
+                "Western countries have been waging wars in the Middle East for thousands of years.",
+                "I have been drinking tea all day.")
         );
         // PAST_PERFECT
         addCourse(new CourseContents(
                 PAST_PERFECT,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE)
+                "Past for Past in the Past",
+                "   When two things happen in the past, we have to mark which one happened first. " +
+                        "The one that happened first changes to third form and gets the helping verb, 'had.'",
+
+                "By the time I drank one cup of Lapsang Souchong, Mary's dog had barked a million times.",
+                "I had not yet eaten breakfast when Mary walked her dog.")
         );
         // FORMING_PLURALS
         addCourse(new CourseContents(
