@@ -4,6 +4,7 @@ import java.util.Collections;
 
 
 import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
@@ -27,6 +28,7 @@ import static com.example.englishproject.quiz.dataelement.DbHelper.NO_MISSPELLIN
 
 public class QuizActivity extends Activity implements View.OnClickListener{
 
+    public static final String IS_THERE_A_MISSPELLING_HERE = "Is there a misspelling here ?";
     // initialisation des variables
     ArrayList<Sentence> sentList;
     ArrayList<Sentence> errorsList;
@@ -37,8 +39,8 @@ public class QuizActivity extends Activity implements View.OnClickListener{
     Button butNoMisspelling;
     SpannableString ss;
 
-    public class MyClickableSpan extends ClickableSpan{
-        public MyClickableSpan(){
+    private class MyClickableSpan extends ClickableSpan{
+        MyClickableSpan(){
             super();
         }
         public void onClick(View tv){}
@@ -53,7 +55,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             //TextView answer = (TextView)textView;
             Log.d("yourans", "|"+currentQ.getANSWER()+"|"+ss.subSequence(0, currentQ.getPART1().length())+"|");
             // on compare la valeur de l'élément avec la réponse présente dans la liste issue de la BDD
-            if(currentQ.getANSWER().toString().equals(ss.subSequence(0, currentQ.getPART1().length()).toString()))
+            if(currentQ.getANSWER().equals(ss.subSequence(0, currentQ.getPART1().length()).toString()))
             {
                 score++;
                 Log.d("score", "Your score"+score);
@@ -69,7 +71,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             //TextView answer = (TextView)textView;
             Log.d("yourans", "|"+currentQ.getANSWER()+"|"+ss.subSequence(currentQ.getPART1().length(), currentQ.getPART1().length()+currentQ.getPART2().length())+"|");
             // on compare la valeur de l'élément avec la réponse présente dans la liste issue de la BDD
-            if(currentQ.getANSWER().toString().equals(ss.subSequence(currentQ.getPART1().length(), currentQ.getPART1().length()+currentQ.getPART2().length()).toString()))
+            if(currentQ.getANSWER().equals(ss.subSequence(currentQ.getPART1().length(), currentQ.getPART1().length()+currentQ.getPART2().length()).toString()))
             {
                 score++;
                 Log.d("score", "Your score"+score);
@@ -85,7 +87,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             //TextView answer = (TextView)textView;
             Log.d("yourans", "|"+currentQ.getANSWER()+"|"+ss.subSequence(currentQ.getPART1().length()+currentQ.getPART2().length(), currentQ.getPART1().length()+currentQ.getPART2().length()+currentQ.getPART3().length())+"|");
             // on compare la valeur de l'élément avec la réponse présente dans la liste issue de la BDD
-            if(currentQ.getANSWER().toString().equals(ss.subSequence(currentQ.getPART1().length()+currentQ.getPART2().length(), currentQ.getPART1().length()+currentQ.getPART2().length()+currentQ.getPART3().length()).toString()))
+            if(currentQ.getANSWER().equals(ss.subSequence(currentQ.getPART1().length()+currentQ.getPART2().length(), currentQ.getPART1().length()+currentQ.getPART2().length()+currentQ.getPART3().length()).toString()))
             {
                 score++;
                 Log.d("score", "Your score"+score);
@@ -119,7 +121,7 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             Collections.shuffle(sentList);
 
             // on prépare une arraylist pour stocker les erreurs de l'utilisateur
-            errorsList = new ArrayList<Sentence>();
+            errorsList = new ArrayList<>();
 
             // petit message d'encouragement :D
             Toast.makeText(this, "Good luck :D", Toast.LENGTH_LONG).show();
@@ -159,11 +161,11 @@ public class QuizActivity extends Activity implements View.OnClickListener{
     private void setSentenceView()
     {
 
-        txtSentence.setText("Is there a misspelling here ?");
+        txtSentence.setText(IS_THERE_A_MISSPELLING_HERE);
         ss = new SpannableString(currentQ.getPART1()+currentQ.getPART2()+currentQ.getPART3());
-        ss.setSpan(span1, 0,currentQ.getPART1().length(), ss.SPAN_EXCLUSIVE_EXCLUSIVE);
-        ss.setSpan(span2, currentQ.getPART1().length(), currentQ.getPART1().length()+currentQ.getPART2().length(), ss.SPAN_EXCLUSIVE_EXCLUSIVE);
-        ss.setSpan(span3, currentQ.getPART1().length()+currentQ.getPART2().length(), currentQ.getPART1().length()+currentQ.getPART2().length()+currentQ.getPART3().length(), ss.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(span1, 0,currentQ.getPART1().length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(span2, currentQ.getPART1().length(), currentQ.getPART1().length()+currentQ.getPART2().length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(span3, currentQ.getPART1().length()+currentQ.getPART2().length(), currentQ.getPART1().length()+currentQ.getPART2().length()+currentQ.getPART3().length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         txtV1.setText(ss);
         txtV1.setMovementMethod(LinkMovementMethod.getInstance()); //A quoi ca sert?? LoL
         //txtV2.setText(currentQ.getPART2());
