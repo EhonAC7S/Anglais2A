@@ -40,6 +40,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 +KEY_PART2 +" TEXT, "+KEY_PART3 +" TEXT, "+KEY_RULE +" TEXT)";
         db.execSQL(sql);
         addSentences();
+        System.out.println(this.rowcount());
         //db.close();
     }
     private void addSentences()
@@ -239,7 +240,7 @@ public class DbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
     // Adding new sentence
-    public void addSentence(Sentence sent) {
+    private void addSentence(Sentence sent) {
         //SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_ANSWER, sent.getANSWER());
@@ -251,7 +252,7 @@ public class DbHelper extends SQLiteOpenHelper {
         dbase.insert(TABLE_SENTENCE, null, values);
     }
     public ArrayList<Sentence> getAllSentences() {
-        ArrayList<Sentence> sentList = new ArrayList<Sentence>();
+        ArrayList<Sentence> sentList = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_SENTENCE;
         dbase=this.getReadableDatabase();
@@ -269,16 +270,17 @@ public class DbHelper extends SQLiteOpenHelper {
                 sentList.add(sent);
             } while (cursor.moveToNext());
         }
-        // return sent list
+        cursor.close();
         return sentList;
     }
     public int rowcount()
     {
-        int row=0;
+        int row;
         String selectQuery = "SELECT  * FROM " + TABLE_SENTENCE;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         row=cursor.getCount();
+        cursor.close();
         return row;
     }
 }
