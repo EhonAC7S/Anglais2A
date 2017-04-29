@@ -4,13 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class CourseContents implements Parcelable{
-    //private String ID;
+
     private String Title;
     private String desc;
     private String Exemple1;
     private String Exemple2;
     private String RULE;
-    public CourseContents()
+    // Package acces only
+    CourseContents()
     {
         //ID="";
         Title ="";
@@ -19,7 +20,7 @@ public class CourseContents implements Parcelable{
         Exemple2 ="";
         RULE="";
     }
-    public CourseContents(String rULE, String title, String descr, String exmpl1,
+    CourseContents(String rULE, String title, String descr, String exmpl1,
                           String exmpl2) {
 
         //ID = rULE;
@@ -29,10 +30,7 @@ public class CourseContents implements Parcelable{
         Exemple1 = exmpl1;
         Exemple2 = exmpl2;
     }
-    //public String getID()
-    //{
-    //    return ID;
-    //}
+
     public String getTitle() {
         return Title;
     }
@@ -45,28 +43,24 @@ public class CourseContents implements Parcelable{
     public String getExemple2() {
         return Exemple2;
     }
-
     public String getRULE() { return RULE; }
-    //public void setID(String id)
-    //{
-    //    ID=id;
-    //}
-    public void setTitle(String pART1) {
+
+    void setTitle(String pART1) {
         Title = pART1;
     }
-    public void setDesc(String pART2) {
+    void setDesc(String pART2) {
         desc = pART2;
     }
-    public void setExemple1(String pART3) {
+    void setExemple1(String pART3) {
         Exemple1 = pART3;
     }
-    public void setExemple2(String pART3) {
+    void setExemple2(String pART3) {
         Exemple2 = pART3;
     }
-    public void setRULE(String rULE) { RULE = rULE; }
+    void setRULE(String rULE) { RULE = rULE; }
 
 
-    public CourseContents(Parcel in){
+    private CourseContents(Parcel in){
         super();
         readFromParcel(in);
     }
@@ -81,7 +75,7 @@ public class CourseContents implements Parcelable{
         }
     };
 
-    public void readFromParcel(Parcel in){
+    private void readFromParcel(Parcel in){
         //ID=in.readString();
         Title =in.readString();
         desc =in.readString();
@@ -97,7 +91,6 @@ public class CourseContents implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        //dest.writeString(ID);
         dest.writeString(Title);
         dest.writeString(desc);
         dest.writeString(Exemple1);

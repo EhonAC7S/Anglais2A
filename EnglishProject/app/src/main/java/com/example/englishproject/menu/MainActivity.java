@@ -14,9 +14,13 @@ import com.example.englishproject.courses.CoursesMenuActivity;
 
 public class MainActivity extends AppCompatActivity  {
 
-
-
-    Button quizz;
+    public static final String COURSE = "Course";
+    public static final String QUIZ = "Quiz";
+    public static final String OPTIONS = "Options";
+    public static final String QUIT = "Quit";
+    public static final String LANDSCAPE = "landscape";
+    public static final String PORTRAIT = "portrait";
+    Button quiz;
     Button course;
     Button param;
     Button quit;
@@ -33,11 +37,11 @@ public class MainActivity extends AppCompatActivity  {
 
         // Checks the orientation of the screen
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, LANDSCAPE, Toast.LENGTH_SHORT).show();
             setContentView(R.layout.activity_main);
             initialize();
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-            Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, PORTRAIT, Toast.LENGTH_SHORT).show();
             setContentView(R.layout.activity_main);
             initialize();
         }
@@ -45,15 +49,15 @@ public class MainActivity extends AppCompatActivity  {
 
     private void initialize() {
         course = (Button) findViewById(R.id.Course);
-        quizz = (Button)findViewById(R.id.Training);
+        quiz = (Button)findViewById(R.id.Training);
         param = (Button)findViewById(R.id.Option);
         quit = (Button) findViewById(R.id.Exit);
-        course.setText("Course");
-        quizz.setText("Quiz");
-        param.setText("Options");
-        quit.setText("Quit");
+        course.setText(COURSE);
+        quiz.setText(QUIZ);
+        param.setText(OPTIONS);
+        quit.setText(QUIT);
         //Rend les boutons cliquables
-        quizz.setOnClickListener(new View.OnClickListener() {
+        quiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(v.getContext(), QuizActivity.class);

@@ -1,11 +1,10 @@
 package com.example.englishproject.courses.dataelement;
 
-/**
+/*
  * Created by jorda on 27/04/2017.
+ *
  */
 import java.util.ArrayList;
-import java.util.Collections;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -13,6 +12,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
+/**
+ * DataBase of all Courses that can be Displayed and referenced
+ */
 public class DataBaseCourses extends SQLiteOpenHelper{
     //Ici on met les constantes des noms de nos Cours
     public static final String COMMON_MISSPELLINGS = "Common Misspellings";
@@ -35,6 +37,10 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public static final String HOMOPHONES = "Homophones";
 
 
+    private static final String CREATE_TABLE_IF_NOT_EXISTS = "CREATE TABLE IF NOT EXISTS ";
+    private static final String INTEGER_PRIMARY_KEY_AUTOINCREMENT = " INTEGER PRIMARY KEY AUTOINCREMENT, ";
+
+
     private static final String SELECT_FROM = "SELECT * FROM ";
 
     private static final int DATABASE_VERSION = 1;
@@ -48,7 +54,8 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     private static final String KEY_EX1 = "example1";
     private static final String KEY_RULE = "rule";
     private static final String KEY_EX2 ="example2";
-    public static final String TEXT = " TEXT, ";
+    private static final String TEXT = " TEXT, ";
+    private static final String WHERE = " WHERE ";
 
     private SQLiteDatabase dbase;
     public DataBaseCourses(Context context) {
@@ -62,44 +69,186 @@ public class DataBaseCourses extends SQLiteOpenHelper{
 
         db.execSQL("DROP TABLE IF EXISTS " + DATABASE_NAME);
 
-        String sql = "CREATE TABLE IF NOT EXISTS " + DATABASE_NAME + " ( "
-                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_RULE + TEXT +KEY_TITLE + TEXT
+        String sql = CREATE_TABLE_IF_NOT_EXISTS + DATABASE_NAME + " ( "
+                + KEY_ID + INTEGER_PRIMARY_KEY_AUTOINCREMENT + KEY_RULE + TEXT +KEY_TITLE + TEXT
                 + KEY_DESCR +TEXT+ KEY_EX1 +TEXT+ KEY_EX2 +" TEXT)";
         db.execSQL(sql);
         addCourses();
+
         //db.close();
+
     }
     private void addCourses()
     {
         //Ajouter les contenus des cours ici
-        addCourse(new CourseContents(THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
-        addCourse(new CourseContents(ACTIVE_VOICE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
-        addCourse(new CourseContents(CONJUNCTIONS,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
-        addCourse(new CourseContents(PRESENT_PERFECT_PROG,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
-        addCourse(new CourseContents(PRESENT_PERFECT,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
-        addCourse(new CourseContents(ED_RULE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
-        addCourse(new CourseContents(PRESENT_PROGRESSIVE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
-        addCourse(new CourseContents(SIMPLE_PRESENT,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE,THEIR_THERE_THEYRE));
+        //template :
+        //addCourse(new CourseContents(
+        //      COMMON_MISSPELLINGS, // Rule
+        //      THEIR_THERE_THEYRE, // Title
+        //      THEIR_THERE_THEYRE, // Desc
+        //      THEIR_THERE_THEYRE, // Example1
+        //      THEIR_THERE_THEYRE) // Example2
+        //);
+
+        // COMMON_MISSPELLINGS :
+        addCourse(new CourseContents(
+                COMMON_MISSPELLINGS, // Rule
+                THEIR_THERE_THEYRE, // Title
+                THEIR_THERE_THEYRE, // Desc
+                THEIR_THERE_THEYRE, // Example1
+                THEIR_THERE_THEYRE) // Example2
+        );
+        // SUFFIXES
+        addCourse(new CourseContents(
+                SUFFIXES, // Rule
+                THEIR_THERE_THEYRE, // Title
+                THEIR_THERE_THEYRE, // Desc
+                THEIR_THERE_THEYRE, // Example1
+                THEIR_THERE_THEYRE) // Example2
+        );
+        // APOSTROPHES_FOR_POSSESSION
+        addCourse(new CourseContents(
+                APOSTROPHES_FOR_POSSESSION, // Rule
+                THEIR_THERE_THEYRE, // Title
+                THEIR_THERE_THEYRE, // Desc
+                THEIR_THERE_THEYRE, // Example1
+                THEIR_THERE_THEYRE) // Example2
+        );
+        // THOUGH_THOUGHT_THOROUGH_THROUGH
+        addCourse(new CourseContents(
+                THOUGH_THOUGHT_THOROUGH_THROUGH, // Rule
+                THEIR_THERE_THEYRE, // Title
+                THEIR_THERE_THEYRE, // Desc
+                THEIR_THERE_THEYRE, // Example1
+                THEIR_THERE_THEYRE) // Example2
+        );
+        // PREFIXES
+        addCourse(new CourseContents(
+                PREFIXES, // Rule
+                THEIR_THERE_THEYRE, // Title
+                THEIR_THERE_THEYRE, // Desc
+                THEIR_THERE_THEYRE, // Example1
+                THEIR_THERE_THEYRE) // Example2
+        );
+        // ACTIVE_VOICE
+        addCourse(new CourseContents(
+                ACTIVE_VOICE, // Rule
+                THEIR_THERE_THEYRE, // Title
+                THEIR_THERE_THEYRE, // Desc
+                THEIR_THERE_THEYRE, // Example1
+                THEIR_THERE_THEYRE) // Example2
+        );
+        // CONJUNCTIONS
+        addCourse(new CourseContents(
+                CONJUNCTIONS, // Rule
+                THEIR_THERE_THEYRE, // Title
+                THEIR_THERE_THEYRE, // Desc
+                THEIR_THERE_THEYRE, // Example1
+                THEIR_THERE_THEYRE) // Example2
+        );
+        // COMMA
+        addCourse(new CourseContents(
+                COMMA, // Rule
+                THEIR_THERE_THEYRE, // Title
+                THEIR_THERE_THEYRE, // Desc
+                THEIR_THERE_THEYRE, // Example1
+                THEIR_THERE_THEYRE) // Example2
+        );
+        // SEMICOLON
+        addCourse(new CourseContents(
+                SEMICOLON, // Rule
+                THEIR_THERE_THEYRE, // Title
+                THEIR_THERE_THEYRE, // Desc
+                THEIR_THERE_THEYRE, // Example1
+                THEIR_THERE_THEYRE) // Example2
+        );
+        // SIMPLE_PRESENT
+        addCourse(new CourseContents(
+                SIMPLE_PRESENT, // Rule
+                THEIR_THERE_THEYRE, // Title
+                THEIR_THERE_THEYRE, // Desc
+                THEIR_THERE_THEYRE, // Example1
+                THEIR_THERE_THEYRE) // Example2
+        );
+        // PRESENT_PROGRESSIVE
+        addCourse(new CourseContents(
+                PRESENT_PROGRESSIVE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE)
+        );
+        // ED_RULE
+        addCourse(new CourseContents(
+                ED_RULE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE)
+        );
+        // PRESENT_PERFECT
+        addCourse(new CourseContents(
+                PRESENT_PERFECT,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE)
+        );
+        // PRESENT_PERFECT_PROG
+        addCourse(new CourseContents(
+                PRESENT_PERFECT_PROG,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE)
+        );
+        // PAST_PERFECT
+        addCourse(new CourseContents(
+                PAST_PERFECT,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE)
+        );
+        // FORMING_PLURALS
+        addCourse(new CourseContents(
+                FORMING_PLURALS,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE)
+        );
+        // THEIR_THERE_THEYRE
+        addCourse(new CourseContents(
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE)
+        );
+        // HOMOPHONES
+        addCourse(new CourseContents(
+                HOMOPHONES,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE,
+                THEIR_THERE_THEYRE)
+        );
 
 
     }
 
     public CourseContents getCourseContents(String rule) {
-        String selectQuery = "SELECT * FROM " + DATABASE_NAME + " WHERE "+ KEY_RULE +" = '" + rule + "'";
-        System.out.println(selectQuery);
+        String selectQuery = SELECT_FROM + DATABASE_NAME + WHERE + KEY_RULE +" = '" + rule + "'";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-        System.out.println(cursor.getCount());
-        // Ici on peut combler un manque d'optimisation puisque la RULE est enfait l'ID qui se retrouve
-        // dédoublé dans la BD mais pas dans la classe CourseContents
-        System.out.println(cursor.moveToFirst());
         CourseContents course = new CourseContents();
         course.setRULE(cursor.getString(1));
-        //System.out.println(cursor.getString(1));
         course.setTitle(cursor.getString(2));
         course.setDesc(cursor.getString(3));
         course.setExemple1(cursor.getString(4));
         course.setExemple2(cursor.getString(5));
+        cursor.close();
         return course;
     }
 
@@ -111,7 +260,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         onCreate(db);
     }
     // Adding new sentence
-    public void addCourse(CourseContents sent) {
+    private void addCourse(CourseContents sent) {
         //SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_RULE, sent.getRULE());
@@ -123,23 +272,12 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         dbase.insert(DATABASE_NAME, null, values);
     }
     public ArrayList<CourseContents> getAllCourses() {
-        ArrayList<CourseContents> sentList = new ArrayList<CourseContents>();
+        ArrayList<CourseContents> sentList = new ArrayList<>();
         // Select All Query
         String selectQuery = SELECT_FROM + DATABASE_NAME;
         dbase=this.getReadableDatabase();
-        //System.out.println(selectQuery);
-
         Cursor cursor = dbase.rawQuery(selectQuery, null);
-        //System.out.println(cursor.getString(0));
-
-        //System.out.println(cursor.moveToFirst());
-        //System.out.println("nb colonnes :" +cursor.getColumnCount());
-        //System.out.println("Curseur bien placé? :" +cursor.move(-1000));
-        //System.out.println("nb lignes :" +cursor.getCount());
-        //System.out.println(dbase.getPath());
-
-
-        // looping through all rows and adding to list
+                // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
 
@@ -152,18 +290,19 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                 course.setExemple2(cursor.getString(5));
                 sentList.add(course);
             } while (cursor.moveToNext());
-        } else System.out.println("La requete elle pue");
-
+        }
+        cursor.close();
         return sentList;
     }
 
     public int rowcount()
     {
-        int row=0;
+        int row;
         String selectQuery = SELECT_FROM + DATABASE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         row=cursor.getCount();
+        cursor.close();
         return row;
     }
 }

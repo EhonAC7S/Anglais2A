@@ -7,6 +7,8 @@ import android.widget.Button;
 import com.example.englishproject.R;
 import com.example.englishproject.courses.dataelement.DataBaseCourses;
 import com.example.englishproject.courses.dataelement.CourseContents;
+import com.example.englishproject.menu.MainActivity;
+
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.widget.Toast;
@@ -42,33 +44,25 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
         if (savedInstanceState != null) {
             begin  = savedInstanceState.getInt("begin");
             listeDesCours = savedInstanceState.getParcelableArrayList("list");
-
-
         }
         else {
             begin = 0;
             bd = new DataBaseCourses(this);
             listeDesCours = bd.getAllCourses();
         }
-        coursNumber = listeDesCours.size()-1; //Indice du dernier Cours
+        coursNumber = (listeDesCours != null ? listeDesCours.size() : 0) -1; //Indice du dernier Cours
         System.out.println("Indice de fin d'Array : " + coursNumber);
         initialize();
     }
 
     private boolean canGoNext() {
-        if (begin+nbOfCoursDisplayed<=coursNumber) { //Cas du bouton next
-            return true;
-        } else {
-            return false;
-        }
+        //Cas du bouton next
+        return begin + nbOfCoursDisplayed <= coursNumber;
     }
 
     private boolean canGoPrevious() {
-        if (begin>=nbOfCoursDisplayed) { // Cas du bouton previous
-            return true;
-        } else {
-            return false;
-        }
+        // Cas du bouton previous
+        return begin >= nbOfCoursDisplayed;
     }
 
     public void actuButton() { //A partir de l'état du curseur begin, on va chercher les elements de la liste 'listeDesCours' disponible pour les afficher
@@ -90,7 +84,6 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
         if (begin+2<=coursNumber) {
             cours3.setVisibility(View.VISIBLE);
             System.out.println("Bouton 2 : "+ listeDesCours.get(begin+2).getRULE());
-
             cours3.setText(listeDesCours.get(begin+2).getRULE());
         } else {
             cours3.setVisibility(View.INVISIBLE);
@@ -98,7 +91,6 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
         if (begin+3<=coursNumber) {
             cours4.setVisibility(View.VISIBLE);
             System.out.println("Bouton 3 : "+ listeDesCours.get(begin+3).getRULE());
-
             cours4.setText(listeDesCours.get(begin+3).getRULE());
         } else {
             cours4.setVisibility(View.INVISIBLE);
@@ -106,7 +98,6 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
         if (begin+4<=coursNumber) {
             cours5.setVisibility(View.VISIBLE);
             System.out.println("Bouton 4 : "+ listeDesCours.get(begin+4).getRULE());
-
             cours5.setText(listeDesCours.get(begin+4).getRULE());
         } else {
             cours5.setVisibility(View.INVISIBLE);
@@ -139,7 +130,7 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
         Intent intent = new Intent(CoursesMenuActivity.this, CourseDisplayer.class);
         Bundle b = new Bundle(); // On créé un sac à dos de transition entre les deux activités
         // On charge le sac à dos des éléments qui nous voulons transmettre
-        b.putCharSequence("CourseId", button.getText());
+        b.putCharSequence(CourseDisplayer.COURSE_ID, button.getText());
         // On ajoute ce sac à dos à intend
         intent.putExtras(b);
         //On lance l'activité parametrée avec intend
@@ -159,11 +150,11 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
 
         // Checks the orientation of the screen
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, MainActivity.LANDSCAPE, Toast.LENGTH_SHORT).show();
             setContentView(R.layout.activity_cours);
             initialize();
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-            Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, MainActivity.PORTRAIT, Toast.LENGTH_SHORT).show();
             setContentView(R.layout.activity_cours);
             initialize();
         }
@@ -209,8 +200,6 @@ public class CoursesMenuActivity extends AppCompatActivity implements View.OnCli
         cours4.setOnClickListener(this);
         cours5.setOnClickListener(this);
         cours6.setOnClickListener(this);
-        //coursNumber = listeDesCours.size()-1;
-        //System.out.println("begin : " + begin);
         this.actuButton(); //Affiche les boutons en fonction du nombre que l'on peut afficher avec un contenu
         actuButton();
     }

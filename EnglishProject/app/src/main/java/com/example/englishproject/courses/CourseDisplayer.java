@@ -12,24 +12,25 @@ import com.example.englishproject.courses.dataelement.DataBaseCourses;
 public class CourseDisplayer extends AppCompatActivity {
 
     public static final String EXEMPLES = "Exemples :";
-    private TextView IDOfCourse;
-    private TextView TitleOfCourse;
-    private TextView DescOfCourse;
-    private TextView Exemple0OfCourse;
-    private TextView Exemple1OfCourse;
-    private TextView Exemple2OfCourse;
+    public static final String COURSE_ID = "CourseId";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_displayer);
         Bundle b = getIntent().getExtras();
-        CharSequence LessonID= b.getCharSequence("CourseId");
+        CharSequence LessonID= b.getCharSequence(COURSE_ID);
+
         DataBaseCourses bd = new DataBaseCourses(this);
         CourseContents course = bd.getCourseContents(LessonID.toString());
-
-
-
+        // Local var
+        TextView IDOfCourse;
+        TextView TitleOfCourse;
+        TextView DescOfCourse;
+        TextView Exemple0OfCourse;
+        TextView Exemple1OfCourse;
+        TextView Exemple2OfCourse;
+        // Some text format and affectation
         IDOfCourse = (TextView) findViewById(R.id.IDOfCourse);
         SpannableString contentID = new SpannableString(course.getRULE());
         contentID.setSpan(new UnderlineSpan(), 0, contentID.length(), 0);
