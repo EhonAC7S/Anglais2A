@@ -47,7 +47,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public static final String PALATE_PALETTE_PALLET = "Palate/Palette/Pallet";
     public static final String PEAK_PEEK_PEKE_PIQUE = "Peak/Peek/Peke/Pique";
     public static final String RAIN_REIGN_REIN = "Rain/Reign/Rein";
-    public static final String TE_TEA_TEE = "Te/Tea/Tee";
+    public static final String TE_TEA_TEE = "Tea/Tee";
     public static final String TO_TOO_TWO = "To/Too/Two";
 
     // STRING FOR DATACALL
@@ -491,113 +491,123 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         );// BIGHT_BITE_BYTE
         addCourse(new CourseContents(
                 BIGHT_BITE_BYTE,
-                "Homophone : There/Their/They're",
-                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
-                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
-                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
-                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
-                        TAB + "THEY'RE : They're is a simple contraction of they are.",
-                "They're playing their video games over there.",
-                "All of their friends were crazy.")
+                "Homophone : Bight/Bite/Byte",
+                TAB + "BIGHT : refers to the middle part of a rope."  + LINEJUMP + LINEJUMP +
+                        TAB + "BITE : Bite is something you do with your teeth. " + LINEJUMP + LINEJUMP +
+                        TAB + "BYTE : (made up of bits) is a unit of information processed by a computer.",
+                "But the pizza compels your attention to the last bite.",
+                "Point Old stood at an angle to the smashing seas, making a sheltered bight behind it, " +
+                        "and into this bight the flooding tide set in a slow eddy.")
         );// CENSER_CENSOR_SENSOR
         addCourse(new CourseContents(
                 CENSER_CENSOR_SENSOR,
-                "Homophone : There/Their/They're",
-                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
-                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
-                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
-                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
-                        TAB + "THEY'RE : They're is a simple contraction of they are.",
-                "They're playing their video games over there.",
-                "All of their friends were crazy.")
+                "Homophone : " + CENSER_CENSOR_SENSOR,
+                TAB + "CENSER : A censer is an object used to hold incense, usually with holes so the smoke " +
+                        "may escape and sometimes on a chain to be swung during religious ceremonies." + LINEJUMP + LINEJUMP +
+                        TAB + "CENSOR : To censor something is to remove content from media which is deemed to be " +
+                        "hurtful or offensive. This is usually governed by a government or " +
+                        "ruling body. A censor is someone who censors." + LINEJUMP + LINEJUMP +
+                        TAB + "SENSOR : The noun sensor denotes a detector of a stimulus " +
+                        "(such as heat, light, motion, pressure). ",
+
+                "How did that statement end up on the streets? I censored the article myself.",
+                "An infrared sensor designed to detect movement triggered the roadside bomb.")
         );// CITE_SIGHT_SITE
         addCourse(new CourseContents(
                 CITE_SIGHT_SITE,
-                "Homophone : There/Their/They're",
-                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
-                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
-                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
-                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
-                        TAB + "THEY'RE : They're is a simple contraction of they are.",
-                "They're playing their video games over there.",
-                "All of their friends were crazy.")
+                "Homophone : " + CITE_SIGHT_SITE,
+                TAB + "SIGHT : Sight relates to vision. It is the power of seeing (i.e., perception by the eyes). " +
+                        "It can also be something that is seen (e.g., What a beautiful sight.) "+ LINEJUMP + LINEJUMP +
+                        TAB + "SITE : The noun site refers to a piece of land (e.g., building site). " +
+                        "As a verb, to site means to position in a place (e.g., I will site the slide " +
+                        "near the swings.) " + LINEJUMP + LINEJUMP +
+                        TAB + "CITE : The verb to cite means to quote, to refer to, to summon to appear " +
+                        "before a court of law or simply to mention.",
+                "The newborn foal was an emotional sight for all of us.",
+                "Mr Dodds claimed his tools had been stolen from the archaeological site." + LINEJUMP +
+                        "The lecturer cited several instances of illegal behaviour.")
         );// FOR_FORE_FOUR
         addCourse(new CourseContents(
                 FOR_FORE_FOUR,
-                "Homophone : There/Their/They're",
-                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
-                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
-                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
-                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
-                        TAB + "THEY'RE : They're is a simple contraction of they are.",
-                "They're playing their video games over there.",
-                "All of their friends were crazy.")
+                "Homophone : " + FOR_FORE_FOUR,
+                TAB + "FOR : is a preposition meaning \"because of,\" \"directed to,\" or \"in favor of.\"  "+ LINEJUMP + LINEJUMP +
+                        TAB + "FORE : As an adjective, fore means \"earlier\" or \"forward\". As a noun, it means \"the front.\"" + LINEJUMP + LINEJUMP +
+                        TAB + "FOUR : Four is the number 4",
+                "For pity's sake, move to the fore of the boat before this thing capsizes and the four of us take a cold dip!",
+                "")
         );// HEAL_HEEL_HE_LL
         addCourse(new CourseContents(
                 HEAL_HEEL_HE_LL,
-                "Homophone : There/Their/They're",
-                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
-                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
-                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
-                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
-                        TAB + "THEY'RE : They're is a simple contraction of they are.",
-                "They're playing their video games over there.",
-                "All of their friends were crazy.")
+                "Homophone : " + HEAL_HEEL_HE_LL,
+                TAB + "HEAL : To become whole and sound; return to health. "+ LINEJUMP + LINEJUMP +
+                        TAB + "HEEL : the lower rear part of the foot, plus many other definitions " +
+                        "relating to the bottom and rear portions of things. " + LINEJUMP + LINEJUMP +
+                        TAB + "HE'LL : Contraction of he will.",
+                "The man smashed his heel onto her already wounded arm.",
+                "He'll heal you.")
         );// PALATE_PALETTE_PALLET
         addCourse(new CourseContents(
                 PALATE_PALETTE_PALLET,
-                "Homophone : There/Their/They're",
-                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
-                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
-                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
-                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
-                        TAB + "THEY'RE : They're is a simple contraction of they are.",
-                "They're playing their video games over there.",
-                "All of their friends were crazy.")
+                "Homophone : " + PALATE_PALETTE_PALLET,
+                TAB + "PALATE : The palate is (1) the roof of the mouth, and (2) the sense " +
+                        "of taste, and it’s also a fancy word for flavor, especially in writing " +
+                        "on food wine. "+ LINEJUMP + LINEJUMP +
+                        TAB + "PALETTE : A palette is the board painters use to hold and mix their" +
+                        " colors. By extension, it sometimes denotes the range of colors used in" +
+                        " a design or work of art. " + LINEJUMP + LINEJUMP +
+                        TAB + "PALLET : Pallet usually refers to a platform used for moving " +
+                        "cargo or freight, but the word has several other rare definitions in industry and shipping.",
+                "Rosy-toned table linens, napkin rings and utensils sweeten up a palette heavy on black and gold.",
+                "Then it is dried, wrapped in plastic, placed atop a pallet, and driven northeast on Interstate 59.")
         );// PEAK_PEEK_PEKE_PIQUE
         addCourse(new CourseContents(
                 PEAK_PEEK_PEKE_PIQUE,
-                "Homophone : There/Their/They're",
-                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
-                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
-                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
-                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
-                        TAB + "THEY'RE : They're is a simple contraction of they are.",
-                "They're playing their video games over there.",
-                "All of their friends were crazy.")
+                "Homophone : " + PEAK_PEEK_PEKE_PIQUE,
+                TAB + "PEAK : A peak is (1) a maximum, (2) to achieve a maximum, and (3) to bring " +
+                        "to a maximum. "+ LINEJUMP + LINEJUMP +
+                        TAB + "PEEK : peek, means (1) to glance quickly, (2) to look furtively, " +
+                        "or (3) a quick or furtive look. " + LINEJUMP + LINEJUMP +
+                        TAB + "PIQUE : Its homophone pique, which appears mostly in the phrase pique " +
+                        "[one’s] interest, means (1) to provoke or arouse, or (2) to provoke resentment" +
+                        " or indignation. It also works as a noun referring to a feeling of resentment or " +
+                        "indignation resulting from wounded pride."+ LINEJUMP + LINEJUMP +
+                        TAB + "PEKE : A Pekinese dog. " ,
+                "It peaked with Della famously being photographed dancing to I Will Survive in a skin-tight red dress.",
+                "Like a sneak peek into old age, I grunt when I bend and climb stairs in slow motion.")
         );// RAIN_REIGN_REIN
         addCourse(new CourseContents(
                 RAIN_REIGN_REIN,
-                "Homophone : There/Their/They're",
-                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
-                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
-                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
-                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
-                        TAB + "THEY'RE : They're is a simple contraction of they are.",
-                "They're playing their video games over there.",
-                "All of their friends were crazy.")
+                "Homophone : " + RAIN_REIGN_REIN,
+                TAB + "RAIN : Water falling in drops condensed from vapor in the atmosphere "+ LINEJUMP + LINEJUMP +
+                        TAB + "REIGN :  royal authority, the power or rule of a monarch; the " +
+                        "dominion, sway, or influence of one resembling or held to resemble a monarch " + LINEJUMP + LINEJUMP +
+                        TAB + "REIN : a line (as a leather strap) which is fastened to a bit on each side and through" +
+                        " which a rider or driver exerts pressure on the bit for governing or guiding an animal (as a horse)",
+                "The jockey pulled on the horse’s reins to make it go faster.",
+                "The queen’s reign lasted forty years.")
         );// TE_TEA_TEE
         addCourse(new CourseContents(
                 TE_TEA_TEE,
-                "Homophone : There/Their/They're",
-                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
-                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
-                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
-                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
-                        TAB + "THEY'RE : They're is a simple contraction of they are.",
-                "They're playing their video games over there.",
-                "All of their friends were crazy.")
+                "Homophone : " + TE_TEA_TEE,
+                TAB + "TEA : an aromatic beverage prepared from tea leaves by soaking them in boiling water "+ LINEJUMP + LINEJUMP +
+
+                        TAB + "TEE : A mark aimed at in bowls, quoits, curling, and other similar games.",
+                "I drink some tea",
+                "I carry three tees in my pocket")
         );// TO_TOO_TWO
         addCourse(new CourseContents(
                 TO_TOO_TWO,
-                "Homophone : There/Their/They're",
-                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
-                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
-                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
-                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
-                        TAB + "THEY'RE : They're is a simple contraction of they are.",
-                "They're playing their video games over there.",
-                "All of their friends were crazy.")
+                "Homophone : " + TO_TOO_TWO,
+                TAB + "TWO : Two is the number 2. "+ LINEJUMP + LINEJUMP +
+                        TAB + "TOO : Too' is used as a synonym for 'also.' It can also mean a degree of excess. " + LINEJUMP + LINEJUMP +
+                        TAB + "TO : used to indicate the place, person, or thing that someone or something moves toward" + LINEJUMP +
+                        BIGTAB + "used to indicate the place where someone participates in a particular activity" + LINEJUMP +
+                        BIGTAB + "used to indicate the direction of something",
+                "Luke wanted to go to the Tachi Station to pick up some power converters. Uncle Owen, knowing this was a" +
+                        " cheap teen code word for 'heroin,' kept his smack-addicted ass on the moisture farm. Aunt Beru smiled " +
+                        "wistfully in the kitchen. \"I want to get some 'power converters,' too,\" she thought. \"Mama needs her" +
+                        " fix!\"",
+                "")
         );
 
 
