@@ -21,34 +21,34 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public static final String SUFFIXES = "Suffixes";
     public static final String APOSTROPHES_FOR_POSSESSION = "Apostrophes for possession";
     public static final String THOUGH_THOUGHT_THOROUGH_THROUGH = "though/thought/thorough/through";
-    public static final String PREFIXES = "Prefixes";
-    public static final String ACTIVE_VOICE = "Active Voice";
-    public static final String PASSIVE_VOICE = "Passive Voice";
-
-    public static final String CONJUNCTIONS = "Conjunctions";
-    public static final String COMMA = "Comma";
-    public static final String SEMICOLON = "Semicolon";
-    public static final String SIMPLE_PRESENT = "Simple Present";
-    public static final String PRESENT_PROGRESSIVE = "Present Progressive";
-    public static final String ED_RULE = "-ed rule";
-    public static final String PRESENT_PERFECT = "Present Perfect";
-    public static final String PRESENT_PERFECT_PROG = "Present Perfect Progressive";
-    public static final String PAST_PERFECT = "Past Perfect";
-    public static final String FORMING_PLURALS = "Forming Plural";
-    public static final String THEIR_THERE_THEYRE = "Their/There/They re";
+    public static final String NEGATIVE_PREFIXES = "Negative Prefixes";
+    public static final String ACTIVE_VOICE = "Active Voice"; // Fait
+    public static final String PASSIVE_VOICE = "Passive Voice"; // Fait
+    public static final String CONJUNCTIONS = "Conjunctions"; // Fait
+    public static final String COMMA = "Comma"; // Fait
+    public static final String SEMICOLON = "Semicolon"; // Fait
+    public static final String SIMPLE_PRESENT = "Simple Present"; // Fait
+    public static final String PRESENT_PROGRESSIVE = "Present Progressive"; // Fait
+    public static final String ED_RULE = "-ed rule"; // Fait
+    public static final String PRESENT_PERFECT = "Present Perfect"; // Fait
+    public static final String PRESENT_PERFECT_PROG = "Present Perfect Progressive";// Fait
+    public static final String PAST_PERFECT = "Past Perfect"; // Fait
+    public static final String FORMING_PLURALS = "Forming Plural"; // Fait
+    public static final String THEIR_THERE_THEYRE = "Their/There/They re";// Fait
     public static final String HOMOPHONES = "Homophones"; // A virer
 
-
+    // STRING FOR DATACALL
     private static final String CREATE_TABLE_IF_NOT_EXISTS = "CREATE TABLE IF NOT EXISTS ";
     private static final String INTEGER_PRIMARY_KEY_AUTOINCREMENT = " INTEGER PRIMARY KEY AUTOINCREMENT, ";
-
-
     private static final String SELECT_FROM = "SELECT * FROM ";
-
+    private static final String TEXT = " TEXT, ";
+    private static final String WHERE = " WHERE ";
+    private static final String BIGTAB = "      ";
+    private static final String TAB = "   ";
+    private static final String LINEJUMP = "\n";
     private static final int DATABASE_VERSION = 1;
     // Database Name
     private static final String DATABASE_NAME = "Courses";
-
     // tasks Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";
@@ -56,8 +56,6 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     private static final String KEY_EX1 = "example1";
     private static final String KEY_RULE = "rule";
     private static final String KEY_EX2 ="example2";
-    private static final String TEXT = " TEXT, ";
-    private static final String WHERE = " WHERE ";
 
     private SQLiteDatabase dbase;
     public DataBaseCourses(Context context) {
@@ -124,19 +122,35 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                 THEIR_THERE_THEYRE, // Example1
                 THEIR_THERE_THEYRE) // Example2
         );
-        // PREFIXES
+        // NEGATIVE_PREFIXES
         addCourse(new CourseContents(
-                PREFIXES, // Rule
-                THEIR_THERE_THEYRE, // Title
-                THEIR_THERE_THEYRE, // Desc
-                THEIR_THERE_THEYRE, // Example1
-                THEIR_THERE_THEYRE) // Example2
+                NEGATIVE_PREFIXES, // Rule
+                "Which prefixe in the list : 'in-, un-, non-, de-, dis-, a-, anti-, im-, il-, and ir-'", // Title
+                TAB + "The most common negative prefixes in English are in-, un-, non-, de-, dis-, a-, anti-, im-, il-, and ir-. " +
+                        "While some of these prefixes are interchangeable in some uses, there are subtle differences between them.\n\n" +
+                        BIGTAB + "The in- prefix (from which im-, il-, and ir- are derived) is generally the least useful of the negative prefixes, " +
+                        "as it only goes with certain Latin-derived stems (e.g., intolerant, inarticulate, impenetrable), is highly conventionalized, " +
+                        "and is identical to morphemes used in words that are not negative" + LINEJUMP +LINEJUMP +
+                        BIGTAB + "The un- prefix is commonly attached to Latin derivatives that end in suffixes such as -ed and -able, resulting " +
+                        "in adjectives such as unfounded, unassailable, and unbelievable." + LINEJUMP + LINEJUMP +
+                        BIGTAB + "The prefix non- is the most useful negative prefix, as it can be attached to virtually any noun, verb, adjective, " +
+                        "or adverb and is not confusable with other common morphemes. Unlike in-, and un-, which often create nonabsolute negatives, " +
+                        "non- is generally used to create a word that describes the complete opposite of its nonnegative form. In other words, " +
+                        "for example, a nonconformist is someone who absolutely does not conform. If we were to coin the nouns uncomformist and " +
+                        "inconformist, they wouldn’t have the same sense." + LINEJUMP + "When affixing non- to a word, no hyphen is needed unless " +
+                        "the stem is a proper noun. Spell-checkers might catch any unhyphenated non- words you invent, but this doesn’t mean your " +
+                        "coinages are incorrect." + LINEJUMP + LINEJUMP +
+                        "The prefix de- is usually affixed to verbs to denote reversal of an action. The prefix dis- is similar in some uses to de- " +
+                        "and in other uses to un-. A- is affixed to adjectives ending in -al. Anti- means against.", // Desc
+                "unable, inability, (to) disable, unable, unacknowledged, nonconformist or nonconformity", // Example1
+                "illegal, illegible, illiterate, illogical, immature, disable/ disabled/ disability, disagree, " +
+                        "deactivate, decode, decommission, decompose ") // Example2
         );
         // ACTIVE_VOICE
         addCourse(new CourseContents(
                 ACTIVE_VOICE, // Rule
                 "Active Voice Usage", // Title
-                " Someone (the subject) is doing something (the verb). The subject performs the action.\n Active Voice can add impact to your writing", // Desc
+                TAB + "Someone (the subject) is doing something (the verb). The subject performs the action.\n Active Voice can add impact to your writing", // Desc
                 "We are going to watch a movie tonight.", // Example1
                 "Mom read the novel in one day.") // Example2
         );
@@ -144,7 +158,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         addCourse(new CourseContents(
                 PASSIVE_VOICE, // Rule
                 "Focus on the action", // Title
-                "   Someone (the subject) is having something (the verb) done to them. The subject receives the action", // Desc
+                TAB + "Someone (the subject) is having something (the verb) done to them. The subject receives the action", // Desc
                 "She had been murdered.", // Example1
                 "Everyone was startled by the power outage.") // Example2
         );
@@ -152,9 +166,9 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         addCourse(new CourseContents(
                 CONJUNCTIONS, // Rule
                 "To coordinate clauses", // Title
-                "   Sometimes you want to link two ideas with a second S+V+O combination. " +
+                TAB + "Sometimes you want to link two ideas with a second S+V+O combination. " +
                         "When you do, you need a coordinating conjunction.\n " +
-                        "   Coordinating conjunctions are easy to remember with an acronymic mnemonic device: FANBOYS : \n" +
+                        TAB + "Coordinating conjunctions are easy to remember with an acronymic mnemonic device: FANBOYS : \n" +
                         "For-And-Nor-But-Or-Yet-So", // Desc
                 "She hasn't taken dance lessons, nor does she need to.", // Example1
                 "Other dancers try to imitate her style, yet they have not succeeded.") // Example2
@@ -163,12 +177,12 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         addCourse(new CourseContents(
                 COMMA, // Rule
                 "Serial Comma for listing", // Title
-                "   The serial, or Oxford, comma is a controversial rule of grammar. Some want to eliminate it " +
+                TAB + "The serial, or Oxford, comma is a controversial rule of grammar. Some want to eliminate it " +
                         "altogether while others just don't know how to use it." +
-                        "   The serial comma is the last comma in a list, usually appearing before 'and.'\n" +
-                        "   Commas separate units in a list. In the above case, each unit only has one part, so it's easy. " +
+                        TAB + "The serial comma is the last comma in a list, usually appearing before 'and.'\n" +
+                        TAB + "Commas separate units in a list. In the above case, each unit only has one part, so it's easy. " +
                         "Where people get confused is when the units are bigger\n" +
-                        "   Notice that the serial comma comes before 'and' but not the last 'and' in the sentence. " +
+                        TAB + "Notice that the serial comma comes before 'and' but not the last 'and' in the sentence. " +
                         "The 'and' that follows the comma is only there because it sounds better. Grammatically, " +
                         "'and' is irrelevant. Only units matter.",
                 "Pets are Us has lizards, dogs, and birds.",
@@ -178,9 +192,9 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         addCourse(new CourseContents(
                 SEMICOLON, // Rule
                 "Close connection, two as one!", // Title
-                "   A list of grammar rules has to include the scariest of punctuation marks. It might look funny, " +
+                TAB + "A list of grammar rules has to include the scariest of punctuation marks. It might look funny, " +
                         "but don't be afraid of the semicolon; it's the easiest thing in the world to use! " +
-                        "   Say you want to join two ideas but can't figure out or can't be bothered to use a " +
+                        TAB + "Say you want to join two ideas but can't figure out or can't be bothered to use a " +
                         "coordinating conjunction. The two ideas can be separate sentences," +
                         " but you think that they are so closely connected; they really should be one. " +
                         "Use a semicolon.", // Desc
@@ -191,7 +205,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         addCourse(new CourseContents(
                 SIMPLE_PRESENT, // Rule
                 "Habitual Actions", // Title
-                "   The simple present is the tense you use for any habitual action. " +
+                TAB + "The simple present is the tense you use for any habitual action. " +
                         "The things you always do or do every Tuesday are described with " +
                         "the simple present, which just means you pick the first form of any verb.", // Desc
                 "Mary likes dogs.", // Example1
@@ -201,11 +215,11 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         addCourse(new CourseContents(
                 PRESENT_PROGRESSIVE,
                 "Tense for current action",
-                "   The present progressive tense is for anything that is happening right now. " +
+                TAB + "The present progressive tense is for anything that is happening right now. " +
                         "All of the progressive tenses are easy to spot because their verbs always " +
                         "end with '-ing' and get a helping verb. " +
-                        "   A helping verb is just so we know who and when we're talking about. " +
-                        "   In the present progressive, the helping verbs are the present tense " +
+                        TAB + "A helping verb is just so we know who and when we're talking about. " +
+                        TAB + "In the present progressive, the helping verbs are the present tense " +
                         "conjugations of 'to be.'",
                 "I am drinking Lapsang Souchong tea.",
                 "Mary is playing with her hyperactive dog.")
@@ -214,9 +228,9 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         addCourse(new CourseContents(
                 ED_RULE,
                 "Past tense for regular verbs",
-                "   When we talk about the past, we have to add an '-ed' to regular verbs to make the second form. " +
-                        "   Irregular verbs are tricky and have their own sets of rules. Drink, for example, turns to 'drank.' " +
-                        "   Most of the time, though, '-ed' will do.",
+                TAB + "When we talk about the past, we have to add an '-ed' to regular verbs to make the second form. " +
+                        TAB + "Irregular verbs are tricky and have their own sets of rules. Drink, for example, turns to 'drank.' " +
+                        TAB + "Most of the time, though, '-ed' will do.",
                 "The dogs stopped barking two seconds ago, and I am feeling better.",
                 "Mary played fetch with her hyperactive dog.")
         );
@@ -224,8 +238,8 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         addCourse(new CourseContents(
                 PRESENT_PERFECT,
                 "The Unfinished Past",
-                "   The present perfect can be confusing for some, but it is one of the most important rules of grammar. " +
-                        "   When people talk about things that have already happened but consider the time in which they " +
+                TAB + "The present perfect can be confusing for some, but it is one of the most important rules of grammar. " +
+                        TAB + "When people talk about things that have already happened but consider the time in which they " +
                         "occurred to be unfinished, " +
                         "they use the third form of the verb with a helping verb. The helping verb for the present perfect " +
                         "is the present tense conjugation of 'to have.'",
@@ -236,7 +250,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         addCourse(new CourseContents(
                 PRESENT_PERFECT_PROG,
                 "The Unfinished Actions of Past",
-                "When the action as well as the time is considered unfinished, the verb loads up on third " +
+                TAB + "When the action as well as the time is considered unfinished, the verb loads up on third " +
                         "form helping verbs ('to be' and 'to have') and changes to the progressive form.",
                 "Western countries have been waging wars in the Middle East for thousands of years.",
                 "I have been drinking tea all day.")
@@ -245,7 +259,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         addCourse(new CourseContents(
                 PAST_PERFECT,
                 "Past for Past in the Past",
-                "   When two things happen in the past, we have to mark which one happened first. " +
+                TAB + "When two things happen in the past, we have to mark which one happened first. " +
                         "The one that happened first changes to third form and gets the helping verb, 'had.'",
 
                 "By the time I drank one cup of Lapsang Souchong, Mary's dog had barked a million times.",
@@ -254,20 +268,33 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         // FORMING_PLURALS
         addCourse(new CourseContents(
                 FORMING_PLURALS,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE,
-                THEIR_THERE_THEYRE)
+                "Plural of noun",
+                TAB + "There is many rule, you have to choose the appropriate one : \n" +
+                        BIGTAB + "1) Add -s to most nouns." + LINEJUMP +
+                        BIGTAB + "2) Add -es to nouns ending is s, x, z, ch, or sh." + LINEJUMP +
+                        BIGTAB + "3) For nouns ending in y preceded by a consonant, change y to i and add es." + LINEJUMP +
+                        BIGTAB + "4) For nouns ending in y preceded by a vowel, add s. " + LINEJUMP +
+                        BIGTAB + "5) For nouns ending in f or fe, usually change the f or fe to ves" + LINEJUMP +
+                        BIGTAB + "6) Add s to the end of singular nouns ending in ful" + LINEJUMP +
+                        BIGTAB + "7) Add s to the most important noun in a hyphenated word.",
+                "With these rules : Boy, boys - Brush, brushes - Hero, heroes - Piano, pianos - Lady, ladies - Shelf, shelves",
+                "Some exceptions : " + LINEJUMP + BIGTAB +
+                        "Foot (singular), feet (plural)\n" + BIGTAB +
+                        "Man, men\n" + BIGTAB +
+                        "Woman, women\n" + BIGTAB +
+                        "Tooth, teeth\n" + BIGTAB +
+                        "Mouse, mice\n" + BIGTAB +
+                        "Goose, geese")
         );
         // THEIR_THERE_THEYRE
         addCourse(new CourseContents(
                 THEIR_THERE_THEYRE,
                 "Homophone : There/Their/They're",
-                "   THERE : There is the opposite of Here. It means 'in that place' not here. " +
+                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
                         "There is/There are = to show that something exists.\n\n" +
-                        "   THEIR : Their is a possessive adjective which is used before a noun. " +
+                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
                         "It shows possession, that something belongs to them.\n\n" +
-                        "   THEY'RE : They're is a simple contraction of they are.",
+                        TAB + "THEY'RE : They're is a simple contraction of they are.",
                 "They're playing their video games over there.",
                 "All of their friends were crazy.")
         );

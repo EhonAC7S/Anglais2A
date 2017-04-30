@@ -93,26 +93,26 @@ public class DbHelper extends SQLiteOpenHelper {
         this.addSentence(q1bis4);
 
 
-        Sentence q6=new Sentence("Pepsi is not"," dislike ","Coke."," dislike ", PREFIXES);
+        Sentence q6=new Sentence("Pepsi is not"," dislike ","Coke."," dislike ", NEGATIVE_PREFIXES);
         this.addSentence(q6);
-        Sentence q7=new Sentence("In important ways,"," the two sisters are ","very unlike.",NO_MISSPELLING, PREFIXES);
+        Sentence q7=new Sentence("In important ways,"," the two sisters are ","very unlike.",NO_MISSPELLING, NEGATIVE_PREFIXES);
         this.addSentence(q7);
-        Sentence q8=new Sentence("Taking things that aren't"," yours is ","unlegal.","unlegal.", PREFIXES);
+        Sentence q8=new Sentence("Taking things that aren't"," yours is ","unlegal.","unlegal.", NEGATIVE_PREFIXES);
         this.addSentence(q8);
-        Sentence q9=new Sentence("It never pays to be"," inpatient ","with old people."," inpatient ", PREFIXES);
+        Sentence q9=new Sentence("It never pays to be"," inpatient ","with old people."," inpatient ", NEGATIVE_PREFIXES);
         this.addSentence(q9);
-        Sentence q10=new Sentence("I'd love to help you decorate"," but I'm ","horribly impractical.",NO_MISSPELLING, PREFIXES);
+        Sentence q10=new Sentence("I'd love to help you decorate"," but I'm ","horribly impractical.",NO_MISSPELLING, NEGATIVE_PREFIXES);
         this.addSentence(q10);
 
-        Sentence q6bis=new Sentence("The room had extra bedding"," but it was ","unecessary.","unecessary.", PREFIXES);
+        Sentence q6bis=new Sentence("The room had extra bedding"," but it was ","unecessary.","unecessary.", NEGATIVE_PREFIXES);
         this.addSentence(q6bis);
-        Sentence q7bis=new Sentence("The tolerable level of error or"," mistatement ","is a matter of judgment."," mistatement ", PREFIXES);
+        Sentence q7bis=new Sentence("The tolerable level of error or"," mistatement ","is a matter of judgment."," mistatement ", NEGATIVE_PREFIXES);
         this.addSentence(q7bis);
-        Sentence q8bis=new Sentence("Missunderstood"," children may grow into emotionally ","unhealthy adults.","Missunderstood", PREFIXES);
+        Sentence q8bis=new Sentence("Missunderstood"," children may grow into emotionally ","unhealthy adults.","Missunderstood", NEGATIVE_PREFIXES);
         this.addSentence(q8bis);
-        Sentence q9bis=new Sentence("If you're dissatisfied at all, return"," the product ","for a full refund.",NO_MISSPELLING, PREFIXES);
+        Sentence q9bis=new Sentence("If you're dissatisfied at all, return"," the product ","for a full refund.",NO_MISSPELLING, NEGATIVE_PREFIXES);
         this.addSentence(q9bis);
-        Sentence q10bis=new Sentence("It's a mistake to harvest fruit while"," it is still ","immature.",NO_MISSPELLING, PREFIXES);
+        Sentence q10bis=new Sentence("It's a mistake to harvest fruit while"," it is still ","immature.",NO_MISSPELLING, NEGATIVE_PREFIXES);
         this.addSentence(q10bis);
 
 
