@@ -43,7 +43,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public static final String CENSER_CENSOR_SENSOR = "Censer/Censor/Sensor";
     public static final String CITE_SIGHT_SITE = "Cite/Sight/Site";
     public static final String FOR_FORE_FOUR = "For/Fore/Four";
-    public static final String HEAL_HEEL_HE_LL = "Heal/Heel/He'll";
+    public static final String HEAL_HEEL_HE_LL = "Heal/Heel/He ll";
     public static final String PALATE_PALETTE_PALLET = "Palate/Palette/Pallet";
     public static final String PEAK_PEEK_PEKE_PIQUE = "Peak/Peek/Peke/Pique";
     public static final String RAIN_REIGN_REIN = "Rain/Reign/Rein";
