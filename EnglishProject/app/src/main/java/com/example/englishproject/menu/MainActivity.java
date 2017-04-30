@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity  {
         course.setText(COURSE);
         quiz.setText(QUIZ);
         param.setText(OPTIONS);
+        param.setVisibility(View.INVISIBLE); //Pas eu le temps de faire un menu option
         quit.setText(QUIT);
         //Rend les boutons cliquables
         quiz.setOnClickListener(new View.OnClickListener() {

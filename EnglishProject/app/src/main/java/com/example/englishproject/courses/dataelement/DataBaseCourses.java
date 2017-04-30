@@ -103,10 +103,26 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         // COMMON_MISSPELLINGS :
         addCourse(new CourseContents(
                 COMMON_MISSPELLINGS, // Rule
-                THEIR_THERE_THEYRE, // Title
-                THEIR_THERE_THEYRE, // Desc
-                THEIR_THERE_THEYRE, // Example1
-                THEIR_THERE_THEYRE) // Example2
+                "Words often badly spelled", // Title
+                TAB + "The following words are often misspelled, remember them : " + LINEJUMP +
+                        BIGTAB + "Agreement" + LINEJUMP +
+                        BIGTAB + "Appropriate" + LINEJUMP +
+                        BIGTAB + "Business" + LINEJUMP +
+                        BIGTAB + "Presentation" + LINEJUMP +
+                        BIGTAB + "Accidentally" + LINEJUMP +
+                        BIGTAB + "Address" + LINEJUMP +
+                        BIGTAB + "Believes" + LINEJUMP +
+                        BIGTAB + "Breathe (=/= breath)" + LINEJUMP +
+                        BIGTAB + "Commitment" + LINEJUMP +
+                        BIGTAB + "Agreement" + LINEJUMP +
+                        BIGTAB + "Agreement" + LINEJUMP +
+                        BIGTAB + "Agreement" + LINEJUMP +
+                        BIGTAB + "Agreement" + LINEJUMP +
+                        BIGTAB + "Agreement" + LINEJUMP
+
+                , // Desc
+                "This rule doesn't need some example, you must remember and practice ", // Example1
+                "") // Example2
         );
         // SUFFIXES
         addCourse(new CourseContents(
@@ -119,8 +135,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                         BIGTAB + "Drop the 'e' before a vowel suffix. " + LINEJUMP +
                         BIGTAB + "Double the last L." + LINEJUMP +
                         BIGTAB + "Words of 1 syllable ending in 1 vowel+ 1 consonant - double the last letter before a vowel suffix" + LINEJUMP +
-                        TAB + "There are many exceptions on keeping '-e' and '-y' to learn, see this in a next lesson."
-                , // Desc
+                        TAB + "There are many exceptions on keeping '-e' and '-y' to learn, see this in a next lesson.", // Desc
                 "carry + er = carrier, beauty + ful = beautiful, happy + ness = happiness" + LINEJUMP +
                 "love + ing = loving, use + ing = using, adore + able = adorable, care + ed = cared", // Example1
                 "cancel + ed =  cancelling, signal + ly = signally" + LINEJUMP +
@@ -158,7 +173,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                         TAB + "THOUGH : " + TAB + "Though means in spite of the fact that; however, but, and we have even though and " +
                         "although which is more formal" + LINEJUMP +
                         TAB + "THOROUGH : " + TAB + "done with great care and completeness: Planners need a thorough understanding of " +
-                        "the subjectIt would be great if everyone had a thorough knowledge of English spelling.\n" +
+                        "the subjectIt would be great if everyone had a thorough knowledge of English spelling." + LINEJUMP +
                         "We can also add ly and make thoroughly.She examined it thoroughly." + LINEJUMP +
                         TAB + "THOUGHT : " + TAB + "Thought is the most common word of the lot. It’s the past tense of think – " +
                         "I thought this was the end but it’s not. And also a noun a thought , an idea.", // Desc
@@ -172,7 +187,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                 NEGATIVE_PREFIXES, // Rule
                 "Which prefixe in the list : 'in-, un-, non-, de-, dis-, a-, anti-, im-, il-, and ir-'", // Title
                 TAB + "The most common negative prefixes in English are in-, un-, non-, de-, dis-, a-, anti-, im-, il-, and ir-. " +
-                        "While some of these prefixes are interchangeable in some uses, there are subtle differences between them.\n\n" +
+                        "While some of these prefixes are interchangeable in some uses, there are subtle differences between them." + LINEJUMP + LINEJUMP +
                         BIGTAB + "The in- prefix (from which im-, il-, and ir- are derived) is generally the least useful of the negative prefixes, " +
                         "as it only goes with certain Latin-derived stems (e.g., intolerant, inarticulate, impenetrable), is highly conventionalized, " +
                         "and is identical to morphemes used in words that are not negative" + LINEJUMP +LINEJUMP +
@@ -195,7 +210,8 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         addCourse(new CourseContents(
                 ACTIVE_VOICE, // Rule
                 "Active Voice Usage", // Title
-                TAB + "Someone (the subject) is doing something (the verb). The subject performs the action.\n Active Voice can add impact to your writing", // Desc
+                TAB + "Someone (the subject) is doing something (the verb). The subject performs the action." + LINEJUMP +
+                        "Active Voice can add impact to your writing", // Desc
                 "We are going to watch a movie tonight.", // Example1
                 "Mom read the novel in one day.") // Example2
         );
@@ -212,8 +228,8 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                 CONJUNCTIONS, // Rule
                 "To coordinate clauses", // Title
                 TAB + "Sometimes you want to link two ideas with a second S+V+O combination. " +
-                        "When you do, you need a coordinating conjunction.\n " +
-                        TAB + "Coordinating conjunctions are easy to remember with an acronymic mnemonic device: FANBOYS : \n" +
+                        "When you do, you need a coordinating conjunction." + LINEJUMP +
+                        TAB + "Coordinating conjunctions are easy to remember with an acronymic mnemonic device: FANBOYS : " + LINEJUMP +
                         "For-And-Nor-But-Or-Yet-So", // Desc
                 "She hasn't taken dance lessons, nor does she need to.", // Example1
                 "Other dancers try to imitate her style, yet they have not succeeded.") // Example2
@@ -224,9 +240,9 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                 "Serial Comma for listing", // Title
                 TAB + "The serial, or Oxford, comma is a controversial rule of grammar. Some want to eliminate it " +
                         "altogether while others just don't know how to use it." +
-                        TAB + "The serial comma is the last comma in a list, usually appearing before 'and.'\n" +
+                        TAB + "The serial comma is the last comma in a list, usually appearing before 'and.'" + LINEJUMP +
                         TAB + "Commas separate units in a list. In the above case, each unit only has one part, so it's easy. " +
-                        "Where people get confused is when the units are bigger\n" +
+                        "Where people get confused is when the units are bigger" + LINEJUMP +
                         TAB + "Notice that the serial comma comes before 'and' but not the last 'and' in the sentence. " +
                         "The 'and' that follows the comma is only there because it sounds better. Grammatically, " +
                         "'and' is irrelevant. Only units matter.",
@@ -314,7 +330,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         addCourse(new CourseContents(
                 FORMING_PLURALS,
                 "Plural of noun",
-                TAB + "There is many rule, you have to choose the appropriate one : \n" +
+                TAB + "There is many rule, you have to choose the appropriate one : " + LINEJUMP +
                         BIGTAB + "1) Add -s to most nouns." + LINEJUMP +
                         BIGTAB + "2) Add -es to nouns ending is s, x, z, ch, or sh." + LINEJUMP +
                         BIGTAB + "3) For nouns ending in y preceded by a consonant, change y to i and add es." + LINEJUMP +
@@ -324,11 +340,11 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                         BIGTAB + "7) Add s to the most important noun in a hyphenated word.",
                 "With these rules : Boy, boys - Brush, brushes - Hero, heroes - Piano, pianos - Lady, ladies - Shelf, shelves",
                 "Some exceptions : " + LINEJUMP + BIGTAB +
-                        "Foot (singular), feet (plural)\n" + BIGTAB +
-                        "Man, men\n" + BIGTAB +
-                        "Woman, women\n" + BIGTAB +
-                        "Tooth, teeth\n" + BIGTAB +
-                        "Mouse, mice\n" + BIGTAB +
+                        "Foot (singular), feet (plural)" + LINEJUMP + BIGTAB +
+                        "Man, men" + LINEJUMP + BIGTAB +
+                        "Woman, women" + LINEJUMP + BIGTAB +
+                        "Tooth, teeth" + LINEJUMP + BIGTAB +
+                        "Mouse, mice" + LINEJUMP + BIGTAB +
                         "Goose, geese")
         );
         // THEIR_THERE_THEYRE
@@ -336,9 +352,9 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                 THEIR_THERE_THEYRE,
                 "Homophone : There/Their/They're",
                 TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
-                        "There is/There are = to show that something exists.\n\n" +
+                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
                         TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
-                        "It shows possession, that something belongs to them.\n\n" +
+                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
                         TAB + "THEY'RE : They're is a simple contraction of they are.",
                 "They're playing their video games over there.",
                 "All of their friends were crazy.")
