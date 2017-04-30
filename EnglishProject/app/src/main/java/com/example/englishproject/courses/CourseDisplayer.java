@@ -2,6 +2,7 @@ package com.example.englishproject.courses;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
@@ -42,9 +43,16 @@ public class CourseDisplayer extends AppCompatActivity {
         Exemple2OfCourse = (TextView) findViewById(R.id.exemple2OfCourse);
         TitleOfCourse.setText(course.getTitle());
         DescOfCourse.setText(course.getDesc());
-        Exemple0OfCourse.setText(EXEMPLES);
         Exemple1OfCourse.setText(course.getExemple1());
         Exemple2OfCourse.setText(course.getExemple2());
+        if (!course.getExemple1().equals("")) {
+            Exemple0OfCourse.setText(EXEMPLES);
+        } else {
+            Exemple0OfCourse.setText("");
+            Exemple0OfCourse.setVisibility(View.INVISIBLE);
+            Exemple1OfCourse.setVisibility(View.INVISIBLE);
+            Exemple2OfCourse.setVisibility(View.INVISIBLE);
+        }
 
     }
 }

@@ -17,8 +17,11 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class DataBaseCourses extends SQLiteOpenHelper{
     //Ici on met les constantes des noms de nos Cours
-    public static final String COMMON_MISSPELLINGS = "Common Misspellings";
-    public static final String COMMON_MISSPELLINGS_2 = "Common Misspellings";
+    public static final String COMMON_MISSPELLINGS = "Common Misspellings"; // Fait
+    public static final String COMMON_MISSPELLINGS_2 = "Common Misspellings 2"; // Fait
+    public static final String COMMON_MISSPELLINGS_3 = "Common Misspellings 3"; // Fait
+    public static final String COMMON_MISSPELLINGS_4 = "Common Misspellings 4"; // Fait
+    public static final String COMMON_MISSPELLINGS_5 = "Common Misspellings 5"; // Fait
     public static final String SUFFIXES = "Suffixes"; // Fait
     public static final String APOSTROPHES_FOR_POSSESSION = "Apostrophes for possession"; // Fait
     public static final String THOUGH_THOUGHT_THOROUGH_THROUGH = "Though/Thought/Thorough/Through"; // Fait
@@ -67,27 +70,22 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     private static final String KEY_RULE = "rule";
     private static final String KEY_EX2 ="example2";
 
-
     private SQLiteDatabase dbase;
     public DataBaseCourses(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         dbase=db;
         System.out.println("On est dans le OnCreate()");
-
         db.execSQL("DROP TABLE IF EXISTS " + DATABASE_NAME);
-
         String sql = CREATE_TABLE_IF_NOT_EXISTS + DATABASE_NAME + " ( "
                 + KEY_ID + INTEGER_PRIMARY_KEY_AUTOINCREMENT + KEY_RULE + TEXT +KEY_TITLE + TEXT
                 + KEY_DESCR +TEXT+ KEY_EX1 +TEXT+ KEY_EX2 +" TEXT)";
         db.execSQL(sql);
         addCourses();
-
         //db.close();
-
     }
     private void addCourses()
     {
@@ -100,13 +98,12 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         //      EXAMPLE1, // Example1
         //      EXAMPLE2) // Example2
         //);
-
         // COMMON_MISSPELLINGS :
+
         addCourse(new CourseContents(
                 COMMON_MISSPELLINGS, // Rule
                 "Words often badly spelled", // Title
                 TAB + "The following words are often misspelled, remember them : " + LINEJUMP +
-
                         BIGTAB + "Achieve" + LINEJUMP +
                         BIGTAB + "Accidentally" + LINEJUMP +
                         BIGTAB + "Adrenaline" + LINEJUMP +
@@ -129,13 +126,23 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                         BIGTAB + "Definitely" + LINEJUMP +
                         BIGTAB + "Desirable" + LINEJUMP +
                         BIGTAB + "Diarrhea" + LINEJUMP +
-                        BIGTAB + "Deity" + LINEJUMP +
+                        BIGTAB + "Deity" + LINEJUMP
+
+                , // Desc
+                "", // Example1
+                "") // Example2
+        );
+        // COMMON_MISSPELLINGS_2
+        addCourse(new CourseContents(
+                COMMON_MISSPELLINGS_2,
+                "Words often badly spelled",
+                TAB + "The following words are often misspelled, remember them : " +
                         BIGTAB + "Disappoint" + LINEJUMP +
                         BIGTAB + "Dispel" + LINEJUMP +
                         BIGTAB + "Ecstasy" + LINEJUMP +
                         BIGTAB + "Embarrass" + LINEJUMP +
                         BIGTAB + "Environment" + LINEJUMP +
-                        BIGTAB + "Extremely" + LINEJUMP +
+                        BIGTAB + "Extremely" + LINEJUMP+
                         BIGTAB + "Fascist" + LINEJUMP +
                         BIGTAB + "February" + LINEJUMP +
                         BIGTAB + "Fluorescent" + LINEJUMP +
@@ -153,6 +160,16 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                         BIGTAB + "Inoculate" + LINEJUMP +
                         BIGTAB + "Knowledge" + LINEJUMP +
                         BIGTAB + "Laser" + LINEJUMP +
+
+                        "",
+                "",
+                ""
+        ));
+        // COMMON_MISSPELLINGS_3
+        addCourse(new CourseContents(
+                COMMON_MISSPELLINGS_3, // Rule
+                "Words often badly spelled",
+                TAB + "The following words are often misspelled, remember them : " +
                         BIGTAB + "Leprechaun" + LINEJUMP +
                         BIGTAB + "Library" + LINEJUMP +
                         BIGTAB + "Lightning" + LINEJUMP +
@@ -176,6 +193,16 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                         BIGTAB + "Occurred" + LINEJUMP +
                         BIGTAB + "Occurrence" + LINEJUMP +
                         BIGTAB + "Opportunity" + LINEJUMP +
+
+                        "",
+                "", // Example1
+                "")
+        );
+        // COMMON_MISSPELLINGS_4
+        addCourse(new CourseContents(
+                COMMON_MISSPELLINGS_4, // Rule
+                "Words often badly spelled",
+                TAB + "The following words are often misspelled, remember them : " +
                         BIGTAB + "Parallel" + LINEJUMP +
                         BIGTAB + "Pastime" + LINEJUMP +
                         BIGTAB + "Pavilion" + LINEJUMP +
@@ -198,6 +225,15 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                         BIGTAB + "Sentence" + LINEJUMP +
                         BIGTAB + "Separate" + LINEJUMP +
                         BIGTAB + "Seize" + LINEJUMP +
+                        "",
+                "", // Example1
+                ""
+        ));// COMMON_MISSPELLINGS_5
+        addCourse(new CourseContents(
+                COMMON_MISSPELLINGS_5, // Rule
+                "Words often badly spelled",
+                TAB + "The following words are often misspelled, remember them : " +
+
                         BIGTAB + "Similar" + LINEJUMP +
                         BIGTAB + "Sincerely" + LINEJUMP +
                         BIGTAB + "Souvenir" + LINEJUMP +
@@ -219,21 +255,17 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                         BIGTAB + "Wednesday" + LINEJUMP +
                         BIGTAB + "Weird" + LINEJUMP +
                         BIGTAB + "Writing" + LINEJUMP +
-
-                        BIGTAB + "Presentation" + LINEJUMP +
-                        ""
-
-                , // Desc
-                "This rule doesn't need some example, you must remember and practice ", // Example1
-                "See Common Misspelling 2") // Example2
-        );
+                        BIGTAB + "Presentation" + LINEJUMP +"",
+                "", // Example1
+                ""
+        ));
         // SUFFIXES
         addCourse(new CourseContents(
                 SUFFIXES, // Rule
                 "Vowel and consonant suffixes", // Title
-                TAB + "vowel suffix : -ance/" +" -er/" + "-ing/" + "-able/" + "-ible/" + "-est/" + "-ed/" + "-ation." + LINEJUMP + LINEJUMP +
-                        TAB + "consonant suffix : -ly/" + "-less/" + "-y/" + "-ship/" + "-ment/" + "-ness/" + "-ful/" + "-s. " + LINEJUMP + LINEJUMP +
-                        "Some rules : " + LINEJUMP + LINEJUMP +
+                TAB + "Vowel suffix : -ance/" +" -er/" + "-ing/" + "-able/" + "-ible/" + "-est/" + "-ed/" + "-ation." + LINEJUMP +
+                        TAB + "Consonant suffix : -ly/" + "-less/" + "-y/" + "-ship/" + "-ment/" + "-ness/" + "-ful/" + "-s. " + LINEJUMP +
+                        "Some rules : " + LINEJUMP +
                         BIGTAB + "Change the y to i before suffixes (except -ing)." + LINEJUMP +
                         BIGTAB + "Drop the 'e' before a vowel suffix. " + LINEJUMP +
                         BIGTAB + "Double the last L." + LINEJUMP +
@@ -273,11 +305,11 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                 "Meaning of these similar words", // Title
                 TAB + "THROUGH : " + TAB + "It means in one side out and the other: go through a door, walk through the park, struggle " +
                         "through until pay day. We’ve also got throughout. He checks stock throughout the warehouse." +
-                        TAB + "THOUGH : " + TAB + "Though means in spite of the fact that; however, but, and we have even though and " +
-                        "although which is more formal" + LINEJUMP +
+                        TAB + "THOUGH : " + TAB + "Though means in spite of the fact that; however, but, and we have even though and although " +
+                        "which is more formal" + LINEJUMP +
                         TAB + "THOROUGH : " + TAB + "done with great care and completeness: Planners need a thorough understanding of " +
                         "the subjectIt would be great if everyone had a thorough knowledge of English spelling." + LINEJUMP +
-                        "We can also add ly and make thoroughly.She examined it thoroughly." + LINEJUMP +
+                        "We can also add ly and make thoroughly. She examined it thoroughly." + LINEJUMP +
                         TAB + "THOUGHT : " + TAB + "Thought is the most common word of the lot. It’s the past tense of think – " +
                         "I thought this was the end but it’s not. And also a noun a thought , an idea.", // Desc
                 "Work stopped half-way through the project when the funding ran out." + LINEJUMP +
@@ -290,21 +322,16 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                 NEGATIVE_PREFIXES, // Rule
                 "Which prefixe in the list : 'in-, un-, non-, de-, dis-, a-, anti-, im-, il-, and ir-'", // Title
                 TAB + "The most common negative prefixes in English are in-, un-, non-, de-, dis-, a-, anti-, im-, il-, and ir-. " +
-                        "While some of these prefixes are interchangeable in some uses, there are subtle differences between them." + LINEJUMP + LINEJUMP +
                         BIGTAB + "The in- prefix (from which im-, il-, and ir- are derived) is generally the least useful of the negative prefixes, " +
                         "as it only goes with certain Latin-derived stems (e.g., intolerant, inarticulate, impenetrable), is highly conventionalized, " +
-                        "and is identical to morphemes used in words that are not negative" + LINEJUMP +LINEJUMP +
+                        "and is identical to morphemes used in words that are not negative" + LINEJUMP +
                         BIGTAB + "The un- prefix is commonly attached to Latin derivatives that end in suffixes such as -ed and -able, resulting " +
-                        "in adjectives such as unfounded, unassailable, and unbelievable." + LINEJUMP + LINEJUMP +
+                        "in adjectives such as unfounded, unassailable, and unbelievable." + LINEJUMP +
                         BIGTAB + "The prefix non- is the most useful negative prefix, as it can be attached to virtually any noun, verb, adjective, " +
                         "or adverb and is not confusable with other common morphemes. Unlike in-, and un-, which often create nonabsolute negatives, " +
-                        "non- is generally used to create a word that describes the complete opposite of its nonnegative form. In other words, " +
-                        "for example, a nonconformist is someone who absolutely does not conform. If we were to coin the nouns uncomformist and " +
-                        "inconformist, they wouldn’t have the same sense." + LINEJUMP + "When affixing non- to a word, no hyphen is needed unless " +
-                        "the stem is a proper noun. Spell-checkers might catch any unhyphenated non- words you invent, but this doesn’t mean your " +
-                        "coinages are incorrect." + LINEJUMP + LINEJUMP +
-                        "The prefix de- is usually affixed to verbs to denote reversal of an action. The prefix dis- is similar in some uses to de- " +
-                        "and in other uses to un-. A- is affixed to adjectives ending in -al. Anti- means against.", // Desc
+                        "non- is generally used to create a word that describes the complete opposite of its nonnegative form. " + LINEJUMP +
+                        "When affixing non- to a word, no hyphen is needed unless the stem is a proper noun. The prefix dis- is similar in some " +
+                        "uses to de- and in other uses to un-. A- is affixed to adjectives ending in -al. Anti- means against.", // Desc
                 "unable, inability, (to) disable, unable, unacknowledged, nonconformist or nonconformity", // Example1
                 "illegal, illegible, illiterate, illogical, immature, disable/ disabled/ disability, disagree, " +
                         "deactivate, decode, decommission, decompose ") // Example2
@@ -453,6 +480,116 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         // THEIR_THERE_THEYRE
         addCourse(new CourseContents(
                 THEIR_THERE_THEYRE,
+                "Homophone : There/Their/They're",
+                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
+                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
+                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
+                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
+                        TAB + "THEY'RE : They're is a simple contraction of they are.",
+                "They're playing their video games over there.",
+                "All of their friends were crazy.")
+        );// BIGHT_BITE_BYTE
+        addCourse(new CourseContents(
+                BIGHT_BITE_BYTE,
+                "Homophone : There/Their/They're",
+                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
+                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
+                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
+                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
+                        TAB + "THEY'RE : They're is a simple contraction of they are.",
+                "They're playing their video games over there.",
+                "All of their friends were crazy.")
+        );// CENSER_CENSOR_SENSOR
+        addCourse(new CourseContents(
+                CENSER_CENSOR_SENSOR,
+                "Homophone : There/Their/They're",
+                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
+                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
+                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
+                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
+                        TAB + "THEY'RE : They're is a simple contraction of they are.",
+                "They're playing their video games over there.",
+                "All of their friends were crazy.")
+        );// CITE_SIGHT_SITE
+        addCourse(new CourseContents(
+                CITE_SIGHT_SITE,
+                "Homophone : There/Their/They're",
+                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
+                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
+                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
+                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
+                        TAB + "THEY'RE : They're is a simple contraction of they are.",
+                "They're playing their video games over there.",
+                "All of their friends were crazy.")
+        );// FOR_FORE_FOUR
+        addCourse(new CourseContents(
+                FOR_FORE_FOUR,
+                "Homophone : There/Their/They're",
+                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
+                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
+                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
+                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
+                        TAB + "THEY'RE : They're is a simple contraction of they are.",
+                "They're playing their video games over there.",
+                "All of their friends were crazy.")
+        );// HEAL_HEEL_HE_LL
+        addCourse(new CourseContents(
+                HEAL_HEEL_HE_LL,
+                "Homophone : There/Their/They're",
+                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
+                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
+                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
+                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
+                        TAB + "THEY'RE : They're is a simple contraction of they are.",
+                "They're playing their video games over there.",
+                "All of their friends were crazy.")
+        );// PALATE_PALETTE_PALLET
+        addCourse(new CourseContents(
+                PALATE_PALETTE_PALLET,
+                "Homophone : There/Their/They're",
+                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
+                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
+                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
+                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
+                        TAB + "THEY'RE : They're is a simple contraction of they are.",
+                "They're playing their video games over there.",
+                "All of their friends were crazy.")
+        );// PEAK_PEEK_PEKE_PIQUE
+        addCourse(new CourseContents(
+                PEAK_PEEK_PEKE_PIQUE,
+                "Homophone : There/Their/They're",
+                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
+                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
+                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
+                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
+                        TAB + "THEY'RE : They're is a simple contraction of they are.",
+                "They're playing their video games over there.",
+                "All of their friends were crazy.")
+        );// RAIN_REIGN_REIN
+        addCourse(new CourseContents(
+                RAIN_REIGN_REIN,
+                "Homophone : There/Their/They're",
+                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
+                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
+                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
+                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
+                        TAB + "THEY'RE : They're is a simple contraction of they are.",
+                "They're playing their video games over there.",
+                "All of their friends were crazy.")
+        );// TE_TEA_TEE
+        addCourse(new CourseContents(
+                TE_TEA_TEE,
+                "Homophone : There/Their/They're",
+                TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
+                        "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
+                        TAB + "THEIR : Their is a possessive adjective which is used before a noun. " +
+                        "It shows possession, that something belongs to them." + LINEJUMP + LINEJUMP +
+                        TAB + "THEY'RE : They're is a simple contraction of they are.",
+                "They're playing their video games over there.",
+                "All of their friends were crazy.")
+        );// TO_TOO_TWO
+        addCourse(new CourseContents(
+                TO_TOO_TWO,
                 "Homophone : There/Their/They're",
                 TAB + "THERE : There is the opposite of Here. It means 'in that place' not here. " +
                         "There is/There are = to show that something exists." + LINEJUMP + LINEJUMP +
