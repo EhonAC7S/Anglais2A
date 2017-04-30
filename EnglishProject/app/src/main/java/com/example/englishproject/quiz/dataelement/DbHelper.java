@@ -209,26 +209,26 @@ public class DbHelper extends SQLiteOpenHelper {
         this.addSentence(q35);
 
 
-        Sentence q36=new Sentence("One character of text equals one", " bite ","of data.", " bite ", HOMOPHONES);
+        Sentence q36=new Sentence("One character of text equals one", " bite ","of data.", " bite ", BIGHT_BITE_BYTE);
         this.addSentence(q36);
-        Sentence q37=new Sentence("A censor"," detects whether the lid ","is open or closed.","A censor", HOMOPHONES);
+        Sentence q37=new Sentence("A censor"," detects whether the lid ","is open or closed.","A censor", CENSER_CENSOR_SENSOR);
         this.addSentence(q37);
-        Sentence q38=new Sentence("Hiroshima became one of the most terrible bomb"," cites ","history had ever known."," cites ", HOMOPHONES);
+        Sentence q38=new Sentence("Hiroshima became one of the most terrible bomb"," cites ","history had ever known."," cites ", CITE_SIGHT_SITE);
         this.addSentence(q38);
-        Sentence q39=new Sentence("The lifeboats are located"," for ", "and aft."," for ", HOMOPHONES);
+        Sentence q39=new Sentence("The lifeboats are located"," for ", "and aft."," for ", FOR_FORE_FOUR);
         this.addSentence(q39);
-        Sentence q40=new Sentence("Harry scraped his name into the"," dirt with his ","heal.","heal.", HOMOPHONES);
+        Sentence q40=new Sentence("Harry scraped his name into the"," dirt with his ","heal.","heal.", HEAL_HEEL_HE_LL);
         this.addSentence(q40);
 
-        Sentence q41=new Sentence("The painter mixed colors on his"," pallet ","before painting."," pallet ", HOMOPHONES);
+        Sentence q41=new Sentence("The painter mixed colors on his"," pallet ","before painting."," pallet ", PALATE_PALETTE_PALLET);
         this.addSentence(q41);
-        Sentence q42=new Sentence("Your mention of a job vacancy has really"," peeked ","my interest."," peeked ", HOMOPHONES);
+        Sentence q42=new Sentence("Your mention of a job vacancy has really"," peeked ","my interest."," peeked ", PEAK_PEEK_PEKE_PIQUE);
         this.addSentence(q42);
-        Sentence q43=new Sentence("We should not give these states"," a free ","rain.","rain.", HOMOPHONES);
+        Sentence q43=new Sentence("We should not give these states"," a free ","rain.","rain.", RAIN_REIGN_REIN);
         this.addSentence(q43);
-        Sentence q44=new Sentence("For the photo shoot, the band members"," all wore black ","teas.","teas.", HOMOPHONES);
+        Sentence q44=new Sentence("For the photo shoot, the band members"," all wore black ","teas.","teas.", TE_TEA_TEE);
         this.addSentence(q44);
-        Sentence q45=new Sentence("She's not"," to ","eager to get involved in this."," to ", HOMOPHONES);
+        Sentence q45=new Sentence("She's not"," to ","eager to get involved in this."," to ", TO_TOO_TWO);
         this.addSentence(q45);
 
     }

@@ -18,9 +18,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DataBaseCourses extends SQLiteOpenHelper{
     //Ici on met les constantes des noms de nos Cours
     public static final String COMMON_MISSPELLINGS = "Common Misspellings"; // A virer
-    public static final String SUFFIXES = "Suffixes";
-    public static final String APOSTROPHES_FOR_POSSESSION = "Apostrophes for possession";
-    public static final String THOUGH_THOUGHT_THOROUGH_THROUGH = "though/thought/thorough/through"; // Fait
+    public static final String SUFFIXES = "Suffixes"; // Fait
+    public static final String APOSTROPHES_FOR_POSSESSION = "Apostrophes for possession"; // Fait
+    public static final String THOUGH_THOUGHT_THOROUGH_THROUGH = "Though/Thought/Thorough/Through"; // Fait
     public static final String NEGATIVE_PREFIXES = "Negative Prefixes"; // Fait
     public static final String ACTIVE_VOICE = "Active Voice"; // Fait
     public static final String PASSIVE_VOICE = "Passive Voice"; // Fait
@@ -35,7 +35,16 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public static final String PAST_PERFECT = "Past Perfect"; // Fait
     public static final String FORMING_PLURALS = "Forming Plural"; // Fait
     public static final String THEIR_THERE_THEYRE = "Their/There/They re";// Fait
-    public static final String HOMOPHONES = "Homophones"; // A virer
+    public static final String BIGHT_BITE_BYTE = "Bight/Bite/Byte";
+    public static final String CENSER_CENSOR_SENSOR = "Censer/Censor/Sensor";
+    public static final String CITE_SIGHT_SITE = "Cite/Sight/Site";
+    public static final String FOR_FORE_FOUR = "For/Fore/Four";
+    public static final String HEAL_HEEL_HE_LL = "Heal/Heel/He'll";
+    public static final String PALATE_PALETTE_PALLET = "Palate/Palette/Pallet";
+    public static final String PEAK_PEEK_PEKE_PIQUE = "Peak/Peek/Peke/Pique";
+    public static final String RAIN_REIGN_REIN = "Rain/Reign/Rein";
+    public static final String TE_TEA_TEE = "Te/Tea/Tee";
+    public static final String TO_TOO_TWO = "To/Too/Two";
 
     // STRING FOR DATACALL
     private static final String CREATE_TABLE_IF_NOT_EXISTS = "CREATE TABLE IF NOT EXISTS ";
@@ -56,6 +65,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     private static final String KEY_EX1 = "example1";
     private static final String KEY_RULE = "rule";
     private static final String KEY_EX2 ="example2";
+
 
     private SQLiteDatabase dbase;
     public DataBaseCourses(Context context) {
