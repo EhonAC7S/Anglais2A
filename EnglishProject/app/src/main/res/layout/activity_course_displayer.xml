@@ -44,6 +44,8 @@
             android:textAllCaps="false"
             android:textColor="#778899"
             android:padding="5dp"
+            android:maxLines = "20"
+            android:scrollbars = "vertical"
             />
 
         <TextView
