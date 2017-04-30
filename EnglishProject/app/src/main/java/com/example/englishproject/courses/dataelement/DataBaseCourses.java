@@ -58,7 +58,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     private static final String WHERE = " WHERE ";
     private static final String BIGTAB = "      ";
     private static final String TAB = "   ";
-    private static final String LINEJUMP = "\n";
+    public static final String LINEJUMP = "\n";
     private static final int DATABASE_VERSION = 1;
     // Database Name
     private static final String DATABASE_NAME = "Courses";

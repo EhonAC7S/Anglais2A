@@ -41,7 +41,7 @@ public class CourseDisplayer extends AppCompatActivity {
         Exemple0OfCourse = (TextView) findViewById(R.id.exemple0OfCourse);
         Exemple1OfCourse = (TextView) findViewById(R.id.exemple1OfCourse);
         Exemple2OfCourse = (TextView) findViewById(R.id.exemple2OfCourse);
-        TitleOfCourse.setText(course.getTitle());
+        TitleOfCourse.setText(DataBaseCourses.LINEJUMP + DataBaseCourses.LINEJUMP + course.getTitle());
         DescOfCourse.setText(course.getDesc());
         Exemple1OfCourse.setText(course.getExemple1());
         Exemple2OfCourse.setText(course.getExemple2());
