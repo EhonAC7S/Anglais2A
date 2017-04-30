@@ -256,6 +256,7 @@ public class DbHelper extends SQLiteOpenHelper {
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_SENTENCE;
         dbase=this.getReadableDatabase();
+        this.rowcount();
         Cursor cursor = dbase.rawQuery(selectQuery, null);
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
@@ -273,7 +274,7 @@ public class DbHelper extends SQLiteOpenHelper {
         cursor.close();
         return sentList;
     }
-    private int rowcount()
+    public int rowcount()
     {
         int row;
         String selectQuery = "SELECT  * FROM " + TABLE_SENTENCE;

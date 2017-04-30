@@ -20,8 +20,8 @@ public class DataBaseCourses extends SQLiteOpenHelper{
     public static final String COMMON_MISSPELLINGS = "Common Misspellings"; // A virer
     public static final String SUFFIXES = "Suffixes";
     public static final String APOSTROPHES_FOR_POSSESSION = "Apostrophes for possession";
-    public static final String THOUGH_THOUGHT_THOROUGH_THROUGH = "though/thought/thorough/through";
-    public static final String NEGATIVE_PREFIXES = "Negative Prefixes";
+    public static final String THOUGH_THOUGHT_THOROUGH_THROUGH = "though/thought/thorough/through"; // Fait
+    public static final String NEGATIVE_PREFIXES = "Negative Prefixes"; // Fait
     public static final String ACTIVE_VOICE = "Active Voice"; // Fait
     public static final String PASSIVE_VOICE = "Passive Voice"; // Fait
     public static final String CONJUNCTIONS = "Conjunctions"; // Fait
@@ -101,26 +101,61 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         // SUFFIXES
         addCourse(new CourseContents(
                 SUFFIXES, // Rule
-                THEIR_THERE_THEYRE, // Title
-                THEIR_THERE_THEYRE, // Desc
-                THEIR_THERE_THEYRE, // Example1
-                THEIR_THERE_THEYRE) // Example2
+                "Vowel and consonant suffixes", // Title
+                TAB + "vowel suffix : -ance/" +" -er/" + "-ing/" + "-able/" + "-ible/" + "-est/" + "-ed/" + "-ation." + LINEJUMP + LINEJUMP +
+                        TAB + "consonant suffix : -ly/" + "-less/" + "-y/" + "-ship/" + "-ment/" + "-ness/" + "-ful/" + "-s. " + LINEJUMP + LINEJUMP +
+                        "Some rules : " + LINEJUMP + LINEJUMP +
+                        BIGTAB + "Change the y to i before suffixes (except -ing)." + LINEJUMP +
+                        BIGTAB + "Drop the 'e' before a vowel suffix. " + LINEJUMP +
+                        BIGTAB + "Double the last L." + LINEJUMP +
+                        BIGTAB + "Words of 1 syllable ending in 1 vowel+ 1 consonant - double the last letter before a vowel suffix" + LINEJUMP +
+                        TAB + "There are many exceptions on keeping '-e' and '-y' to learn, see this in a next lesson."
+                , // Desc
+                "carry + er = carrier, beauty + ful = beautiful, happy + ness = happiness" + LINEJUMP +
+                "love + ing = loving, use + ing = using, adore + able = adorable, care + ed = cared", // Example1
+                "cancel + ed =  cancelling, signal + ly = signally" + LINEJUMP +
+                "regret + able = regrettable, commit + ing = committing, begin + er = beginner") // Example2
         );
         // APOSTROPHES_FOR_POSSESSION
         addCourse(new CourseContents(
                 APOSTROPHES_FOR_POSSESSION, // Rule
-                THEIR_THERE_THEYRE, // Title
-                THEIR_THERE_THEYRE, // Desc
-                THEIR_THERE_THEYRE, // Example1
-                THEIR_THERE_THEYRE) // Example2
+                "Forming possessives", // Title
+                TAB + "The general rule is that the possessive of a singular noun is formed by adding an apostrophe and s, " +
+                        "whether the singular noun ends in s or not." + LINEJUMP +
+                        TAB + "The possessive of a plural noun is formed by adding only an apostrophe when the noun ends in s, " +
+                        "and by adding both an apostrophe and s when it ends in a letter other than s." + LINEJUMP +
+                        TAB + "Exceptions : " + LINEJUMP +
+                        BIGTAB + "Use only an apostrophe for places or names that are singular but have a final word " +
+                        "in plural form and ending with an s." + LINEJUMP +
+                        BIGTAB + "A proper noun that is already in possessive form is left as is." + LINEJUMP +
+                        BIGTAB + "Nouns that end in an s sound take only an apostrophe when they are followed by sake." +
+                        TAB + "Shared or individual possessives : " + LINEJUMP +
+                        BIGTAB + "Joint possession is indicated by a single apostrophe. Individual possession is " +
+                                "indicated by apostrophes for each possessor", // Desc
+                "the lawyer’s fee" + LINEJUMP +
+                " excessive lawyers’ fees" + LINEJUMP +
+                "Beverly Hills’ current mayor" + LINEJUMP +
+                "for goodness’ sake", // Example1
+                "Stanley and Scarlett’s house." + LINEJUMP +
+                "France’s and Italy’s domestic policies are diverging.") // Example2
         );
         // THOUGH_THOUGHT_THOROUGH_THROUGH
         addCourse(new CourseContents(
                 THOUGH_THOUGHT_THOROUGH_THROUGH, // Rule
-                THEIR_THERE_THEYRE, // Title
-                THEIR_THERE_THEYRE, // Desc
-                THEIR_THERE_THEYRE, // Example1
-                THEIR_THERE_THEYRE) // Example2
+                "Meaning of these similar words", // Title
+                TAB + "THROUGH : " + TAB + "It means in one side out and the other: go through a door, walk through the park, struggle " +
+                        "through until pay day. We’ve also got throughout. He checks stock throughout the warehouse." +
+                        TAB + "THOUGH : " + TAB + "Though means in spite of the fact that; however, but, and we have even though and " +
+                        "although which is more formal" + LINEJUMP +
+                        TAB + "THOROUGH : " + TAB + "done with great care and completeness: Planners need a thorough understanding of " +
+                        "the subjectIt would be great if everyone had a thorough knowledge of English spelling.\n" +
+                        "We can also add ly and make thoroughly.She examined it thoroughly." + LINEJUMP +
+                        TAB + "THOUGHT : " + TAB + "Thought is the most common word of the lot. It’s the past tense of think – " +
+                        "I thought this was the end but it’s not. And also a noun a thought , an idea.", // Desc
+                "Work stopped half-way through the project when the funding ran out." + LINEJUMP +
+                "The sun was shining though it wasn’t that warm. Even though it’s small , the room has a spacious feel.", // Example1
+                "She has a thorough understanding of the business." + LINEJUMP +
+                "George was in high glee at the thought of going.") // Example2
         );
         // NEGATIVE_PREFIXES
         addCourse(new CourseContents(
@@ -342,6 +377,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
         // Select All Query
         String selectQuery = SELECT_FROM + DATABASE_NAME;
         dbase=this.getReadableDatabase();
+        this.rowcount();
         Cursor cursor = dbase.rawQuery(selectQuery, null);
                 // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
