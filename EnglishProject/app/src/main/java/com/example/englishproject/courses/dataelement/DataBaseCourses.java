@@ -17,7 +17,8 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class DataBaseCourses extends SQLiteOpenHelper{
     //Ici on met les constantes des noms de nos Cours
-    public static final String COMMON_MISSPELLINGS = "Common Misspellings"; // A virer
+    public static final String COMMON_MISSPELLINGS = "Common Misspellings";
+    public static final String COMMON_MISSPELLINGS_2 = "Common Misspellings";
     public static final String SUFFIXES = "Suffixes"; // Fait
     public static final String APOSTROPHES_FOR_POSSESSION = "Apostrophes for possession"; // Fait
     public static final String THOUGH_THOUGHT_THOROUGH_THROUGH = "Though/Thought/Thorough/Through"; // Fait
@@ -105,24 +106,126 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                 COMMON_MISSPELLINGS, // Rule
                 "Words often badly spelled", // Title
                 TAB + "The following words are often misspelled, remember them : " + LINEJUMP +
+
+                        BIGTAB + "Achieve" + LINEJUMP +
+                        BIGTAB + "Accidentally" + LINEJUMP +
+                        BIGTAB + "Adrenaline" + LINEJUMP +
+                        BIGTAB + "Address" + LINEJUMP +
                         BIGTAB + "Agreement" + LINEJUMP +
                         BIGTAB + "Appropriate" + LINEJUMP +
+                        BIGTAB + "Atheist" + LINEJUMP +
+                        BIGTAB + "Beginning" + LINEJUMP +
+                        BIGTAB + "Bureau" + LINEJUMP +
+                        BIGTAB + "Believe" + LINEJUMP +
+                        BIGTAB + "Belief" + LINEJUMP +
                         BIGTAB + "Business" + LINEJUMP +
-                        BIGTAB + "Presentation" + LINEJUMP +
-                        BIGTAB + "Accidentally" + LINEJUMP +
-                        BIGTAB + "Address" + LINEJUMP +
-                        BIGTAB + "Believes" + LINEJUMP +
-                        BIGTAB + "Breathe (=/= breath)" + LINEJUMP +
+                        BIGTAB + "Breathe" + LINEJUMP +
                         BIGTAB + "Commitment" + LINEJUMP +
-                        BIGTAB + "Agreement" + LINEJUMP +
-                        BIGTAB + "Agreement" + LINEJUMP +
-                        BIGTAB + "Agreement" + LINEJUMP +
-                        BIGTAB + "Agreement" + LINEJUMP +
-                        BIGTAB + "Agreement" + LINEJUMP
+                        BIGTAB + "Category" + LINEJUMP +
+                        BIGTAB + "Conceive" + LINEJUMP +
+                        BIGTAB + "Copyright" + LINEJUMP +
+                        BIGTAB + "Decaffeinated" + LINEJUMP +
+                        BIGTAB + "Decathlon" + LINEJUMP +
+                        BIGTAB + "Definitely" + LINEJUMP +
+                        BIGTAB + "Desirable" + LINEJUMP +
+                        BIGTAB + "Diarrhea" + LINEJUMP +
+                        BIGTAB + "Deity" + LINEJUMP +
+                        BIGTAB + "Disappoint" + LINEJUMP +
+                        BIGTAB + "Dispel" + LINEJUMP +
+                        BIGTAB + "Ecstasy" + LINEJUMP +
+                        BIGTAB + "Embarrass" + LINEJUMP +
+                        BIGTAB + "Environment" + LINEJUMP +
+                        BIGTAB + "Extremely" + LINEJUMP +
+                        BIGTAB + "Fascist" + LINEJUMP +
+                        BIGTAB + "February" + LINEJUMP +
+                        BIGTAB + "Fluorescent" + LINEJUMP +
+                        BIGTAB + "Forty" + LINEJUMP +
+                        BIGTAB + "Gauge" + LINEJUMP +
+                        BIGTAB + "Government" + LINEJUMP +
+                        BIGTAB + "Grievous" + LINEJUMP +
+                        BIGTAB + "Harass" + LINEJUMP +
+                        BIGTAB + "Hemorrhage" + LINEJUMP +
+                        BIGTAB + "Heroes" + LINEJUMP +
+                        BIGTAB + "Height" + LINEJUMP +
+                        BIGTAB + "Hymn" + LINEJUMP +
+                        BIGTAB + "Independence" + LINEJUMP +
+                        BIGTAB + "Innate" + LINEJUMP +
+                        BIGTAB + "Inoculate" + LINEJUMP +
+                        BIGTAB + "Knowledge" + LINEJUMP +
+                        BIGTAB + "Laser" + LINEJUMP +
+                        BIGTAB + "Leprechaun" + LINEJUMP +
+                        BIGTAB + "Library" + LINEJUMP +
+                        BIGTAB + "Lightning" + LINEJUMP +
+                        BIGTAB + "Maintenance" + LINEJUMP +
+                        BIGTAB + "Manageable" + LINEJUMP +
+                        BIGTAB + "Millennium" + LINEJUMP +
+                        BIGTAB + "Mischievous" + LINEJUMP +
+                        BIGTAB + "Misspell" + LINEJUMP +
+                        BIGTAB + "Mitt" + LINEJUMP +
+                        BIGTAB + "Monastery" + LINEJUMP +
+                        BIGTAB + "Monkeys" + LINEJUMP +
+                        BIGTAB + "Mortgage" + LINEJUMP +
+                        BIGTAB + "Mountain" + LINEJUMP +
+                        BIGTAB + "Necessary" + LINEJUMP +
+                        BIGTAB + "Niece" + LINEJUMP +
+                        BIGTAB + "Nickel" + LINEJUMP +
+                        BIGTAB + "Ninth" + LINEJUMP +
+                        BIGTAB + "Ninety" + LINEJUMP +
+                        BIGTAB + "Noticeable" + LINEJUMP +
+                        BIGTAB + "Nuptuals" + LINEJUMP +
+                        BIGTAB + "Occurred" + LINEJUMP +
+                        BIGTAB + "Occurrence" + LINEJUMP +
+                        BIGTAB + "Opportunity" + LINEJUMP +
+                        BIGTAB + "Parallel" + LINEJUMP +
+                        BIGTAB + "Pastime" + LINEJUMP +
+                        BIGTAB + "Pavilion" + LINEJUMP +
+                        BIGTAB + "Perseverance" + LINEJUMP +
+                        BIGTAB + "Possession" + LINEJUMP +
+                        BIGTAB + "Potato" + LINEJUMP +
+                        BIGTAB + "Preceding" + LINEJUMP +
+                        BIGTAB + "Pronunciation" + LINEJUMP +
+                        BIGTAB + "Privilege" + LINEJUMP +
+                        BIGTAB + "Receive" + LINEJUMP +
+                        BIGTAB + "Recommend" + LINEJUMP +
+                        BIGTAB + "Ridiculous" + LINEJUMP +
+                        BIGTAB + "Regardless" + LINEJUMP +
+                        BIGTAB + "Remember" + LINEJUMP +
+                        BIGTAB + "Restraint" + LINEJUMP +
+                        BIGTAB + "Roommate" + LINEJUMP +
+                        BIGTAB + "Rhythm" + LINEJUMP +
+                        BIGTAB + "Sacrilegious" + LINEJUMP +
+                        BIGTAB + "Siege" + LINEJUMP +
+                        BIGTAB + "Sentence" + LINEJUMP +
+                        BIGTAB + "Separate" + LINEJUMP +
+                        BIGTAB + "Seize" + LINEJUMP +
+                        BIGTAB + "Similar" + LINEJUMP +
+                        BIGTAB + "Sincerely" + LINEJUMP +
+                        BIGTAB + "Souvenir" + LINEJUMP +
+                        BIGTAB + "Speech" + LINEJUMP +
+                        BIGTAB + "Stationary" + LINEJUMP +
+                        BIGTAB + "Strategy" + LINEJUMP +
+                        BIGTAB + "Suggestible" + LINEJUMP +
+                        BIGTAB + "Supersede" + LINEJUMP +
+                        BIGTAB + "Supposedly" + LINEJUMP +
+                        BIGTAB + "Surprise" + LINEJUMP +
+                        BIGTAB + "Thoroughly" + LINEJUMP +
+                        BIGTAB + "Tomorrow" + LINEJUMP +
+                        BIGTAB + "Tongue" + LINEJUMP +
+                        BIGTAB + "Triathlon" + LINEJUMP +
+                        BIGTAB + "Ukulele" + LINEJUMP +
+                        BIGTAB + "Vacuum" + LINEJUMP +
+                        BIGTAB + "Vegetarian" + LINEJUMP +
+                        BIGTAB + "Villain" + LINEJUMP +
+                        BIGTAB + "Wednesday" + LINEJUMP +
+                        BIGTAB + "Weird" + LINEJUMP +
+                        BIGTAB + "Writing" + LINEJUMP +
+
+                        BIGTAB + "Presentation" + LINEJUMP +
+                        ""
 
                 , // Desc
                 "This rule doesn't need some example, you must remember and practice ", // Example1
-                "") // Example2
+                "See Common Misspelling 2") // Example2
         );
         // SUFFIXES
         addCourse(new CourseContents(
