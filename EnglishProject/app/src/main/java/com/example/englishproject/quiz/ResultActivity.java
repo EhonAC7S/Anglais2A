@@ -41,7 +41,7 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         ArrayList<Sentence> errors = b.getParcelableArrayList(ERRORS);
 
         // set a max score / number of questions
-        int scoreMax = 5;
+        int scoreMax = 8;
 
         //display score
         ProgressBar pb = (ProgressBar) findViewById(R.id.progressBar);
@@ -54,17 +54,23 @@ public class ResultActivity extends Activity implements View.OnClickListener {
 
         switch (score)
         {
-            case 0: t.setText("...");
+            case 0: t.setText(DO_NOT_GET_DISCOURAGED_DO_IT);
                 break;
             case 1: t.setText(DO_NOT_GET_DISCOURAGED_DO_IT);
                 break;
-            case 2: t.setText(A_NEW_TRY_MAYBE);
+            case 2: t.setText(DO_NOT_GET_DISCOURAGED_DO_IT);
                 break;
-            case 3: t.setText(NOT_BAD_IT_S_TIME_TO_GET_BETTER);
+            case 3: t.setText(A_NEW_TRY_MAYBE);
                 break;
-            case 4:t.setText(PRETTY_GOOD_D);
+            case 4: t.setText(A_NEW_TRY_MAYBE);
                 break;
-            case 5:t.setText(WHO_ARE_YOU_A_SPELLING_WIZARD);
+            case 5: t.setText(NOT_BAD_IT_S_TIME_TO_GET_BETTER);
+                break;
+            case 6:t.setText(PRETTY_GOOD_D);
+                break;
+            case 7:t.setText(PRETTY_GOOD_D);
+                break;
+            case 8:t.setText(WHO_ARE_YOU_A_SPELLING_WIZARD);
                 break;
         }
 

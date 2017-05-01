@@ -194,8 +194,8 @@ public class QuizActivity extends Activity implements View.OnClickListener{
             }
         }
 
-        // Si 5 questions n'ont pas été posées on load une nouvelle phrase
-        if(qid<5){
+        // Si 8 questions n'ont pas été posées on load une nouvelle phrase
+        if(qid<8){
 
             currentQ=sentList.get(qid);
             setSentenceView();
