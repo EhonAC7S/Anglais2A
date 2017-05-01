@@ -304,7 +304,7 @@ public class DataBaseCourses extends SQLiteOpenHelper{
                 THOUGH_THOUGHT_THOROUGH_THROUGH, // Rule
                 "Meaning of these similar words", // Title
                 TAB + "THROUGH : " + TAB + "It means in one side out and the other: go through a door, walk through the park, struggle " +
-                        "through until pay day. We’ve also got throughout. He checks stock throughout the warehouse." +
+                        "through until pay day. We’ve also got throughout. He checks stock throughout the warehouse." + LINEJUMP +
                         TAB + "THOUGH : " + TAB + "Though means in spite of the fact that; however, but, and we have even though and although " +
                         "which is more formal" + LINEJUMP +
                         TAB + "THOROUGH : " + TAB + "done with great care and completeness: Planners need a thorough understanding of " +
